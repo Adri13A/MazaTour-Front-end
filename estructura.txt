@@ -1,0 +1,70 @@
+/tu-proyecto
+ ├── app/                      # Directorio principal (App Router)
+ │   ├── layout.tsx            # Diseño global (Navbar, Footer, etc.)
+ │   ├── page.tsx              # Página principal (Home)
+ │   ├── dashboard/            # Sección del Dashboard
+ │   │   ├── page.tsx          # Página del Dashboard
+ │   │   ├── analytics/        # Subsección (Ej: Análisis de datos)
+ │   │   │   ├── page.tsx
+ │   │   │   ├── analytics-card.tsx  # Componente específico
+ │   │   └── users/            # Subsección (Ej: Gestión de usuarios)
+ │   │       ├── page.tsx
+ │   │       ├── user-list.tsx # Componente para listar usuarios
+ │   │       ├── user-form.tsx # Formulario para usuarios
+ │   ├── auth/                 # Sección de autenticación
+ │   │   ├── login/            # Página de Login
+ │   │   │   ├── page.tsx
+ │   │   ├── register/         # Página de Registro
+ │   │   │   ├── page.tsx
+ │   ├── profile/              # Página del perfil del usuario
+ │   │   ├── page.tsx
+ │   │   ├── settings.tsx      # Configuración del perfil
+ │   ├── api/                  # Rutas API internas
+ │   │   ├── users/route.ts    # API para usuarios (Ejemplo: GET, POST)
+ │   │   ├── auth/route.ts     # API de autenticación
+ │   └── components/           # Componentes reutilizables
+ │       ├── ui/               # Componentes UI genéricos
+ │       │   ├── button.tsx
+ │       │   ├── card.tsx
+ │       │   ├── modal.tsx
+ │       ├── layout/           # Componentes de Layout
+ │       │   ├── navbar.tsx
+ │       │   ├── sidebar.tsx
+ │       │   ├── footer.tsx
+ │       ├── forms/            # Formularios reutilizables
+ │       │   ├── login-form.tsx
+ │       │   ├── register-form.tsx
+ │       │   ├── user-form.tsx
+ │       ├── charts/           # Gráficos y visualizaciones
+ │       │   ├── line-chart.tsx
+ │       │   ├── bar-chart.tsx
+ │       ├── tables/           # Tablas de datos
+ │       │   ├── user-table.tsx
+ │       │   ├── sales-table.tsx
+ ├── public/                   # Archivos estáticos (imágenes, íconos, etc.)
+ │   ├── images/
+ │   │   ├── logo.png
+ │   │   ├── avatar.png
+ │   ├── favicon.ico
+ ├── styles/                   # Archivos de estilos
+ │   ├── globals.css           # Estilos globales con Tailwind
+ │   ├── theme.css             # Configuración de DaisyUI
+ ├── hooks/                    # Hooks personalizados
+ │   ├── useAuth.ts            # Hook para autenticación
+ │   ├── useFetch.ts           # Hook para hacer peticiones
+ ├── lib/                      # Funciones utilitarias y configuración
+ │   ├── api.ts                # Cliente API (Ejemplo: Fetch, Axios)
+ │   ├── auth.ts               # Funciones de autenticación
+ │   ├── format.ts             # Funciones de formateo (Ej: fechas, números)
+ ├── context/                  # Context API (estado global)
+ │   ├── AuthContext.tsx       # Contexto de autenticación
+ │   ├── ThemeContext.tsx      # Contexto de tema
+ ├── middleware.ts             # Middleware de autenticación o permisos
+ ├── tailwind.config.js        # Configuración de Tailwind CSS
+ ├── postcss.config.js         # Configuración de PostCSS
+ ├── next.config.js            # Configuración de Next.js
+ ├── package.json              # Dependencias y scripts del proyecto
+ ├── tsconfig.json             # Configuración de TypeScript (si usas TS)
+ ├── .eslintrc.json            # Configuración de ESLint
+ ├── .prettierrc               # Configuración de Prettier
+ ├── .gitignore                # Archivos ignorados por Git
