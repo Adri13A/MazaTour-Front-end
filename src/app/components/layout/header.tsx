@@ -1,9 +1,9 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
+//import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { FiMenu, FiX } from 'react-icons/fi';
+//import { FiMenu, FiX } from 'react-icons/fi';
 //import dynamic from 'next/dynamic'
 //const Search = dynamic(() => import('./Search'))
 
@@ -12,7 +12,7 @@ export default function Header(){
     //const[scrolled, setScrolled] = useState(false);
   
 
-    const[isOpen, setIsOpen] = useState(false);
+    const[, setIsOpen] = useState(false);
     const pathname = usePathname();
 
     useEffect(() => setIsOpen(false),[pathname]);
