@@ -8,7 +8,8 @@ export default function Home() {
   return (
     <div>
       <Header />
-      <div className="relative">
+      
+      <div className="">
         <Image 
           src={imagenMain}
           width={1920} 
@@ -30,8 +31,8 @@ export default function Home() {
           Mazatlan, ubicado en el estado de Sinaloa, también conocido como <span className="font-bold">La Perla del Pacifico</span>, fue fundado en 1531...
         </p>
       </section>
-
       <Footer />
+      
     </div>
   );
 }

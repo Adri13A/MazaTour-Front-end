@@ -1,58 +1,58 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { FaCloudSun } from "react-icons/fa";
+import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+//import { usePathname } from 'next/navigation';
 import { FaBars } from 'react-icons/fa';
 
-const Header = () => {
-    const [scrolled, setScrolled] = useState(false);
-    const [isOpen, setIsOpen] = useState(false);
-    const pathname = usePathname();
 
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 50);
-        };
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
-
-    const toggleMenu = () => {
-        setIsOpen(!isOpen);
-    };
+export default function Header(){
+    const[active, setActive] = useState("Inicio");
 
     return (
-        <nav className={`fixed top-0 w-full transition-all duration-300 ${scrolled ? 'bg-black bg-opacity-80' : 'bg-black bg-opacity-40'} backdrop-blur-md z-50`}>
-            <div className="container mx-auto flex items-center justify-between p-4">
-                <Link href="/inicio" className="text-2xl font-bold text-white">
-                    <span className="text-green-500">Ixtl</span>Mazatlán
-                </Link>
-                <button className="lg:hidden text-white text-2xl" onClick={toggleMenu}>
-                    <FaBars />
-                </button>
-                <ul className={`lg:flex lg:items-center space-y-4 lg:space-y-0 lg:space-x-6 text-white ${isOpen ? 'block' : 'hidden'} lg:flex`}> 
-                    {[
-                        { href: '/inicio', label: 'Inicio' },
-                        { href: '/contacto', label: 'Contacto' },
-                        { href: '/acerca-de', label: 'Acerca de' },
-                        { href: '/explorar', label: 'Explorar' }
-                    ].map(({ href, label }) => (
-                        <li key={href}>
-                            <Link href={href} className={`p-2 ${pathname === href ? 'border-b-2 border-green-500' : ''} hover:bg-white hover:bg-opacity-10 rounded-md`}>{label}</Link>
-                        </li>
-                    ))}
-                    <li className="relative">
-                        <button className="p-2 hover:bg-white hover:bg-opacity-10 rounded-md">Categorías</button>
-                        <ul className="absolute mt-2 bg-black bg-opacity-80 p-2 rounded-md hidden group-hover:block">
-                            <li><Link href="#" className="block px-4 py-2 hover:bg-white hover:bg-opacity-10">Galería</Link></li>
-                            <li><Link href="/busqueda" className="block px-4 py-2 hover:bg-white hover:bg-opacity-10">Búsqueda (Beta)</Link></li>
-                        </ul>
-                    </li>
-                </ul>
+        <nav className={`fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 py-3`}>
+            {/*Logo
+            flex items-center bg-gray-700 px-3 py-1 rounded-lg text-sm
+            */}
+            <div className={`flex items-center backdrop-blur-lg rounded-lg py-2 px-10`}>
+                <span className={`txt-gray-400`}>Maza</span>Tour
+            </div>
+
+            {/* Menú 
+            
+            flex items-center gap-2 bg-gray-700 px-3 py-1 rounded-lg text-sm
+            */}
+            <div className={`flex items-center gap-2 backdrop-blur-lg rounded-lg`}>
+                {[
+                { name: "Inicio" },
+                { name: "Transporte", dropdown: true },
+                { name: "Atracciones", dropdown: true },
+                { name: "Explorar", dropdown: true },
+                ].map((item) => (
+                <div key={item.name} className="relative">
+                    <button
+                    onClick={() => setActive(item.name)}
+                    className={`px-3 py-1 rounded-md ${
+                        active === item.name ? "text-white border-b-2 border-white" : "text-gray-300"
+                    } hover:text-white focus:outline-none`}
+                    >
+                    {item.name}
+                    {item.dropdown && <ChevronDownIcon className="inline w-4 h-4 ml-1" />}
+                    </button>
+                </div>
+                ))}
+            </div>
+
+            {/* Clima 
+            
+            flex items-center gap-2 bg-gray-700 px-3 py-1 rounded-lg text-sm*/}
+            <div className={`flex items-center gap-2 backdrop-blur-lg rounded-lg`}>
+                <FaCloudSun className="text-yellow-300" />
+                <span>24° C Mazatlán</span>
             </div>
         </nav>
     );
-};
 
-export default Header;
+}
