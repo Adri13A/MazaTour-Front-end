@@ -13,6 +13,10 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        gantari: ["Gantari", "sans-serif"],
+        aboreto: ["Aboreto", "cursive"],
+      },
     },
   },
   plugins: [daisyui],
