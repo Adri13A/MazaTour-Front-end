@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Aboreto&family=Gantari:ital,wght@0,100..900;1,100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,6 +7,17 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  --font-display: 'Gantari', sans-serif;
+  --font-titles: 'Aboreto', sans-serif;
+}
+
+.dark-mode{
+  --color-bg: #2b2b2b;
+
+  --color-text: #d4de95;
+  --color-accent1: #636b2f;
+  --color-accent2: #b9c096
 }
 
 @media (prefers-color-scheme: dark) {
@@ -14,8 +27,20 @@
   }
 }
 
+::-webkit-scrollbar {
+  display: none !important;
+}
+
+*::-ms-scrollbar {
+  display: none;
+}
+
+html {
+  scrollbar-width: none;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-display);
 }

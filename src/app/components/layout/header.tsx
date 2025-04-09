@@ -1,58 +1,173 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { FaBars } from 'react-icons/fa';
+import React from 'react';
+import { useState, useRef, useEffect } from 'react';
+import { ChevronDown, BusFront, House, FerrisWheel, Telescope } from 'lucide-react';
+import Image from "next/image";
+import imagenWeather from '../../../public/images/cloudy.png';
+import '../../../styles/header.css';
+//import Link from 'next/link';
+//import { usePathname } from 'next/navigation';
 
-const Header = () => {
-    const [scrolled, setScrolled] = useState(false);
-    const [isOpen, setIsOpen] = useState(false);
-    const pathname = usePathname();
 
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 50);
-        };
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+export default function Header() {
+    const [active, setActive] = useState("Inicio");
+    const [hovered, setHovered] = useState<string | null>(null);
+    const [highlight, setHighlightStyle] = useState({ left: 0, width: 0 });
+    const menuRef = useRef<HTMLDivElement | null>(null);
 
-    const toggleMenu = () => {
-        setIsOpen(!isOpen);
+    // Estados para el dock móvil
+    const [mobileActive, setMobileActive] = useState("Inicio");
+    const dockRef = useRef<HTMLDivElement | null>(null);
+    const [dockHighlight, setDockHighlight] = useState({ left: 0, width: 0 });
+
+    const menuItems = [
+        { name: "Inicio" },
+        { name: "Transporte", dropdown: true },
+        { name: "Atracciones", dropdown: true },
+        { name: "Explorar", dropdown: true },
+    ];
+
+    const updateHighlight = (itemName: string) => {
+        const item = document.getElementById(itemName);
+        if (item && menuRef.current) {
+            const { left, width } = item.getBoundingClientRect();
+            const menuLeft = menuRef.current.getBoundingClientRect().left;
+            setHighlightStyle({ left: left - menuLeft, width });
+        }
     };
 
-    return (
-        <nav className={`fixed top-0 w-full transition-all duration-300 ${scrolled ? 'bg-black bg-opacity-80' : 'bg-black bg-opacity-40'} backdrop-blur-md z-50`}>
-            <div className="container mx-auto flex items-center justify-between p-4">
-                <Link href="/inicio" className="text-2xl font-bold text-white">
-                    <span className="text-green-500">Ixtl</span>Mazatlán
-                </Link>
-                <button className="lg:hidden text-white text-2xl" onClick={toggleMenu}>
-                    <FaBars />
-                </button>
-                <ul className={`lg:flex lg:items-center space-y-4 lg:space-y-0 lg:space-x-6 text-white ${isOpen ? 'block' : 'hidden'} lg:flex`}> 
-                    {[
-                        { href: '/inicio', label: 'Inicio' },
-                        { href: '/contacto', label: 'Contacto' },
-                        { href: '/acerca-de', label: 'Acerca de' },
-                        { href: '/explorar', label: 'Explorar' }
-                    ].map(({ href, label }) => (
-                        <li key={href}>
-                            <Link href={href} className={`p-2 ${pathname === href ? 'border-b-2 border-green-500' : ''} hover:bg-white hover:bg-opacity-10 rounded-md`}>{label}</Link>
-                        </li>
-                    ))}
-                    <li className="relative">
-                        <button className="p-2 hover:bg-white hover:bg-opacity-10 rounded-md">Categorías</button>
-                        <ul className="absolute mt-2 bg-black bg-opacity-80 p-2 rounded-md hidden group-hover:block">
-                            <li><Link href="#" className="block px-4 py-2 hover:bg-white hover:bg-opacity-10">Galería</Link></li>
-                            <li><Link href="/busqueda" className="block px-4 py-2 hover:bg-white hover:bg-opacity-10">Búsqueda (Beta)</Link></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    );
-};
+    const updateDockHighlight = (itemName: string) => {
+        const item = document.getElementById(`mobile-${itemName}`);
+        if (item && dockRef.current) {
+            const { left, width } = item.getBoundingClientRect();
+            const dockLeft = dockRef.current.getBoundingClientRect().left;
+            setDockHighlight({ left: left - dockLeft, width });
+        }
+    };
 
-export default Header;
+    //Actualizar cuando cambie el active
+    useEffect(() => {
+        updateHighlight(active);
+        updateDockHighlight(mobileActive);
+    }, [active, mobileActive]);
+
+    return (
+        <>
+            <nav className={`items-stretch navbar`}>
+                {/*Logo*/}
+                <div className={`navbar-logo`}>
+                    <span className={`txt-gray-400 `}>Maza</span>
+                    <span className={`text-black`}>Tour</span>
+                </div>
+
+                {/* Menú */}
+                <div
+                    ref={menuRef}
+                    className={`menu-container`}
+                    onMouseLeave={() => {
+                        updateHighlight(active);
+                        setHovered(null); // Regresar al activo si el mouse sale del menú
+                    }}// Regresar al activo si el mouse sale del menú
+
+                >
+
+                    {/* Barra inferior animada */}
+                    <div
+                        className={`menu-highlight`}
+                        style={{ left: `${highlight.left}px`, width: `${highlight.width}px` }}
+                    >
+                    </div>
+
+                    {menuItems.map((item) => (
+                        <button
+                            key={item.name}
+                            id={item.name}
+                            onMouseEnter={() => {
+                                updateHighlight(item.name);
+                                setHovered(item.name); // Cambiar el hovered al elemento actual
+                            }}
+                            onClick={() => {
+                                setActive(item.name)
+                            }}
+                            className={`menu-button inline  ${active === item.name || hovered === item.name
+                                ? "menu-button-active"
+                                : "menu-button-inactive"
+                                }`}
+                        >
+                            {item.name}
+                            {item.dropdown && <ChevronDown className="inline w-4 h-4 ml-1" />}
+                        </button>
+                    ))}
+                </div>
+
+                {/* Clima */}
+                <div className={`weather-info`}>
+                    <Image
+                        src={imagenWeather}
+                        alt='weather'
+                    />
+                    <span>24° C</span>
+                    <span className='city-name'>Mazatlán</span>
+                </div>
+
+            </nav>
+
+
+            {/* Dock en la parte inferior para móviles */}
+
+
+           {/* Dock Móvil */}
+           <div className="dock mobile-menu" ref={dockRef}>
+                <div
+                    className="menu-highlight"
+                    style={{
+                        left: `${dockHighlight.left}px`,
+                        width: `${dockHighlight.width}px`,
+                        top: '0',
+                        height: '3px'
+                    }}
+                ></div>
+
+                <button
+                    id="mobile-Inicio"
+                    className={`${mobileActive === "Inicio" ? "dock-active" : ""}`}
+                    onTouchStart={() => setMobileActive("Inicio")}
+                >
+                    <House size={24} />
+                    <span className="dock-label">Inicio</span>
+                </button>
+
+                <button
+                    id="mobile-Transporte"
+                    className={`${mobileActive === "Transporte" ? "dock-active" : ""}`}
+                    onTouchStart={() => setMobileActive("Transporte")}
+                >
+                    <BusFront size={24} />
+                    <span className="dock-label">Transporte</span>
+                </button>
+
+                <button
+                    id="mobile-Atracciones"
+                    className={`${mobileActive === "Atracciones" ? "dock-active" : ""}`}
+                    onTouchStart={() => setMobileActive("Atracciones")}
+                >
+                    <FerrisWheel size={24} />
+                    <span className="dock-label">Atracciones</span>
+                </button>
+
+                <button
+                    id="mobile-Explorar"
+                    className={`${mobileActive === "Explorar" ? "dock-active" : ""}`}
+                    onTouchStart={() => setMobileActive("Explorar")}
+                >
+                    <Telescope size={24} />
+                    <span className="dock-label">Explorar</span>
+                </button>
+            </div>
+
+        </>
+    );
+
+
+}
