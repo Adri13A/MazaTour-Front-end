@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .footer {
+    @apply w-full bg-cover bg-center bg-no-repeat min-h-screen;
+  }
+  
+  .footer-container {
+    @apply flex flex-col h-full w-full;
+  }
+  
+  .footer-top-section {
+    @apply flex-1 flex items-center justify-center text-white py-20 px-4 sm:px-6 lg:px-8 w-full;
+  }
+  
+  .footer-top-content {
+    @apply w-full max-w-4xl mx-auto pt-6 mt-6 pb-6 text-center;
+  }
+  
+  .footer-title {
+    @apply font-bold text-2xl sm:text-3xl md:text-4xl uppercase leading-relaxed mx-auto w-full text-center;
+  }
+  
+  .footer-subtitle {
+    @apply pt-4 mt-4 uppercase text-sm sm:text-base mx-auto w-full text-center;
+  }
+
+  .footer-bottom-section {
+    @apply w-full bg-black bg-opacity-25 backdrop-blur-sm p-6 sm:p-12;
+  }
+  
+  .footer-main-content {
+    @apply flex flex-col lg:flex-row gap-8 max-w-7xl mx-auto;
+  }
+  
+  .footer-logo-column {
+    @apply lg:w-1/4;
+  }
+  
+  .footer-logo {
+    @apply text-3xl sm:text-4xl font-bold text-white;
+  }
+  
+  .footer-divider {
+    @apply bg-white h-0.5 w-16 rounded-full my-4;
+  }
+  
+  .footer-explore-btn {
+    @apply inline-flex items-center text-white uppercase text-sm sm:text-base border border-white px-4 py-2 rounded hover:bg-white hover:text-black transition-colors;
+  }
+  
+  .footer-vertical-divider {
+    @apply hidden lg:block w-px bg-white bg-opacity-30;
+  }
+  
+  .footer-info-columns {
+    @apply lg:w-3/4 flex flex-col md:flex-row gap-8 md:gap-12;
+  }
+  
+  .footer-info-section {
+    @apply md:w-1/2;
+  }
+  
+  .footer-section-title {
+    @apply text-white font-semibold text-lg sm:text-xl mb-4 sm:mb-6;
+  }
+  
+  .footer-link-list {
+    @apply space-y-3;
+  }
+  
+  .footer-link {
+    @apply text-white hover:underline block;
+  }
+  
+  .footer-contact-info {
+    @apply text-white;
+  }
+  
+  .footer-legal-section {
+    @apply border-t border-white border-opacity-20 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 max-w-7xl mx-auto;
+  }
+  
+  .footer-social-links {
+    @apply flex gap-4;
+  }
+  
+  .footer-social-icon {
+    @apply text-white transition-colors;
+  }
+  
+  .footer-social-icon.facebook:hover {
+    @apply text-blue-400;
+  }
+  
+  .footer-social-icon.instagram:hover {
+    @apply text-pink-500;
+  }
+  
+  .footer-social-icon.mail:hover {
+    @apply text-red-400;
+  }
+  
+  .footer-copyright {
+    @apply text-white text-center text-sm sm:text-base;
+  }
+  
+  .footer-terms {
+    @apply text-white hover:underline cursor-pointer text-sm sm:text-base;
+  }
+}
