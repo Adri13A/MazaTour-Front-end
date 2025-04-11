@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import imagenMain from '../public/images/Mazatlan-Malecon.jpg';
-//import Header from "./components/layout/header";
-//import Footer from "./components/layout/footer";
+import Footer from "./components/layout/footer";
+import CarouselCompanies from "./components/bannerCompanies/CarouselCompanies";
 
 
 export default function Home() {
@@ -46,10 +46,17 @@ export default function Home() {
               Su voz nahuatl <span className="font-bold">Mazatlan</span> significa Tierra de Venados.
             </p>
           </div>
+       </div>
+      </section>
+      
+      {/* CardCompanies */}
+      <section>
+        <div className="p-5 md:p-20 bg-gray-100">
+          <CarouselCompanies />
         </div>
       </section>
 
-      {/*<Footer />*/}
+      <Footer />
 
     </div>
   );
