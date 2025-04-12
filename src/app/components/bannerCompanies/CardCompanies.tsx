@@ -1,6 +1,6 @@
 import React from 'react';
 
-type CardCompaniesProps = {
+interface CardCompaniesProps {
   imagen: string;
   nombre: string;
   descripcion: string;
@@ -9,7 +9,7 @@ type CardCompaniesProps = {
 
 export default function CardCompanies({ imagen, nombre, descripcion, ubicacion }: CardCompaniesProps) {
   return (
-    <div className="relative w-full aspect-[4/2] md:aspect-[6/2] overflow-hidden rounded-3xl">
+    <div className="relative w-full aspect-[4/2] md:aspect-[6/2] overflow-hidden rounded-2xl">
       {/* Imagen de fondo */}
       <div className="absolute inset-0 bg-gray-300">
         <img 

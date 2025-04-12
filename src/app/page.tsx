@@ -58,9 +58,9 @@ export default function Home() {
       </section>
 
       
-      {/* Banner Companies */}
+      {/* Banner Companies Definidos en el componente pare tener el efecto */}
       <section>
-        <div className="p-5 md:p-20 bg-gray-100">
+        <div className="bg-gray-100">
           <CarouselCompanies />
         </div>
       </section>
