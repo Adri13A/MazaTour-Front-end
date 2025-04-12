@@ -18,7 +18,6 @@ const localidades: Localidad[] = [
 const GalleryVillages = () => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
-  // Puzle layout exacto para 7 cards
   const puzzleLayout = [
     'md:col-span-2 md:row-span-2', // El Habal
     'md:col-span-1 md:row-span-1', // El Quelite
