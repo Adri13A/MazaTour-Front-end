@@ -1,9 +1,7 @@
 import React from 'react';
 import CarouselWrapper from './CarouselWrapper';
 import CardCompanies from './CardCompanies';
-
 import { companies } from '../../data/companies.js'; 
-
 
 const CarouselCompanies = () => {
   return (
@@ -17,6 +15,7 @@ const CarouselCompanies = () => {
           ubicacion={company.ubicacion}
         />
       ))}
+      
     </CarouselWrapper>
   );
 };
