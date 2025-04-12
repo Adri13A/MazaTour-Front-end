@@ -9,18 +9,28 @@ const CarouselWrapper = ({ children }: CarouselWrapperProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const items = React.Children.toArray(children);
 
+  // Cambiar al siguiente slide
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev === items.length - 1 ? 0 : prev + 1));
   };
 
+  // Cambiar al slide anterior
   const prevSlide = () => {
     setCurrentIndex((prev) => (prev === 0 ? items.length - 1 : prev - 1));
   };
 
-  /* si se cambian ramños ajustar  className="w-full flex-shrink-0 sm:pl-20 sm:pr-20 pl-5 pr-5 pt-5" */
+  // Auto-rotación cada 5 segundos
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 5000); // 5000 milisegundos = 5 segundos
+
+    // Limpiar el intervalo cuando el componente se desmonte
+    return () => clearInterval(interval);
+  }, [currentIndex]); // Se reinicia cuando currentIndex cambia
 
   return (
-    <div className="relative w-full ">
+    <div className="relative w-full">
       {/* Contenedor del slide */}
       <div className="">
         <div
@@ -54,6 +64,21 @@ const CarouselWrapper = ({ children }: CarouselWrapperProps) => {
         ))}
       </div>
 
+      {/* Flechas de navegación (opcionales) */}
+      {/* <button
+        onClick={prevSlide}
+        className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 text-white p-3 rounded-full z-10 sm:block hidden"
+        aria-label="Slide anterior"
+      >
+        <ChevronLeft size={24} />
+      </button>
+      <button
+        onClick={nextSlide}
+        className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 text-white p-3 rounded-full z-10 sm:block hidden"
+        aria-label="Slide siguiente"
+      >
+        <ChevronRight size={24} />
+      </button> */}
     </div>
   );
 };
