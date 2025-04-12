@@ -4,6 +4,7 @@ import Image from "next/image";
 import imagenMain from '../public/images/Mazatlan-Malecon.jpg';
 import Footer from "./components/layout/footer";
 import CarouselCompanies from "./components/bannerCompanies/CarouselCompanies";
+import GalleryVillages from "./components/gallery/GalleryVillage";
 
 
 export default function Home() {
@@ -48,8 +49,16 @@ export default function Home() {
           </div>
        </div>
       </section>
+
+       {/* Gallery Villages */}
+       <section>
+        <div className="p-5 md:p-20 bg-gray-100">
+          <GalleryVillages />
+        </div>
+      </section>
+
       
-      {/* CardCompanies */}
+      {/* Banner Companies */}
       <section>
         <div className="p-5 md:p-20 bg-gray-100">
           <CarouselCompanies />
