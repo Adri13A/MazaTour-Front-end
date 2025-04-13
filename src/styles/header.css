@@ -1,30 +1,41 @@
 .navbar {
-    @apply fixed top-0 left-0 w-full z-50 flex justify-between px-6 py-4 md:px-12 lg:px-16;
-    @apply transition-all duration-1000 ease-in-out;
+    @apply fixed items-stretch top-0 left-0 w-full z-50 flex justify-between px-6 py-4 md:px-12 lg:px-[6rem];
+    @apply transition-all duration-300 ease-in-out; /* Reducir duración */
 }
 
+
 .navbar-logo {
-    @apply flex items-center backdrop-blur-lg bg-black bg-opacity-10 rounded-xl py-[2] px-4 text-lg md:text-2xl;
+    @apply flex items-center backdrop-blur-lg bg-black bg-opacity-10 rounded-xl py-[4] px-4 text-2xl md:text-2xl;
 }
 
 .menu-container {
-    @apply relative  items-center gap-6 backdrop-blur-lg bg-black bg-opacity-10 rounded-xl px-3 hidden md:flex;
+    @apply relative items-center gap-6 rounded-xl px-4 hidden md:flex;
 }
+
+.menu-container::before{
+    content: '';
+    @apply absolute inset-0 z-0; /* Asegura que el pseudo-elemento esté detrás del contenido */
+    @apply backdrop-blur-lg bg-black/10 rounded-xl;
+ }
 
 .menu-highlight {
-    @apply absolute bottom-0 h-[4px] mb-1 bg-white rounded-full transition-all duration-300;
+    @apply relative z-10;
+    @apply absolute bottom-0 h-[4px] mb-1 bg-white rounded-full;
+    @apply transition-all duration-300 ease-in-out;
 }
 
+
+/* Ajustes para mantener la legibilidad */
 .menu-button {
-    @apply relative z-10 text-white transition-all duration-300;
+    @apply text-white flex justify-center items-center;
 }
-
 .menu-button-active {
-    @apply translate-y-[-3px] font-semibold text-slate-50;
+    @apply text-white font-bold; /* Texto activo más brillante */
 }
 
 .menu-button-inactive {
-    @apply text-gray-300;
+    @apply text-gray-200;
+    @apply hover:text-slate-50 transition-all duration-300;
 }
 
 .weather-info {
@@ -35,9 +46,36 @@
     @apply hidden md:flex;
 }
 
-.mobile-menu {
-    @apply md:hidden backdrop-blur-lg bg-black bg-opacity-10;
+
+.dropdown-glass {
+    @apply flex flex-col mt-3 backdrop-filter backdrop-blur-lg bg-black/10 rounded-xl shadow-lg;
+    @apply transition-all duration-300 ease-out opacity-0 -translate-y-2;
+    
+    &.open {
+        @apply opacity-100 translate-y-0;
+    }
+  }
+  
+/* Efecto hover en items del dropdown */
+.dropdown-item {
+    @apply px-4 py-3 text-sm text-white;
+    @apply transition-colors duration-200;
+    @apply hover:bg-black/15; /* Efecto hover sutil */
+    @apply first:rounded-t-xl last:rounded-b-xl; /* Bordes redondeados */
 }
+
+.mobile-menu{
+    @apply md:hidden bottom-4 left-1/2 transform -translate-x-1/2 text-sm rounded-2xl bg-transparent;
+    @apply transition-all duration-1000 ease-in-out;
+    @apply gap-6 w-[90%] max-w-sm;
+}
+
+.mobile-menu::before{
+    content: '';
+    @apply absolute inset-0 z-0; /* Asegura que el pseudo-elemento esté detrás del contenido */
+    @apply backdrop-blur-lg bg-black/10 rounded-2xl;
+ }
+
 
 @media (max-width: 860px) and (min-width: 751px) {
     .navbar-logo {

@@ -1,9 +1,9 @@
 'use client'
 
 import Image from "next/image";
-import imagenMain from '../public/images/Mazatlan-Malecon.jpg';
+import imagenMain from '@/public/images/Mazatlan-Malecon.jpg';
 //import Header from "./components/layout/header";
-//import Footer from "./components/layout/footer";
+import Footer from "./components/layout/footer";
 
 
 export default function Home() {
@@ -49,7 +49,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/*<Footer />*/}
+      <Footer />
 
     </div>
   );
