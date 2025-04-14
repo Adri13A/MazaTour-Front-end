@@ -1,19 +1,20 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { Loader } from 'lucide-react';
 import Image from "next/image";
 
-type WeatherData  = {
-   location:{
-    name: string;
-   };
-   current:{
-    temp_c: number;
-    condition:{
-        text:string;
-        icon:string;
+type WeatherData = {
+    location: {
+        name: string;
     };
-   }
+    current: {
+        temp_c: number;
+        condition: {
+            text: string;
+            icon: string;
+        };
+    }
 };
 
 export default function Weather() {
@@ -21,14 +22,14 @@ export default function Weather() {
 
     useEffect(() => {
         const fetchWeather = async () => {
-            try{
+            try {
                 const res = await fetch(
-                      `https://api.weatherapi.com/v1/current.json?key=2a75441bbcde40cbb0b191938250904&q=Mazatlan&lang=es`
+                    `https://api.weatherapi.com/v1/current.json?key=2a75441bbcde40cbb0b191938250904&q=Mazatlan&lang=es`
                 );
 
                 const data = await res.json();
                 setweatherData(data);
-            }catch(error){
+            } catch (error) {
                 console.error("Error al obtener el clima de la ciudad", error);
             }
         };
@@ -36,21 +37,22 @@ export default function Weather() {
     }, []);
 
     if (!weatherData) {
-        return <span>Cargando...</span>;
+        return <div  className={`weather-info`}> <span>Cargando</span><Loader size={24}/></div>;
     }
 
-    return(
+    return (
+
         <div className={`weather-info`}>
-        <Image
-            src={`https:${weatherData.current.condition.icon}`}
-            alt="Clima"
-            className=""
-            width="34"
-            height="34"
-        />
-        <span>{Math.round(weatherData.current.temp_c)} °C</span>
-        <span className='city-name'>{weatherData.location.name}</span>
-      </div>
+            <Image
+                src={`https:${weatherData.current.condition.icon}`}
+                alt="Clima"
+                className=""
+                width="34"
+                height="34"
+            />
+            <span>{Math.round(weatherData.current.temp_c)} °C</span>
+            <span className='city-name'>{weatherData.location.name}</span>
+        </div>
     )
 
 }

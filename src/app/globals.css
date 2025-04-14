@@ -5,11 +5,8 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-
-  --font-display: 'Gantari', sans-serif;
-  --font-titles: 'Aboreto', sans-serif;
+  --backgroundWhite: #ffffff;
+  --foregroundBlack: #171717;
 }
 
 .dark-mode{
@@ -42,6 +39,7 @@ html {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: var(--font-display);
-  
+  color: var(--backgroundWhite);
 }
+
+

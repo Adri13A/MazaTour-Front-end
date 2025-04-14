@@ -14,8 +14,8 @@ export default {
         foreground: "var(--foreground)",
       },
       fontFamily: {
-        gantari: ["Gantari", "sans-serif"],
-        aboreto: ["Aboreto", "cursive"],
+        aboreto: ["var(--font-aboreto)"],
+        gantari: ["var(--font-gantari)"],
       },
     },
   },

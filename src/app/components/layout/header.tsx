@@ -2,11 +2,14 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { LucideIcon } from 'lucide-react';
-import { ChevronDown, BusFront, House, FerrisWheel, Telescope } from 'lucide-react';
+import {
+    ChevronDown, BusFront, House, FerrisWheel, Telescope,
+    Bus, CarTaxiFront, Bike, TreeDeciduous, TreePalm,
+    Landmark, Utensils, VenetianMask, Book, Church
+} from 'lucide-react';
 import '@/styles/header.css';
 import Weather from '../ui/weather';
 
-// Mapeo de iconos para mejorar la claridad
 const iconMap: Record<string, LucideIcon> = {
     Inicio: House,
     Transporte: BusFront,
@@ -14,8 +17,19 @@ const iconMap: Record<string, LucideIcon> = {
     Explorar: Telescope,
 };
 
+const subIconMap: Record<string, LucideIcon> = {
+    Autobuses: Bus,
+    Taxis: CarTaxiFront,
+    Bicicletas: Bike,
+    Playas: TreePalm,
+    Parques: TreeDeciduous,
+    Museos: Landmark,
+    Teatros: VenetianMask,
+    Gastronomía: Utensils,
+    Cultura: Church,
+    Historia: Book
+};
 
-// Componente reutilizable para el menú
 interface MenuItemProps {
     item: {
         name: string;
@@ -30,43 +44,64 @@ interface MenuItemProps {
     updateHighlight: (name: string) => void;
 }
 
-const MenuItem: React.FC<MenuItemProps> = ({ item, icon: IconComponent, active, hovered, setHovered, setActive, updateHighlight }) => (
+const MenuItem: React.FC<MenuItemProps> = ({
+    item,
+    icon: IconComponent,
+    active,
+    hovered,
+    setHovered,
+    setActive,
+    updateHighlight }) => (
     <div key={item.name} className="relative dropdown dropdown-hover">
         <button
             id={item.name}
             onMouseEnter={() => {
-                updateHighlight(item.name);
                 setHovered(item.name);
+                updateHighlight(item.name);
             }}
-            onClick={() => setActive(item.name)}
+            onMouseLeave={() => {
+                setHovered(null);
+                updateHighlight(active);
+            }}
+            onClick={() => {
+                setActive(item.name);
+                updateHighlight(item.name);
+            }}
             className={`menu-button ${active === item.name || hovered === item.name ? 'menu-button-active' : 'menu-button-inactive'}`}
             aria-label={`Botón para ${item.name}`}
         >
-            {IconComponent && <IconComponent size={18} className="mr-1 inline" />} {/* Icono */}
+            {IconComponent && <IconComponent size={18} className="mr-1 inline" />}
             {item.name}
             {item.dropdown && (
-                <ChevronDown className={`inline w-4 h-4 ml-1 transition-transform duration-200 ${hovered === item.name ? 'rotate-180' : ''
-                    }`} />
+                <ChevronDown className={`inline w-4 h-4 ml-1 transition-transform duration-200 ${hovered === item.name || active === item.name ? 'rotate-180' : ''}`} />
             )}
         </button>
-        {item.dropdown && hovered === item.name && (
+
+        {item.dropdown && (hovered === item.name || active === item.name) && (
             <ul className="dropdown-content dropdown-glass cursor-pointer">
-                {item.items?.map(subItem => (
-                    <li
-                        key={subItem}
-                        className="dropdown-item"
-                        onClick={() => {
-                            setActive(item.name);
-                            setHovered(null);
-                        }}
-                    >
-                        <a>{subItem}</a>
-                    </li>
-                ))}
+                {item.items?.map(subItem => {
+                    const SubIcon = subIconMap[subItem];
+                    return (
+                        <li
+                            key={subItem}
+                            className="dropdown-item"
+                            onClick={() => {
+                                setActive(item.name);
+                                setHovered(null);
+                            }}
+                        >
+                            <a className="flex items-center gap-2">
+                                {SubIcon && <SubIcon size={16} />}
+                                {subItem}
+                            </a>
+                        </li>
+                    );
+                })}
             </ul>
         )}
     </div>
 );
+
 export default function Header() {
     const [active, setActive] = useState('Inicio');
     const [hovered, setHovered] = useState<string | null>(null);
@@ -117,7 +152,6 @@ export default function Header() {
     useEffect(() => {
         updateHighlight(active);
         updateDockHighlight(active);
-
         return () => {
             setHighlightStyle({ left: 0, width: 0 });
             setDockHighlight({ left: 0, width: 0 });
@@ -139,10 +173,8 @@ export default function Header() {
                     className="menu-container"
                     onMouseLeave={() => {
                         updateHighlight(active);
-                        setHovered(null);
                     }}
                 >
-                    {/* Barra inferior animada */}
                     <div
                         className="menu-highlight"
                         style={{
@@ -151,13 +183,12 @@ export default function Header() {
                         }}
                     />
                     {menuItems.map(item => {
-                        const IconComponent = iconMap[item.name]; // <-- Agregas esto
-
+                        const IconComponent = iconMap[item.name];
                         return (
                             <MenuItem
                                 key={item.name}
                                 item={item}
-                                icon={IconComponent} // <-- Y lo pasas al componente
+                                icon={IconComponent}
                                 active={active}
                                 hovered={hovered}
                                 setHovered={setHovered}
@@ -166,7 +197,6 @@ export default function Header() {
                             />
                         );
                     })}
-
                 </div>
 
                 {/* Clima */}
@@ -182,7 +212,6 @@ export default function Header() {
                     setHovered(null);
                 }}
             >
-                {/* Barra inferior animada */}
                 <div
                     className="menu-highlight"
                     style={{
@@ -192,7 +221,6 @@ export default function Header() {
                 />
                 {menuItems.map(item => {
                     const IconComponent = iconMap[item.name];
-
                     const isActive = active === item.name;
                     const isDropdownOpen = mobileDropdown === item.name;
 
@@ -213,31 +241,35 @@ export default function Header() {
                                 className={`menu-button w-full flex flex-col items-center ${isActive ? 'menu-button-active' : 'menu-button-inactive'}`}
                                 aria-label={`Botón móvil para ${item.name}`}
                             >
-                                <IconComponent size={24} />
+                                {IconComponent && <IconComponent size={24} className="mr-1 inline" />}
                                 <span id={`label-${item.name}`}>{item.name}</span>
                             </button>
 
-                            {/* Submenú desplegable en móvil */}
                             {item.dropdown && isDropdownOpen && (
                                 <ul className="dropdown-content dropdown-glass cursor-pointer">
-                                    {item.items?.map(subItem => (
-                                        <li
-                                            key={subItem}
-                                            className="dropdown-item"
-                                            onClick={() => {
-                                                setActive(item.name);
-                                                setMobileDropdown(null);
-                                            }}
-                                        >
-                                            <a>{subItem}</a>
-                                        </li>
-                                    ))}
+                                    {item.items?.map(subItem => {
+                                        const SubIcon = subIconMap[subItem];
+                                        return (
+                                            <li
+                                                key={subItem}
+                                                className="dropdown-item"
+                                                onClick={() => {
+                                                    setActive(item.name);
+                                                    setMobileDropdown(null);
+                                                }}
+                                            >
+                                                <a className="flex items-center gap-2">
+                                                    {SubIcon && <SubIcon size={16} />}
+                                                    {subItem}
+                                                </a>
+                                            </li>
+                                        );
+                                    })}
                                 </ul>
                             )}
                         </div>
                     );
                 })}
-
             </div>
         </>
     );
