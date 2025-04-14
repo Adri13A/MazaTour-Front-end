@@ -1,100 +1,93 @@
 import { ArrowUpRightIcon } from "@heroicons/react/24/solid";
 import { Facebook, Instagram, Mail } from 'lucide-react';
 import footerBg from '@/public/images/footer.webp';
-// import "../../../styles/footer.css";
+import "../../../styles/footer.css";
 
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-cover bg-center bg-no-repeat min-h-screen"
-    style={{ backgroundImage: `url(${footerBg.src})` }}>
-      
+    <footer className="footer" style={{ backgroundImage: `url(${footerBg.src})` }}>
       {/* Contenedor Principal */}
-      <div className="flex flex-col h-full w-full">
-        
+      <div className="footer-container">
         {/* Sección Superior */}
-        <div className="flex-1 flex items-center justify-center text-white py-20 px-4 sm:px-6 lg:px-8 text-center">
-          <div className="max-w-4xl mx-auto pt-6 mt-6 pb-6">
-            <h1 className="font-bold text-2xl sm:text-3xl md:text-4xl uppercase leading-relaxed">
+        <div className="footer-top-section">
+          <div className="footer-top-content">
+            <h1 className="footer-title">
               Descubre la perla del Pacífico,
               <br /> donde cada rincón cuenta una historia
             </h1>
-            <p className="pt-4 mt-4 uppercase text-sm sm:text-base">
+            <p className="footer-subtitle">
               Mazatlán, lugar donde se rompen las olas
             </p>
           </div>
         </div>
       
         {/* Sección Inferior con efecto glass */}
-        <div className="w-full bg-black bg-opacity-25 backdrop-blur-sm p-6 sm:p-12">
-          
+        <div className="footer-bottom-section">
           {/* Contenido Principal */}
-          <div className="flex flex-col lg:flex-row gap-8 max-w-7xl mx-auto">
-            
+          <div className="footer-main-content">
             {/* Columna 1 - Logo y explorar */}
-            <div className="lg:w-1/4">
-              <h1 className="text-3xl sm:text-4xl font-bold text-white">
+            <div className="footer-logo-column">
+              <h1 className="footer-logo">
                 <span className="block">Maza</span>
                 <span className="block">Tour</span>
               </h1>
-              <div className="bg-white h-0.5 w-16 rounded-full my-4"></div>
-              <a href="#!" className="inline-flex items-center text-white uppercase text-sm sm:text-base border border-white px-4 py-2 rounded hover:bg-white hover:text-black transition-colors">
+              <div className="footer-divider"></div>
+              <a href="#!" className="footer-explore-btn">
                 Explorar <ArrowUpRightIcon className="w-4 h-4 ml-2" />
               </a>
             </div>
 
             {/* Divisor (solo en desktop) */}
-            <div className="hidden lg:block w-px bg-white bg-opacity-30"></div>
+            <div className="footer-vertical-divider"></div>
 
             {/* Columnas de información */}
-            <div className="lg:w-3/4 flex flex-col md:flex-row gap-8 md:gap-12">
-              
+            <div className="footer-info-columns">
               {/* Acerca de Nosotros */}
-              <div className="md:w-1/2">
-                <p className="text-white font-semibold text-lg sm:text-xl mb-4 sm:mb-6">Acerca de Nosotros</p>
-                <ul className="space-y-3">
-                  <li><a href="#!" className="text-white hover:underline block">Quiénes somos</a></li>
-                  <li><a href="#!" className="text-white hover:underline block">Nuestra historia</a></li>
-                  <li><a href="#!" className="text-white hover:underline block">Misión y visión</a></li>
-                  <li><a href="#!" className="text-white hover:underline block">¿Por qué Mazatlán?</a></li>
+              <div className="footer-info-section">
+                <p className="footer-section-title">Acerca de Nosotros</p>
+                <ul className="footer-link-list">
+                  <li><a href="#!" className="footer-link">Quiénes somos</a></li>
+                  <li><a href="#!" className="footer-link">Nuestra historia</a></li>
+                  <li><a href="#!" className="footer-link">Misión y visión</a></li>
+                  <li><a href="#!" className="footer-link">¿Por qué Mazatlán?</a></li>
                 </ul>
               </div>
 
               {/* Contacto */}
-              <div className="md:w-1/2">
-                <p className="text-white font-semibold text-lg sm:text-xl mb-4 sm:mb-6">Contacto</p>
-                <ul className="space-y-3">
-                  <li><p className="text-white">#100 Av Miguel Aleman, Mazatlan, Mexico</p></li>
-                  <li><p className="text-white">(669) 000-0000</p></li>
-                  <li><p className="text-white">TransMaz@gmail.com</p></li>
+              <div className="footer-info-section">
+                <p className="footer-section-title">Contacto</p>
+                <ul className="footer-link-list">
+                  <li><p className="footer-contact-info">#100 Av Miguel Aleman, Mazatlan, Mexico</p></li>
+                  <li><p className="footer-contact-info">(669) 000-0000</p></li>
+                  <li><p className="footer-contact-info">TransMaz@gmail.com</p></li>
                 </ul>
               </div>
             </div>
           </div>
 
           {/* Footer inferior */}
-          <div className="border-t border-white border-opacity-20 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 max-w-7xl mx-auto">
-            
+          <div className="footer-legal-section">
             {/* Redes Sociales */}
-            <div className="flex gap-4">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-400 transition-colors">
+            <div className="footer-social-links">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="footer-social-icon facebook">
                 <Facebook size={20} />
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-pink-500 transition-colors">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="footer-social-icon instagram">
                 <Instagram size={20} />
               </a>
-              <a href="mailto:example@example.com" className="text-white hover:text-red-400 transition-colors">
+              <a href="mailto:example@example.com" className="footer-social-icon mail">
                 <Mail size={20} />
               </a>
             </div>
 
             {/* Copyright */}
-            <div className="text-white text-center text-sm sm:text-base">
+            <div className="footer-copyright">
               Copyright © 2025. All Rights Reserved. Visita Mazatlan, Conoce Mazatlan
             </div>
 
             {/* Términos */}
-            <div className="text-white hover:underline cursor-pointer text-sm sm:text-base">
+            <div className="footer-terms">
               Términos & Condiciones
             </div>
           </div>
