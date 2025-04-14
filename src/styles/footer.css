@@ -1,8 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
-@layer components {
   .footer {
     @apply w-full bg-cover bg-center bg-no-repeat min-h-screen;
   }
@@ -110,4 +106,3 @@
   .footer-terms {
     @apply text-white hover:underline cursor-pointer text-sm sm:text-base;
   }
-}
