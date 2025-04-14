@@ -1,84 +1,79 @@
-import React, { ReactNode, useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import React, { ReactNode, useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 interface CarouselWrapperProps {
   children: ReactNode;
-};
+}
 
 const CarouselWrapper = ({ children }: CarouselWrapperProps) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
   const items = React.Children.toArray(children);
-
-  // Cambiar al siguiente slide
-  const nextSlide = () => {
-    setCurrentIndex((prev) => (prev === items.length - 1 ? 0 : prev + 1));
-  };
-
-  // Cambiar al slide anterior
-  const prevSlide = () => {
-    setCurrentIndex((prev) => (prev === 0 ? items.length - 1 : prev - 1));
-  };
-
-  // Auto-rotación cada 5 segundos
-  useEffect(() => {
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 5000); // 5000 milisegundos = 5 segundos
-
-    // Limpiar el intervalo cuando el componente se desmonte
-    return () => clearInterval(interval);
-  }, [currentIndex]); // Se reinicia cuando currentIndex cambia
+  const [activeIndex, setActiveIndex] = useState(0);
+  const navigationPrevRef = React.useRef(null);
+  const navigationNextRef = React.useRef(null);
 
   return (
-    <div className="relative w-full">
-      {/* Contenedor del slide */}
-      <div className="">
-        <div
-          className="flex transition-transform duration-1000 ease-in-out"
-          style={{
-            transform: `translateX(-${currentIndex * 100}%)`,
-          }}
-        >
-          {items.map((item, index) => (
-            <div 
-              key={index} 
-              className="w-full flex-shrink-0 sm:pl-20 sm:pr-20 pl-5 pr-5 pt-5"
-            >
-              {item}
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Controles de navegación */}
-      <div className="flex justify-center mt-6 space-x-3 pb-5 sm:pb-20">
-        {items.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentIndex(index)}
-            className={`h-3 rounded-full transition-all duration-300 ${
-              index === currentIndex ? 'w-8 bg-gray-500' : 'w-3 bg-gray-200'
-            }`}
-            aria-label={`Ir a slide ${index + 1}`}
-          />
+    <div className="relative w-full pb-3 md:pb-12"> {/* más padding abajo */}
+      <Swiper
+        modules={[Navigation, Pagination, Autoplay]}
+        spaceBetween={20}
+        slidesPerView={1}
+        loop={true}
+        autoplay={{
+          delay: 5000,
+          disableOnInteraction: false,
+        }}
+        onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+        pagination={{
+          clickable: true,
+          renderBullet: (index, className) => {
+            return `<span class="${className} custom-bullet"></span>`;
+          },
+        }}
+        navigation={{
+          prevEl: navigationPrevRef.current,
+          nextEl: navigationNextRef.current,
+        }}
+        onBeforeInit={(swiper) => {
+          // @ts-ignore
+          swiper.params.navigation.prevEl = navigationPrevRef.current;
+          // @ts-ignore
+          swiper.params.navigation.nextEl = navigationNextRef.current;
+        }}
+        className="select-none"
+      >
+        {items.map((item, index) => (
+          <SwiperSlide key={index} className="p-5 md:px-20">
+            {item}
+          </SwiperSlide>
         ))}
-      </div>
+      </Swiper>
 
-      {/* Flechas de navegación (opcionales) */}
-      {/* <button
-        onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 text-white p-3 rounded-full z-10 sm:block hidden"
-        aria-label="Slide anterior"
-      >
-        <ChevronLeft size={24} />
-      </button>
-      <button
-        onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 text-white p-3 rounded-full z-10 sm:block hidden"
-        aria-label="Slide siguiente"
-      >
-        <ChevronRight size={24} />
-      </button> */}
+      {/* Estilos directamente en el componente */}
+      <style jsx global>{`
+        .custom-bullet {
+          width: 14px;
+          height: 14px;
+          margin: 0 4px;
+          border-radius: 50%;
+          background: #d1d5db;
+          transition: all 0.3s ease;
+          opacity: 1;
+        }
+
+        .swiper-pagination-bullet-active.custom-bullet {
+          width: 24px;
+          border-radius: 7px;
+          background: #3b82f6;
+        }
+
+        .swiper-pagination {
+          position: static !important;
+        }
+      `}</style>
     </div>
   );
 };
