@@ -16,7 +16,7 @@ const CarouselWrapper = ({ children }: CarouselWrapperProps) => {
   const navigationNextRef = React.useRef(null);
 
   return (
-    <div className="relative w-full pb-3 md:pb-12"> {/* más padding abajo */}
+    <div className="relative w-full pb-5 md:pb-12"> {/* más padding abajo */}
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={20}
@@ -46,14 +46,14 @@ const CarouselWrapper = ({ children }: CarouselWrapperProps) => {
         className="select-none"
       >
         {items.map((item, index) => (
-          <SwiperSlide key={index} className="p-5 md:px-20">
+          <SwiperSlide key={index} className="pl-5 pr-5 md:px-20">
             {item}
           </SwiperSlide>
         ))}
       </Swiper>
 
       {/* Estilos directamente en el componente */}
-      <style jsx global>{`
+      <style>{`
         .custom-bullet {
           width: 14px;
           height: 14px;
@@ -72,6 +72,30 @@ const CarouselWrapper = ({ children }: CarouselWrapperProps) => {
 
         .swiper-pagination {
           position: static !important;
+          margin-top: 1.5rem;
+        }
+
+        /* Media Query para pantallas más pequeñas */
+        @media (max-width: 768px) {
+          .custom-bullet {
+            width: 10px;
+            height: 10px;
+          }
+          .swiper-pagination-bullet-active.custom-bullet {
+            width: 18px;
+            border-radius: 6px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .custom-bullet {
+            width: 8px;
+            height: 8px;
+          }
+          .swiper-pagination-bullet-active.custom-bullet {
+            width: 14px;
+            border-radius: 5px;
+          }
         }
       `}</style>
     </div>
