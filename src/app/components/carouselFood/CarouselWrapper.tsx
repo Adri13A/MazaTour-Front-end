@@ -1,6 +1,6 @@
 import React, { ReactNode, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay, Mousewheel, FreeMode } from 'swiper/modules';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -18,25 +18,15 @@ const CarouselWrapper = ({ children }: CarouselWrapperProps) => {
   return (
     <div className="relative w-full">
       <Swiper
-        modules={[Navigation, Pagination, Mousewheel, FreeMode]}
-        spaceBetween={10} 
-        slidesPerView={'auto'}
-        freeMode={{
-          enabled: true,
-          momentum: true,
-          momentumRatio: 0.5,
-          momentumBounceRatio: 0.5,
+        modules={[Navigation, Pagination, Autoplay]}
+        spaceBetween={10}
+        slidesPerView={5}
+        slidesPerGroup={1}
+        loop={true}
+        autoplay={{
+          delay: 5000,
+          disableOnInteraction: false,
         }}
-        mousewheel={{
-          forceToAxis: true,
-          sensitivity: 1,
-          releaseOnEdges: true,
-        }}
-        speed={1000}
-        grabCursor={true}
-        resistance={true}
-        resistanceRatio={0.6}
-        
         onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
         pagination={{
           clickable: true,
@@ -55,37 +45,58 @@ const CarouselWrapper = ({ children }: CarouselWrapperProps) => {
           swiper.params.navigation.nextEl = navigationNextRef.current;
         }}
         className="select-none"
-        
       >
         {items.map((item, index) => (
           <SwiperSlide key={index} className="!w-auto flex-shrink-0 min-[60px]:!w-[180px] sm:!w-[270px] md:!w-[270px] lg:!w-[270px]">
-              {item}
+            {item}
           </SwiperSlide>
         ))}
       </Swiper>
-      <style jsx global>{`
-      .custom-bullet {
-        width: 14px;
-        height: 14px;
-        margin: 0 4px;
-        border-radius: 50%;
-        background: #d1d5db;
-        transition: all 0.3s ease;
-        opacity: 1;
-      }
+      <style>{`
+        .custom-bullet {
+          width: 14px;
+          height: 14px;
+          margin: 0 4px;
+          border-radius: 50%;
+          background: #d1d5db;
+          transition: all 0.3s ease;
+          opacity: 1;
+        }
 
-      .swiper-pagination-bullet-active.custom-bullet {
-        width: 24px;
-        border-radius: 7px;
-        background: #3b82f6;
-      }
+        .swiper-pagination-bullet-active.custom-bullet {
+          width: 24px;
+          border-radius: 7px;
+          background: #3b82f6;
+        }
 
-      .swiper-pagination {
-        position: static !important;
-        margin-top: 1.5rem;
-      }
-    `}</style>
+        .swiper-pagination {
+          position: static !important;
+          margin-top: 1.5rem;
+        }
 
+        /* Media Query para pantallas más pequeñas */
+        @media (max-width: 768px) {
+          .custom-bullet {
+            width: 10px;
+            height: 10px;
+          }
+          .swiper-pagination-bullet-active.custom-bullet {
+            width: 18px;
+            border-radius: 6px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .custom-bullet {
+            width: 8px;
+            height: 8px;
+          }
+          .swiper-pagination-bullet-active.custom-bullet {
+            width: 14px;
+            border-radius: 5px;
+          }
+        }
+      `}</style>
     </div>
   );
 };

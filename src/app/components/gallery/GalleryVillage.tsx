@@ -49,7 +49,7 @@ const GalleryVillages = () => {
       
       {/* Texto - Segundo en mobile, primero en desktop */}
       <div className="w-full md:w-2/3 text-justify md:text-left self-center md:self-start order-2 md:order-1">
-        <p className="text-lg text-gray-500 leading-relaxed max-w-2xl mx-auto md:mx-0">
+        <p className="text-gray-500 leading-relaxed max-w-2xl mx-auto md:mx-0">
           Conoce y explora las localidades del puerto de Mazatlán.
           Descubre su historia, tradiciones, cultura y gastronomía,
           entre paisajes de la zona serrana a las playas del Pacífico.
