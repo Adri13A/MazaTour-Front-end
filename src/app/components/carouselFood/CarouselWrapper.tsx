@@ -45,8 +45,8 @@ const CarouselWrapper = ({
         className="select-none"
         breakpoints={{
           320: {
-            slidesPerView: 3,
-            spaceBetween: 12
+            slidesPerView: 2,
+            spaceBetween: 14
           },
           400: {
             slidesPerView: 3,
@@ -91,18 +91,6 @@ const CarouselWrapper = ({
         ))}
       </Swiper>
 
-      {/* Pagination bullets */}
-      <style>{`
-        .custom-bullet {
-          @apply w-3 h-3 bg-gray-300 rounded-full mx-1 transition-all;
-        }
-        .swiper-pagination-bullet-active.custom-bullet {
-          @apply w-6 bg-blue-500 rounded-lg;
-        }
-        .swiper-pagination {
-          @apply mt-6 flex justify-center;
-        }
-      `}</style>
     </div>
   );
 };

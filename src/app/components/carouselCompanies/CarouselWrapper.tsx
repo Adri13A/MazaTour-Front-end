@@ -38,7 +38,7 @@ const CarouselWrapper = ({ children }: CarouselWrapperProps) => {
         className="select-none"
       >
         {items.map((item, index) => (
-          <SwiperSlide key={index} className="pl-5 pr-5 md:px-20">
+          <SwiperSlide key={index} className="pl-5 pr-5 pt-5 md:px-20">
             {item}
           </SwiperSlide>
         ))}
@@ -57,9 +57,9 @@ const CarouselWrapper = ({ children }: CarouselWrapperProps) => {
         }
 
         .swiper-pagination-bullet-active.custom-bullet {
-          width: 24px;
+          width: 30px;
           border-radius: 7px;
-          background: #3b82f6;
+          background: #a6a6a6;
         }
 
         .swiper-pagination {
