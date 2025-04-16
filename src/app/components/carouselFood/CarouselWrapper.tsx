@@ -1,100 +1,106 @@
-import React, { ReactNode, useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import React, { ReactNode, useRef } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 interface CarouselWrapperProps {
   children: ReactNode;
+  slidesPerView?: number | "auto";
+  spaceBetween?: number;
 }
 
-const CarouselWrapper = ({ children }: CarouselWrapperProps) => {
+const CarouselWrapper = ({ 
+  children, 
+  slidesPerView = 5, 
+  spaceBetween = 30 
+}: CarouselWrapperProps) => {
   const items = React.Children.toArray(children);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const navigationPrevRef = React.useRef(null);
-  const navigationNextRef = React.useRef(null);
+  const navigationPrevRef = useRef(null);
+  const navigationNextRef = useRef(null);
 
   return (
     <div className="relative w-full">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
-        spaceBetween={10}
-        slidesPerView={5}
-        slidesPerGroup={1}
         loop={true}
         autoplay={{
-          delay: 5000,
+          delay: 3000,
           disableOnInteraction: false,
         }}
-        onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+        centeredSlides={false}
+        slidesPerView={slidesPerView}
+        spaceBetween={spaceBetween}
         pagination={{
           clickable: true,
-          renderBullet: (index, className) => {
-            return `<span class="${className} custom-bullet"></span>`;
-          },
+          renderBullet: (index, className) =>
+            `<span class="${className} custom-bullet"></span>`,
         }}
         navigation={{
           prevEl: navigationPrevRef.current,
           nextEl: navigationNextRef.current,
         }}
-        onBeforeInit={(swiper) => {
-          // @ts-ignore
-          swiper.params.navigation.prevEl = navigationPrevRef.current;
-          // @ts-ignore
-          swiper.params.navigation.nextEl = navigationNextRef.current;
-        }}
+       
         className="select-none"
+        breakpoints={{
+          320: {
+            slidesPerView: 3,
+            spaceBetween: 12
+          },
+          400: {
+            slidesPerView: 3,
+            spaceBetween: 14
+          },
+          576: {
+            slidesPerView: 4,
+            spaceBetween: 16
+          },
+          640: {
+            slidesPerView: 4,
+            spaceBetween: 18
+          },
+          768: {
+            slidesPerView: 4,
+            spaceBetween: 20
+          },
+          900: {
+            slidesPerView: 5,
+            spaceBetween: 22
+          },
+          1024: {
+            slidesPerView: 5,
+            spaceBetween: 24
+          },
+          1200: {
+            slidesPerView: 5,
+            spaceBetween: 26
+          },
+          1400: {
+            slidesPerView: 6,
+            spaceBetween: 28
+          }
+        }}
       >
         {items.map((item, index) => (
-          <SwiperSlide key={index} className="!w-auto flex-shrink-0 min-[60px]:!w-[180px] sm:!w-[270px] md:!w-[270px] lg:!w-[270px]">
-            {item}
+          <SwiperSlide
+            key={index}
+          >
+            <div className="mx-auto">{item}</div>
           </SwiperSlide>
         ))}
       </Swiper>
+
+      {/* Pagination bullets */}
       <style>{`
         .custom-bullet {
-          width: 14px;
-          height: 14px;
-          margin: 0 4px;
-          border-radius: 50%;
-          background: #d1d5db;
-          transition: all 0.3s ease;
-          opacity: 1;
+          @apply w-3 h-3 bg-gray-300 rounded-full mx-1 transition-all;
         }
-
         .swiper-pagination-bullet-active.custom-bullet {
-          width: 24px;
-          border-radius: 7px;
-          background: #3b82f6;
+          @apply w-6 bg-blue-500 rounded-lg;
         }
-
         .swiper-pagination {
-          position: static !important;
-          margin-top: 1.5rem;
-        }
-
-        /* Media Query para pantallas más pequeñas */
-        @media (max-width: 768px) {
-          .custom-bullet {
-            width: 10px;
-            height: 10px;
-          }
-          .swiper-pagination-bullet-active.custom-bullet {
-            width: 18px;
-            border-radius: 6px;
-          }
-        }
-
-        @media (max-width: 480px) {
-          .custom-bullet {
-            width: 8px;
-            height: 8px;
-          }
-          .swiper-pagination-bullet-active.custom-bullet {
-            width: 14px;
-            border-radius: 5px;
-          }
+          @apply mt-6 flex justify-center;
         }
       `}</style>
     </div>

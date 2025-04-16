@@ -1,9 +1,9 @@
-import React, { ReactNode, useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import React, { ReactNode, useRef } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 interface CarouselWrapperProps {
   children: ReactNode;
@@ -11,12 +11,11 @@ interface CarouselWrapperProps {
 
 const CarouselWrapper = ({ children }: CarouselWrapperProps) => {
   const items = React.Children.toArray(children);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const navigationPrevRef = React.useRef(null);
-  const navigationNextRef = React.useRef(null);
+  const navigationPrevRef = useRef(null);
+  const navigationNextRef = useRef(null);
 
   return (
-    <div className="relative w-full pb-5 md:pb-12"> {/* más padding abajo */}
+    <div className="relative w-full pb-5 md:pb-12">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={20}
@@ -26,7 +25,6 @@ const CarouselWrapper = ({ children }: CarouselWrapperProps) => {
           delay: 5000,
           disableOnInteraction: false,
         }}
-        onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
         pagination={{
           clickable: true,
           renderBullet: (index, className) => {
@@ -36,12 +34,6 @@ const CarouselWrapper = ({ children }: CarouselWrapperProps) => {
         navigation={{
           prevEl: navigationPrevRef.current,
           nextEl: navigationNextRef.current,
-        }}
-        onBeforeInit={(swiper) => {
-          // @ts-ignore
-          swiper.params.navigation.prevEl = navigationPrevRef.current;
-          // @ts-ignore
-          swiper.params.navigation.nextEl = navigationNextRef.current;
         }}
         className="select-none"
       >
@@ -75,7 +67,6 @@ const CarouselWrapper = ({ children }: CarouselWrapperProps) => {
           margin-top: 1.5rem;
         }
 
-        /* Media Query para pantallas más pequeñas */
         @media (max-width: 768px) {
           .custom-bullet {
             width: 10px;
