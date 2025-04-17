@@ -1,18 +1,26 @@
 'use client'
-import imagenMain from '@/public/images/Mazatlan-Malecon.jpg';
 import Hero from "./components/pages/inicio/hero";
-import Footer from "./components/layout/footer";
-import CarouselCompanies from "./components/bannerCompanies/CarouselCompanies";
+import CarouselCompanies from "./components/carouselCompanies/CarouselCompanies";
 import GalleryVillages from "./components/gallery/GalleryVillage";
-
+import CarouselFoods from './components/carouselFood/CarouselFoods';
 
 export default function Home() {
   return (
     
+    
     <div> 
 
       <Hero/>
-      
+
+
+      {/* Carousel Foods Definidos en el componente pare tener el efecto */}
+      <section>
+      <div className="p-5 md:pl-20 md:pr-20 bg-gray-100">
+        <CarouselFoods />
+        </div>
+      </section>
+
+
        {/* Gallery Villages */}
        <section>
         <div className="p-5 md:p-20 bg-gray-100">
@@ -21,10 +29,10 @@ export default function Home() {
       </section>
 
       
-      {/* Banner Companies Definidos en el componente pare tener el efecto */}
+      {/* Carousel Companies Definidos en el componente pare tener el efecto */}
       <section>
         <div className="bg-gray-100">
-          {/*<CarouselCompanies />*/}
+          <CarouselCompanies />
         </div>
       </section>
 

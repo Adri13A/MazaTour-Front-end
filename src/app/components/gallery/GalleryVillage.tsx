@@ -1,22 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import footerBg from '@/public/images/footer.webp';
+import { locations } from '../../data/locations.js'; 
 
 interface Localidad {
   nombre: string;
+  descripcion: string;
 }
-
-const localidades: Localidad[] = [
-  { nombre: "El Habal" },
-  { nombre: "El Quelite" },
-  { nombre: "Marmol" },
-  { nombre: "Siqueros" },
-  { nombre: "La Noria" },
-  { nombre: "El Recodo" },
-  { nombre: "Villa Union" }
-];
 
 const GalleryVillages = () => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  const [localidades, setLocalidades] = useState<Localidad[]>([]);
+
+  useEffect(() => {
+    setLocalidades(locations);
+  }, []);
 
   const puzzleLayout = [
     'md:col-span-2 md:row-span-2', // El Habal
@@ -34,32 +31,31 @@ const GalleryVillages = () => {
     const aspect = 'min-h-[160px] md:min-h-[160px]';
     return `${base} ${mobile} ${aspect} ${puzzleLayout[index]}`;
   };
-  
 
   return (
     <div className="">
-     {/* Encabezado */}
-    <div className="flex flex-col md:flex-row justify-between mb-12 gap-6">
-      {/* Título - Primero en mobile, segundo en desktop */}
-      <div className="w-full md:w-2/3 flex items-center justify-center md:justify-end order-1 md:order-2">
-        <h2 className="font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl uppercase text-black text-center md:text-right">
-          DESCUBRE LAS LOCALIDADES QUE NOS RODEAN
-        </h2>
+      {/* Encabezado */}
+      <div className="flex flex-col md:flex-row justify-between mb-12 gap-6">
+        {/* Título - Primero en mobile, segundo en desktop */}
+        <div className="w-full md:w-2/3 flex items-center justify-center md:justify-end order-1 md:order-2">
+          <h2 className="font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl uppercase text-black text-center md:text-right">
+            DESCUBRE LAS LOCALIDADES QUE NOS RODEAN
+          </h2>
+        </div>
+        
+        {/* Texto - Segundo en mobile, primero en desktop */}
+        <div className="w-full md:w-2/3 text-justify md:text-left self-center md:self-start order-2 md:order-1">
+          <p className="text-gray-500 leading-relaxed max-w-2xl mx-auto md:mx-0">
+            Conoce y explora las localidades del puerto de Mazatlán.
+            Descubre su historia, tradiciones, cultura y gastronomía,
+            entre paisajes de la zona serrana a las playas del Pacífico.
+          </p>
+        </div>
       </div>
-      
-      {/* Texto - Segundo en mobile, primero en desktop */}
-      <div className="w-full md:w-2/3 text-justify md:text-left self-center md:self-start order-2 md:order-1">
-        <p className="text-lg text-gray-500 leading-relaxed max-w-2xl mx-auto md:mx-0">
-          Conoce y explora las localidades del puerto de Mazatlán.
-          Descubre su historia, tradiciones, cultura y gastronomía,
-          entre paisajes de la zona serrana a las playas del Pacífico.
-        </p>
-      </div>
-    </div>
 
       {/* Galería tipo puzle */}
       <div className="grid grid-cols-2 md:grid-cols-3 auto-rows-[minmax(180px,auto)] gap-4 md:gap-4 w-full">
-      {localidades.map((localidad, index) => (
+        {localidades.map((localidad, index) => (
           <article
             key={index}
             className={getCardClass(index)}
@@ -68,7 +64,6 @@ const GalleryVillages = () => {
             onFocus={() => setHoveredCard(index)}
             onBlur={() => setHoveredCard(null)}
             tabIndex={0}
-            role="article"
             aria-label={`Card de ${localidad.nombre}`}
           >
             {/* Imagen */}
@@ -84,10 +79,10 @@ const GalleryVillages = () => {
 
             {/* Título */}
             <div className={`absolute bottom-4 left-4 transition-all duration-300 ${hoveredCard === index ? 'opacity-0' : 'opacity-100'}`}>
-              <h3 className="text-white font-bold text-lg md:text-2xl drop-shadow-2xl">
+              <h2 className="text-white font-bold text-lg md:text-2xl drop-shadow-2xl">
                 {localidad.nombre}
-              </h3>
-              <p className="text-white/90 text-sm mt-1 drop-shadow-md">
+              </h2>
+              <p className="text-white/90 max-w-3xl mx-auto mt-1 drop-shadow-md">
                 Haz clic para explorar
               </p>
             </div>
@@ -95,11 +90,11 @@ const GalleryVillages = () => {
             {/* Info hover */}
             <div className={`absolute inset-x-3 bottom-3 bg-black-900/80 backdrop-blur-sm rounded-2xl p-4 transition-all duration-500 ease-in-out ${hoveredCard === index ? 'translate-y-0 opacity-100 h-auto' : 'translate-y-full opacity-0 h-0'}`}>
               <div className="text-white">
-                <h3 className="text-white font-bold text-lg md:text-2xl drop-shadow-2xl mb-2">
+                <h2 className="text-white font-bold text-lg md:text-2xl drop-shadow-2xl mb-2">
                   {localidad.nombre}
-                </h3>
-                <p className="text-sm text-white/80 line-clamp-3">
-                  Descripción detallada sobre esta localidad...
+                </h2>
+                <p className="max-w-3xl mx-auto text-white/80 line-clamp-3">
+                {localidad.descripcion}
                 </p>
               </div>
             </div>
