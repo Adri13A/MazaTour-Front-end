@@ -7,6 +7,7 @@ import CarouselFoods from './components/carouselFood/CarouselFoods';
 export default function Home() {
   return (
     
+    
     <div> 
 
       <Hero/>

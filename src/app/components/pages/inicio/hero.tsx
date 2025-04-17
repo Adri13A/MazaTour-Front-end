@@ -34,13 +34,13 @@ export default function Hero() {
             </div>
 
             {/*Card flotante derecha */}
-            <div className="absolute right-4 bottom-[10%] z-20 bg-white/20 backdrop-blur-lg rounded-lg p-4 flex items-center gap-3 max-w-[300px]">
+            <div className="absolute right-4 bottom-[10%] z-20 bg-white/20 backdrop-blur-lg rounded-2xl p-4 flex items-center gap-3 max-w-[300px]">
             <Image
             src={heroImg}
             alt="Explora Mazatlán"
-            width={90}
-            height={70}
-            className="rounded-lg object-cover"
+            width={190}
+            height={20}
+            className="rounded-lg "
             />
             </div>
         </section>
