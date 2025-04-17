@@ -1,12 +1,8 @@
 'use client'
-import imagenMain from '@/public/images/Mazatlan-Malecon.jpg';
 import Hero from "./components/pages/inicio/hero";
-import Footer from "./components/layout/footer";
 import CarouselCompanies from "./components/carouselCompanies/CarouselCompanies";
 import GalleryVillages from "./components/gallery/GalleryVillage";
-import CardFoods from './components/carouselFood/CardFoods';
 import CarouselFoods from './components/carouselFood/CarouselFoods';
-
 
 export default function Home() {
   return (
