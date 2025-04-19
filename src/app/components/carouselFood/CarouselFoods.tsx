@@ -11,7 +11,7 @@ const CarouselFoods = () => {
         <h2 className="font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl uppercase text-black">
           UN PEDACITO DE LO NUESTRO
         </h2>
-        <p className="text-ls sm:text-xl md:text-base lg:text-lg text-gray-700 mb-4">
+        <p className="font-semibold text-ls sm:text-xl md:text-base lg:text-lg text-gray-700 mb-3">
           Gastronomía, Tradición y Costumbres
         </p>
         <p className="max-w-3xl mx-auto text-gray-500">

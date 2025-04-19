@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import footerBg from '@/public/images/footer.webp';
 import { locations } from '../../data/locations.js'; 
+import { Heart } from "lucide-react";
 
 interface Localidad {
   nombre: string;
@@ -45,8 +46,13 @@ const GalleryVillages = () => {
         </div>
         
         {/* Texto - Segundo en mobile, primero en desktop */}
-        <div className="w-full md:w-2/3 text-justify md:text-left self-center md:self-start order-2 md:order-1">
-          <p className="text-gray-500 leading-relaxed max-w-2xl mx-auto md:mx-0">
+        <div className="w-full md:w-2/3 text-justify md:text-left order-2 md:order-1 flex flex-col items-center md:items-start">
+          <span className="inline-flex items-center gap-2 text-black py-1 px-5 rounded-2xl bg-gray-200 font-semibold mb-2 justify-center md:justify-start max-w-3xl ">
+            Descubre
+            <Heart 
+            className="w-4 h-4 text-black hover:fill-black transition-all duration-200 cursor-pointer hover:scale-110 hover:animate-pulse"/>
+            </span>
+            <p className="text-gray-500 leading-relaxed max-w-2xl text-center md:text-left">
             Conoce y explora las localidades del puerto de Mazatlán.
             Descubre su historia, tradiciones, cultura y gastronomía,
             entre paisajes de la zona serrana a las playas del Pacífico.
