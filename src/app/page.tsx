@@ -4,6 +4,8 @@ import CarouselCompanies from "./components/carouselCompanies/CarouselCompanies"
 import GalleryVillages from "./components/gallery/GalleryVillage";
 import CarouselFoods from './components/carouselFood/CarouselFoods';
 import GalleryCategories from "./components/gallery/GalleryCategories";
+import CardPlacesRoutes from "./components/cards/CardPlacesRoutes";
+import CarouselPlaces from "./components/carouselPlaces/CarouselPlaces";
 
 export default function Home() {
   return (
@@ -14,6 +16,14 @@ export default function Home() {
     {/* Imagen de Fondo */}
       <section>
         <Hero/>
+      </section>
+
+        {/* Carousel PlacesRoutes */}
+        <section>
+        <div className="p-5 md:pl-20 md:pr-20 md:pt-20 bg-gray-100">
+        {/* <CardPlacesRoutes/> */}
+        <CarouselPlaces/> 
+        </div>
       </section>
 
        {/* Gallery Categories */}

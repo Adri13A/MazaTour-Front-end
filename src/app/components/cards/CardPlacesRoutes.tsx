@@ -1,0 +1,29 @@
+import { ArrowUpRight, MapPin } from "lucide-react";
+
+export default function CardPlacesRoutes() {
+  return (
+    <div className="relative aspect-[3/5] min-w-[120px] max-w-[18rem] w-full h-auto rounded-2xl overflow-hidden shadow-md">
+    {/* Imagen de fondo personalizada */}
+        <div className="absolute inset-0 bg-cover bg-center"></div>
+
+        {/* Icono circular en esquina superior derecha */}
+        <div className="absolute top-2 right-2 w-8 h-8 rounded-full bg-gradient-to-br from-white/20 to-white/5 backdrop-blur-sm flex items-center justify-center shadow-md">
+            <ArrowUpRight className="w-4 h-4 text-white" />
+        </div>
+
+        {/* Texto en parte inferior */}
+        <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent px-3 py-2 sm:px-4 sm:py-3">
+            <div className="flex flex-col items-start gap-1 w-full">
+                <h3 className="text-white font-bold text-xs sm:text-sm md:text-base lg:text-lg drop-shadow leading-snug line-clamp-2">
+                    Nombre Del Lugar
+                </h3>
+
+                <div className="flex items-center gap-2 text-white/80 text-xs sm:text-sm md:text-base">
+                    <MapPin className="w-4 h-4" />
+                    <p className="line-clamp-3">Nombre de la Ruta</p>
+                </div>
+            </div>
+        </div>
+    </div>
+  );
+}
