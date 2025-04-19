@@ -5,6 +5,7 @@ import { locations } from '../../data/locations.js';
 interface Localidad {
   nombre: string;
   descripcion: string;
+  imagen?: string;
 }
 
 const GalleryVillages = () => {
@@ -37,7 +38,7 @@ const GalleryVillages = () => {
       {/* Encabezado */}
       <div className="flex flex-col md:flex-row justify-between mb-12 gap-6">
         {/* Título - Primero en mobile, segundo en desktop */}
-        <div className="w-full md:w-2/3 flex items-center justify-center md:justify-end order-1 md:order-2">
+        <div className="w-full md:w-2/3 flex items-center justify-center md:self-start  order-1 md:order-2">
           <h2 className="font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl uppercase text-black text-center md:text-right">
             DESCUBRE LAS LOCALIDADES QUE NOS RODEAN
           </h2>
@@ -69,7 +70,7 @@ const GalleryVillages = () => {
             {/* Imagen */}
             <div className="absolute inset-0 bg-gray-200">
               <img
-                src={footerBg.src}
+                src={localidad.imagen}
                 alt={localidad.nombre}
                 className="w-full h-full object-cover"
                 loading="lazy"
