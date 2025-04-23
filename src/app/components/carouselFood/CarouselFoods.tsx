@@ -11,14 +11,15 @@ const CarouselFoods = () => {
         <h2 className="font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl uppercase text-black">
           UN PEDACITO DE LO NUESTRO
         </h2>
-        <p className="font-semibold text-ls sm:text-xl md:text-base lg:text-lg text-gray-700 mb-3">
+        <p className="font-semibold text-sm sm:text-xl md:text-base lg:text-lg text-gray-400 mb-3">
           Gastronomía, Tradición y Costumbres
         </p>
-        <p className="max-w-3xl mx-auto text-gray-500">
+        <p className="max-w-3xl mx-auto text-gray-500 text-sm md:text-base">
           El aguachile verde de Mazatlán es un platillo fresco y picante a base de camarones crudos marinados en
           jugo de limón, chiles serranos, cilantro, pepino y cebolla morada. Es un platillo emblemático de la
           gastronomía sinaloense, ideal para climas cálidos y conocido por su sabor cítrico y picante.
         </p>
+
       </div>
 
       {/* Carrusel existente (sin cambios) */}

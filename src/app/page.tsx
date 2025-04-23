@@ -20,7 +20,7 @@ export default function Home() {
 
         {/* Carousel PlacesRoutes */}
         <section>
-        <div className="p-5 md:pl-20 md:pr-20 md:pt-20 bg-gray-100">
+        <div className="p-5 md:pl-20 md:pr-20 md:pt-20 md:pb-0 bg-gray-100">
         {/* <CardPlacesRoutes/> */}
         <CarouselPlaces/> 
         </div>

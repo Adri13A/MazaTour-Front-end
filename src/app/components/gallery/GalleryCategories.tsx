@@ -36,7 +36,7 @@ const GalleryCategories = () => {
     return (
         <div className="">
             {/* Encabezado */}
-            <div className="flex flex-col md:flex-row justify-between items-start mb-12 gap-6">
+            <div className="flex flex-col md:flex-row justify-between items-start mb-12 gap-2">
                 {/* Título - Primero en mobile y desktop */}
                 <div className="w-full md:w-2/3 flex justify-center md:justify-start order-1 md:order-1">
                     <h2 className="font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl uppercase text-black text-center md:text-left">
@@ -53,14 +53,13 @@ const GalleryCategories = () => {
                         />
                     </span>
 
-                    <p className="text-gray-500 leading-relaxed max-w-2xl text-center md:text-right">
+                    <p className="leading-relaxed max-w-3xl text-gray-500 text-sm md:text-base text-center md:text-right">
                         Conoce y explora las localidades del puerto de Mazatlán.
                         Descubre su historia, tradiciones, cultura y gastronomía,
                         entre paisajes de la zona serrana a las playas del Pacífico.
                     </p>
                 </div>
             </div>
-
 
             {/* Galería tipo puzle */}
             <div className="grid grid-cols-2 md:grid-cols-3 auto-rows-[minmax(180px,auto)] gap-4 md:gap-4 w-full">
