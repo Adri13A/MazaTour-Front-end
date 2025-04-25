@@ -1,5 +1,5 @@
 import React from 'react';
-import CardFoods from './CardFoods';
+import CardFoods from '../cards/CardFoods';
 import { foods } from '../../data/foods.js'; 
 import CarouselWrapper from './CarouselWrapper';
 
@@ -11,7 +11,7 @@ const CarouselFoods = () => {
         <h2 className="font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl uppercase text-black">
           UN PEDACITO DE LO NUESTRO
         </h2>
-        <p className="font-semibold text-sm sm:text-xl md:text-base lg:text-lg text-gray-400 mb-3">
+        <p className="font-semibold text-sm sm:text-xl md:text-base lg:text-lg text-gray-500 mb-3">
           Gastronomía, Tradición y Costumbres
         </p>
         <p className="max-w-3xl mx-auto text-gray-500 text-sm md:text-base">

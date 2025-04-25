@@ -22,13 +22,13 @@ export default function CardPlacesRoutes({ imagen, nombreLugar, nombreRuta }: Ca
         {/* Texto en parte inferior */}
         <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent px-3 py-2 sm:px-4 sm:py-3">
             <div className="flex flex-col items-start gap-1 w-full">
-                <h3 className="text-white font-bold text-xs sm:text-sm md:text-base lg:text-lg drop-shadow leading-snug line-clamp-2">
+                <h3 className="text-white font-bold text-lg md:text-2xl drop-shadow-2xl leading-snug line-clamp-2">
                     {nombreLugar}
                 </h3>
 
                 <div className="flex items-center gap-2 text-white/80 text-xs sm:text-sm md:text-base">
                     <MapPin className="w-4 h-4" />
-                    <p className="line-clamp-3">{nombreRuta}</p>
+                    <p className="text-white/90 max-w-3xl mx-auto drop-shadow-md line-clamp-3">{nombreRuta}</p>
                 </div>
             </div>
         </div>
