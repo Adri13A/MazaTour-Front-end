@@ -1,15 +1,27 @@
 import { useState, useRef, useEffect } from "react";
+import { Categoria, Tab } from "../../enums/categories";
 
-const tabs = ["Historia & Cultura", "Parques", "Museos", "Playas", "Naturaleza", "Ver Todas"];
+const tabs: Tab[] = [
+  { id: Categoria.HISTORIA_CULTURA, nombre: "Historia & Cultura" },
+  { id: Categoria.PARQUES, nombre: "Parques" },
+  { id: Categoria.MUSEOS, nombre: "Museos" },
+  { id: Categoria.PLAYAS, nombre: "Playas" },
+  { id: Categoria.NATURALEZA, nombre: "Naturaleza" },
+  { id: Categoria.TODAS, nombre: "Ver Todas" }
+];
 
-export default function NavCategories() {
-  const [activeTab, setActiveTab] = useState("Historia & Cultura");
+interface NavCategoriesProps {
+  onCategoryChange: (categoryId: Categoria) => void;
+}
+
+export default function NavCategories({ onCategoryChange }: NavCategoriesProps) {
+  const [activeTab, setActiveTab] = useState<Categoria>(Categoria.HISTORIA_CULTURA);
   const [indicatorStyle, setIndicatorStyle] = useState({ left: "0px", width: "0px" });
 
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
   useEffect(() => {
-    const currentIndex = tabs.findIndex((t) => t === activeTab);
+    const currentIndex = tabs.findIndex((t) => t.id === activeTab);
     const currentTab = tabRefs.current[currentIndex];
 
     if (currentTab) {
@@ -18,24 +30,28 @@ export default function NavCategories() {
     }
   }, [activeTab]);
 
+  const handleTabClick = (tab: Tab) => {
+    setActiveTab(tab.id);
+    onCategoryChange(tab.id);
+  };
+
   return (
     <div className="relative flex space-x-6 border-b border-gray-300 px-4 sm:px-6 overflow-x-auto">
-      {/* Línea negra animada */}
       <div
-        className="absolute bottom-0 h-[4px] bg-black rounded-full transition-all duration-300"
+        className="absolute bottom-0 h-[3px] bg-black rounded-full transition-all duration-300"
         style={{ left: indicatorStyle.left, width: indicatorStyle.width }}
       />
 
       {tabs.map((tab, index) => (
         <button
-          key={tab}
-          ref={(el) => { tabRefs.current[index] = el; }} // No return value here
-          onClick={() => setActiveTab(tab)}
+          key={tab.id}
+          ref={(el) => { tabRefs.current[index] = el; }}
+          onClick={() => handleTabClick(tab)}
           className={`relative pt-4 pb-4 text-sm transition-colors ${
-            activeTab === tab ? "text-black font-semibold" : "text-gray-500 hover:text-black"
+            activeTab === tab.id ? "text-black font-semibold" : "text-gray-500 hover:text-black"
           }`}
         >
-          {tab}
+          {tab.nombre}
         </button>
       ))}
     </div>

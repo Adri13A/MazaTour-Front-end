@@ -5,9 +5,11 @@ interface CardPlaces {
   readonly imagen: string;
   readonly nombre: string;
   readonly descripcion: string;
+  readonly nombreCategoria: string;
+  readonly idCategoria: number;
 }
 
-export default function CardPlaces({ imagen, nombre, descripcion }: CardPlaces) {
+export default function CardPlaces({ imagen, nombre, descripcion,nombreCategoria, idCategoria }: CardPlaces) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -35,7 +37,10 @@ export default function CardPlaces({ imagen, nombre, descripcion }: CardPlaces) 
         <h3 className="text-white font-bold text-lg md:text-2xl drop-shadow-2xl">
           {nombre}
         </h3>
-        <span className="inline-block mt-1 px-3 py-1 text-white/90 max-w-3xl mx-auto drop-shadow-md rounded-lg backdrop-blur-sm bg-gradient-to-br from-white/10 via-white/5 to-transparent hover:scale-105 transition">
+        <p className="leading-relaxed max-w-3xl text-white/90 text-sm md:text-base">
+        {nombreCategoria}
+        </p>
+        <span className="inline-block mt-4 px-2 py-1 text-white/90 max-w-2xl mx-auto drop-shadow-md rounded-lg backdrop-blur-sm bg-gradient-to-br from-white/10 via-white/5 to-transparent hover:scale-105 transition">
           Ver más
         </span>
       </div>

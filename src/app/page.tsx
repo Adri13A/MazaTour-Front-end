@@ -26,13 +26,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Carousel PlacesRoutes */}
-      <section>
-        <div className="p-5 md:pl-20 md:pr-20 md:pt-20 md:pb-0 bg-gray-100">
-          <NavCategories/> 
-        </div>
-      </section>
-
       {/* Carousel Places */}
       <section>
         <div className="p-5 md:pl-20 md:pr-20 md:pt-20 md:pb-0 bg-gray-100">
