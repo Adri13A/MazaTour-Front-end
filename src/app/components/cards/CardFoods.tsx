@@ -17,7 +17,7 @@ export default function CardFoods({ imagen, nombre }: CardFoodsProps) {
       {/* Capa con degradado y contenido */}
       <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent px-3 py-2 sm:px-4 sm:py-3">
         <div className="flex items-end justify-between gap-2 w-full">
-          <h3 className="text-white font-bold text-xs sm:text-sm md:text-base lg:text-lg drop-shadow leading-snug line-clamp-2">
+          <h3 className="text-white font-bold text-lg md:text-2xl drop-shadow-2xl leading-snug line-clamp-2">
             {nombre}
           </h3>
 

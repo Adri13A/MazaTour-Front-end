@@ -48,7 +48,7 @@ const CarouselWrapper = ({
             spaceBetween: 14
           },
           400: {
-            slidesPerView: 3,
+            slidesPerView: 2,
             spaceBetween: 14
           },
           576: {
@@ -64,7 +64,7 @@ const CarouselWrapper = ({
             spaceBetween: 20
           },
           900: {
-            slidesPerView: 4,
+            slidesPerView: 3,
             spaceBetween: 22
           },
           1024: {
@@ -72,7 +72,7 @@ const CarouselWrapper = ({
             spaceBetween: 24
           },
           1200: {
-            slidesPerView: 5,
+            slidesPerView: 4,
             spaceBetween: 26
           },
           1400: {

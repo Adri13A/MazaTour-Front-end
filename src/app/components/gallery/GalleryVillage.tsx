@@ -37,7 +37,7 @@ const GalleryVillages = () => {
   return (
     <div className="">
       {/* Encabezado */}
-      <div className="flex flex-col md:flex-row justify-between mb-12 gap-6">
+      <div className="flex flex-col md:flex-row justify-between mb-12 gap-2">
         {/* Título - Primero en mobile, segundo en desktop */}
         <div className="w-full md:w-2/3 flex items-center justify-center md:self-start  order-1 md:order-2">
           <h2 className="font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl uppercase text-black text-center md:text-right">
@@ -52,7 +52,7 @@ const GalleryVillages = () => {
             <Heart 
             className="w-4 h-4 text-black hover:fill-black transition-all duration-200 cursor-pointer hover:scale-110 hover:animate-pulse"/>
             </span>
-            <p className="text-gray-500 leading-relaxed max-w-2xl text-center md:text-left">
+            <p className="leading-relaxed max-w-3xl text-gray-500 text-sm md:text-base text-center md:text-left">
             Conoce y explora las localidades del puerto de Mazatlán.
             Descubre su historia, tradiciones, cultura y gastronomía,
             entre paisajes de la zona serrana a las playas del Pacífico.
