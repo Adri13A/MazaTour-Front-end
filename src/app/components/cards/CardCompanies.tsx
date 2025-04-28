@@ -1,10 +1,10 @@
 import React from 'react';
 
 interface CardCompaniesProps {
-  imagen: string;
-  nombre: string;
-  descripcion: string;
-  ubicacion: string;
+  readonly imagen: string;
+  readonly nombre: string;
+  readonly descripcion: string;
+  readonly ubicacion: string;
 };
 
 export default function CardCompanies({ imagen, nombre, descripcion, ubicacion }: CardCompaniesProps) {

@@ -1,9 +1,10 @@
 import panamaImage from '@/public/images/companies/panama.webp';
+import footerImage from '@/public/images/footer.webp';
 
 export const companies = [
     
     {
-id: 1,
+    id: 1,
     imagen: panamaImage.src,
     nombre: 'Panamá',
     descripcion: 'Repostería, panadería y restaurante desde 1974.',
@@ -11,7 +12,7 @@ id: 1,
     },
     {
       id: 2,
-      imagen: panamaImage.src,
+      imagen: footerImage.src,
       nombre: 'Cafe Marino',
       descripcion: 'Cafe, sabores e Historia desde 1950 ',
       ubicacion: 'Puente Juarez'

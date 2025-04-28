@@ -1,0 +1,12 @@
+/* Elimina por completo la paginación */
+.swiper-pagination {
+  display: none !important;
+}
+
+/* No necesitas estos si ya no se usan */
+.custom-bullet {
+  display: none !important;
+}
+.swiper-pagination-bullet-active.custom-bullet {
+  display: none !important;
+}
