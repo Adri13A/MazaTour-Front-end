@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Loader } from 'lucide-react';
+import { LoaderCircle } from 'lucide-react';
 import Image from "next/image";
 
 type WeatherData = {
@@ -37,7 +37,7 @@ export default function Weather() {
     }, []);
 
     if (!weatherData) {
-        return <div  className={`weather-info`}> <span>Cargando</span><Loader size={24}/></div>;
+        return <div  className={`weather-info`}> <span>Cargando</span><LoaderCircle size={24}/></div>;
     }
 
     return (
