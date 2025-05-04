@@ -7,6 +7,7 @@ import GalleryCategories from "./components/gallery/GalleryCategories";
 import CarouselPlaces from "./components/carouselPlaces/CarouselPlaces";
 import CarouselPlacesRoutes from "./components/carouselPlacesRoutes/CarouselPlacesRoutes";
 import NavCategories from "./components/navs/NavCategories";
+import HistorySection from "./components/history/HistorySection";
 
 export default function Home() {
   return (
@@ -30,6 +31,13 @@ export default function Home() {
       <section>
         <div className="p-5 md:pl-20 md:pr-20 md:pt-20 md:pb-0 bg-gray-100">
           <CarouselPlaces />
+        </div>
+      </section>
+
+      {/* History Section */}
+       <section>
+        <div className="p-5 md:pl-20 md:pr-20 md:pt-20 md:pb-0 bg-gray-100">
+          <HistorySection />
         </div>
       </section>
 
