@@ -57,7 +57,7 @@ export default function Home() {
 
 
        {/* Gallery Villages */}
-       <section>
+      <section>
         <div className="p-5 md:p-20 bg-gray-100">
           <GalleryVillages />
         </div>
@@ -70,7 +70,6 @@ export default function Home() {
           <CarouselCompanies />
         </div>
       </section>
-
     </div>
   );
 }
