@@ -8,7 +8,7 @@ export default function HistorySection() {
       {/* Columna izquierda: contenido principal */}
       <div className="w-full lg:w-1/2 flex flex-col">
       {/* Subtítulo */}
-      <p className="text-gray-500 text-xs sm:text-sm md:text-base lg:text-lg mb-3">
+      <p className="font-semibold text-sm sm:text-xl md:text-base lg:text-lg text-gray-500">
         Descubre Historia y Tradiciones
       </p>
 

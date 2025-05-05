@@ -20,7 +20,7 @@ const CarouselPlaces = () => {
         <div className="w-full md:w-2/3 order-1 md:order-1">
           {/* Título */}
           <div className="flex flex-col text-center md:text-left mb-4">
-            <p className="font-semibold text-sm sm:text-xl md:text-base lg:text-lg text-gray-500 mb-1 md:mb-2">
+            <p className="font-semibold text-sm sm:text-xl md:text-base lg:text-lg text-gray-500 mb-1">
               Conoce Maztlán
             </p>
             <h2 className="font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl uppercase text-black text-center md:text-left">
