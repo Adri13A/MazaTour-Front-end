@@ -4,7 +4,6 @@ import CarouselWrapper from './CarouselWrapper';
 import CardPlaces from '../cards/CardPlaces';
 import NavCategories from '../navs/NavCategories';
 import { Categoria } from '../../enums/categories';
-import { ArrowUpRightIcon } from 'lucide-react';
 
 const CarouselPlaces = () => {
   const [selectedCategory, setSelectedCategory] = useState<Categoria>(Categoria.HISTORIA_CULTURA);
@@ -55,7 +54,6 @@ const CarouselPlaces = () => {
             imagen={place.imagen}
             nombre={place.nombre}
             descripcion={place.descripcion}
-            idCategoria={place.idCategoria}
             nombreCategoria={place.nombreCategoria}
           />
         ))}

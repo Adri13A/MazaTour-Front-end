@@ -1,5 +1,6 @@
 import { HeartIcon, Heart } from "lucide-react";
-import panamabg from '@/public/images/companies/panama.webp';
+import panama from '@/public/images/companies/panama.webp';
+import Image from "next/image";
 
 export default function HistorySection() {
   return (
@@ -64,8 +65,9 @@ export default function HistorySection() {
       {/* Columna derecha: Imagen */}
       <div className="w-full lg:w-1/2 mt-8 lg:mt-0 lg:sticky lg:top-4">
         <div className="relative w-full h-full min-h-[300px] lg:min-h-[450px] rounded-2xl overflow-hidden shadow-lg">
-        <img 
-            src={panamabg.src} 
+          <Image
+            fill 
+            src={panama.src} 
             alt="Mazatlán histórico y cultural" 
             className="w-full h-full object-cover absolute inset-0"
           />

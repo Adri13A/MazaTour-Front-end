@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { categories } from '../../data/categories.js';
 import { Heart } from 'lucide-react';
+import Image from "next/image";
 
 interface Categories {
     nombre: string;
@@ -77,7 +78,8 @@ const GalleryCategories = () => {
                         {/* Imagen */}
                         <div className="absolute inset-0 bg-gray-200">
                             {categoria.imagen ? (
-                                <img
+                                <Image
+                                fill
                                 src={categoria.imagen}
                                 alt={categoria.nombre}
                                 className="w-full h-full object-cover"

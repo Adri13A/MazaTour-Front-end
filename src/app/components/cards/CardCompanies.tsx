@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from "next/image";
 
 interface CardCompaniesProps {
   readonly imagen: string;
@@ -12,8 +13,9 @@ export default function CardCompanies({ imagen, nombre, descripcion, ubicacion }
     <div className="relative w-full aspect-[4/2] md:aspect-[6/2] overflow-hidden rounded-2xl">
       {/* Imagen de fondo */}
       <div className="absolute inset-0 bg-gray-300">
-        <img 
+        <Image  
           src={imagen}
+          fill
           alt={`Negocios locales ${nombre}`}
           className="w-full h-full object-cover"
         />

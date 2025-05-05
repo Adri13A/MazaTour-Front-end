@@ -6,7 +6,6 @@ import CarouselFoods from './components/carouselFood/CarouselFoods';
 import GalleryCategories from "./components/gallery/GalleryCategories";
 import CarouselPlaces from "./components/carouselPlaces/CarouselPlaces";
 import CarouselPlacesRoutes from "./components/carouselPlacesRoutes/CarouselPlacesRoutes";
-import NavCategories from "./components/navs/NavCategories";
 import HistorySection from "./components/history/HistorySection";
 
 export default function Home() {
