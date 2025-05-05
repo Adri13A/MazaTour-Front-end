@@ -10,19 +10,17 @@ import NavCategories from "./components/navs/NavCategories";
 
 export default function Home() {
   return (
-    
-    
-    <div> 
 
-    {/* Imagen de Fondo */}
-      <section>
-        <Hero/>
-      </section>
+    <div>
+
+      {/* Imagen de Fondo */}
+      <Hero/>
+
 
       {/* Carousel PlacesRoutes */}
       <section>
         <div className="p-5 md:pl-20 md:pr-20 md:pt-20 md:pb-0 bg-gray-100">
-          <CarouselPlacesRoutes/> 
+          <CarouselPlacesRoutes/>
         </div>
       </section>
 
@@ -55,7 +53,7 @@ export default function Home() {
         </div>
       </section>
 
-      
+
       {/* Carousel Companies Definidos en el componente pare tener el efecto */}
       <section>
         <div className="bg-gray-100">
