@@ -21,35 +21,35 @@ export default function Home() {
 
       {/* Carousel PlacesRoutes */}
       <section>
-        <div className="p-5 md:pl-20 md:pr-20 md:pt-20 md:pb-0 bg-gray-100">
+        <div className="p-5 md:pl-20 md:pr-20 md:pb-10 md:pt-10 bg-gray-100">
           <CarouselPlacesRoutes/> 
         </div>
       </section>
 
       {/* Carousel Places */}
       <section>
-        <div className="p-5 md:pl-20 md:pr-20 md:pt-20 md:pb-0 bg-gray-100">
+        <div className="p-5 md:pl-20 md:pr-20 md:pb-10 md:pt-10 bg-gray-100">
           <CarouselPlaces />
         </div>
       </section>
 
       {/* History Section */}
        <section>
-        <div className="p-5 md:pl-20 md:pr-20 md:pt-20 md:pb-0 bg-gray-100">
+        <div className="p-5 md:pl-20 md:pr-20 md:pb-10 md:pt-10 bg-gray-100">
           <HistorySection />
         </div>
       </section>
 
        {/* Gallery Categories */}
       <section>
-        <div className="p-5 md:p-20 bg-gray-100">
+        <div className="p-5 md:pl-20 md:pr-20 md:pb-10 md:pt-10 bg-gray-100">
           <GalleryCategories />
         </div>
       </section>
 
       {/* Carousel Foods Definidos en el componente pare tener el efecto */}
       <section>
-      <div className="p-5 md:pl-20 md:pr-20 bg-gray-100">
+      <div className="p-5 md:pl-20 md:pr-20 md:pb-10 md:pt-10 bg-gray-100">
         <CarouselFoods />
         </div>
       </section>
@@ -57,7 +57,7 @@ export default function Home() {
 
        {/* Gallery Villages */}
       <section>
-        <div className="p-5 md:p-20 bg-gray-100">
+        <div className="p-5 md:pl-20 md:pr-20 md:pb-10 md:pt-10 bg-gray-100">
           <GalleryVillages />
         </div>
       </section>
@@ -65,7 +65,7 @@ export default function Home() {
       
       {/* Carousel Companies Definidos en el componente pare tener el efecto */}
       <section>
-        <div className="bg-gray-100">
+        <div className="md:pb-10 md:pt-10 bg-gray-100">
           <CarouselCompanies />
         </div>
       </section>

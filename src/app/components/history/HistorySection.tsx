@@ -18,7 +18,7 @@ export default function HistorySection() {
       </h2>
 
       {/* Texto de introducción */}
-      <p className="text-gray-500 text-base mb-8 mt-8 leading-7 text-justify">
+      <p className="text-gray-500 text-base mb-8 mt-8 text-justify">
         Explora los distintos puntos de interés turístico y cultural a los que puedes
         llegar fácilmente a través de las variadas rutas que conectan el puerto.
         Agrega más información sobre la historia y las tradiciones locales.
@@ -44,10 +44,11 @@ export default function HistorySection() {
         </div>
       </div>
       {/* Texto final */}
-      <p className="text-gray-500 text-base mb-6">
+      <p className="text-gray-500 text-base mb-6 text-center md:text-left">
         Explora los distintos puntos de interés turístico y cultural a los que puedes
         llegar fácilmente.
       </p>
+
 
       {/* Botón "Descubre" responsivo */}
       <div className="text-center md:text-left">
