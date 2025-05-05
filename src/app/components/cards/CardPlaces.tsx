@@ -6,10 +6,9 @@ interface CardPlaces {
   readonly nombre: string;
   readonly descripcion: string;
   readonly nombreCategoria: string;
-  readonly idCategoria: number;
 }
 
-export default function CardPlaces({ imagen, nombre, descripcion,nombreCategoria, idCategoria }: CardPlaces) {
+export default function CardPlaces({ imagen, nombre, descripcion,nombreCategoria }: CardPlaces) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
