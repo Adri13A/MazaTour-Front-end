@@ -1,6 +1,6 @@
 import React from 'react';
-import CardFoods from '../cards/CardFoods';
-import { foods } from '../../data/foods.js'; 
+import CardFoods from '../../../../components/cards/CardFoods';
+import { foods } from '../../../../data/foods'; 
 import CarouselWrapper from './CarouselWrapper';
 
 const CarouselFoods = () => {

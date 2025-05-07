@@ -56,7 +56,7 @@ const slides = [
     heroImg: heroRuta as StaticImageData,
     title: 'RUTAS',
     subtitle: 'Conoce las diferentes rutas que recorren el puerto...',
-    link: 'https://mazatlan.travel/',
+    link: 'https://google.com/',
     verticalText: 'RUTA SABALO',
     card: {
       title: 'ATRACCIONES',

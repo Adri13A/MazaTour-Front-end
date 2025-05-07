@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { locations } from '../../data/locations.js'; 
+import { locations } from '../../../../data/locations'; 
 import { Heart } from "lucide-react";
 import Image from "next/image";
 
