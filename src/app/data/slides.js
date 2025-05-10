@@ -43,7 +43,7 @@ export const slides = [
     heroImg: heroRuta,
     title: 'RUTAS',
     subtitle: 'Conoce las diferentes rutas que recorren el puerto...',
-    link: 'https://mazatlan.travel/',
+    link: 'routing/transportation/listTransportation',
     verticalText: 'RUTA SABALO',
     card: {
       title: 'ATRACCIONES',
