@@ -34,9 +34,9 @@
   .footer-logo-column {
     @apply lg:w-1/4;
   }
-  
+
   .footer-logo {
-    @apply flex tracking-widest text-3xl sm:text-4xl font-gantari font-semibold text-white;
+    @apply tracking-widest text-3xl sm:text-4xl font-gantari font-semibold text-white;
   }
   
   .footer-divider {
@@ -44,7 +44,7 @@
   }
   
   .footer-explore-btn {
-    @apply inline-flex items-center text-white uppercase text-sm sm:text-base border border-white px-8 py-1 rounded-full hover:bg-white hover:text-black transition-colors;
+    @apply inline-flex items-center text-white uppercase text-sm sm:text-base border border-white px-8 py-1 rounded-lg hover:bg-white hover:text-black transition-colors;
   }
   
   .footer-vertical-divider {
