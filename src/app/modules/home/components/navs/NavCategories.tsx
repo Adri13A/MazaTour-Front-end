@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { Categoria, Tab } from "../../enums/categories";
+import { Categoria, Tab } from "../../utils/enums/categories";
 
 const tabs: Tab[] = [
   { id: Categoria.HISTORIA_CULTURA, nombre: "Historia & Cultura" },
