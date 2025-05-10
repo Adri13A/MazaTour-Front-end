@@ -10,14 +10,12 @@ import HistorySection from "./modules/home/components/histories/HistorySection";
 
 export default function Home() {
   return (
-    
-    
-    <div> 
 
-    {/* Imagen de Fondo */}
-      <section>
-        <Hero/>
-      </section>
+    <div>
+
+      {/* Imagen de Fondo */}
+      <Hero/>
+
 
       {/* Carousel PlacesRoutes */}
       <section>
@@ -56,13 +54,13 @@ export default function Home() {
 
 
        {/* Gallery Villages */}
-      <section>
-        <div className="p-5 md:pl-20 md:pr-20 md:pb-10 md:pt-10 bg-white">
+       <section>
+        <div className="p-5 md:p-20 bg-gray-100">
           <GalleryVillages />
         </div>
       </section>
 
-      
+
       {/* Carousel Companies Definidos en el componente pare tener el efecto */}
       <section>
         <div className="md:pb-10 md:pt-10 bg-white">

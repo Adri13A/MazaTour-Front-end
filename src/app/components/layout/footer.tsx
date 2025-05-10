@@ -21,7 +21,7 @@ export default function Footer() {
             </p>
           </div>
         </div>
-      
+
         {/* Sección Inferior con efecto glass */}
         <div className="footer-bottom-section">
           {/* Contenido Principal */}
@@ -47,7 +47,7 @@ export default function Footer() {
               <div className="footer-info-section">
                 <p className="footer-section-title">Acerca de Nosotros</p>
                 <ul className="footer-link-list">
-                  <li><a href="#!" className="footer-link">Quiénes somos</a></li>
+                  <li><a href="#!" className="footer-link">¿Quiénes somos?</a></li>
                   <li><a href="#!" className="footer-link">Nuestra historia</a></li>
                   <li><a href="#!" className="footer-link">Misión y visión</a></li>
                   <li><a href="#!" className="footer-link">¿Por qué Mazatlán?</a></li>
@@ -58,7 +58,7 @@ export default function Footer() {
               <div className="footer-info-section">
                 <p className="footer-section-title">Contacto</p>
                 <ul className="footer-link-list">
-                  <li><p className="footer-contact-info">#100 Av Miguel Aleman, Mazatlan, Mexico</p></li>
+                  <li><p className="footer-contact-info">#100 Av Miguel Aleman, Mazatlán, México</p></li>
                   <li><p className="footer-contact-info">(669) 000-0000</p></li>
                   <li><p className="footer-contact-info">TransMaz@gmail.com</p></li>
                 </ul>
@@ -83,7 +83,7 @@ export default function Footer() {
 
             {/* Copyright */}
             <div className="footer-copyright">
-              Copyright © 2025. All Rights Reserved. Visita Mazatlan, Conoce Mazatlan
+              Copyright © 2025. All Rights Reserved. Visita, Conoce Mazatlán
             </div>
 
             {/* Términos */}

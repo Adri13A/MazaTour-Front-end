@@ -8,6 +8,6 @@ interface BadgeProps {
 
 export default function Badge({ text }: BadgeProps) {
     return (
-        <div className="miniCard-container">{text}</div>
+        <span className="badge-container">{text}</span>
     );
 }

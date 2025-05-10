@@ -53,7 +53,7 @@ const navVariants: Variants = {
     hidden: { y: 80, opacity: 0 },
     show:  { y: 0, opacity: 1, transition: { type: 'spring', stiffness: 100, damping: 20 } }
   };
-  
+
 
 interface MenuItemProps {
     item: {
@@ -139,9 +139,14 @@ export default function Header() {
     const [highlight, setHighlightStyle] = useState({ left: 0, width: 0 });
     const menuRef = useRef<HTMLDivElement | null>(null);
 
-    const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
-    const [dockHighlight, setDockHighlight] = useState({ left: 0, width: 0 });
-    const dockRef = useRef<HTMLDivElement | null>(null);
+     // Nuevos estados para controlar el dock móvil
+     const [isDockVisible, setIsDockVisible] = useState(true);
+     const lastScrollY = useRef(0);
+     const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
+     const dockRef = useRef<HTMLDivElement | null>(null);
+     const [dockHighlight, setDockHighlight] = useState({ left: 0, width: 0 });
+
+
 
     const menuItems = [
         { name: 'Inicio' },
@@ -188,6 +193,29 @@ export default function Header() {
             setDockHighlight({ left: 0, width: 0 });
         };
     }, [active]);
+
+    // Efecto para detectar dirección del scroll
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+            const scrollDifference = currentScrollY - lastScrollY.current;
+
+            // Umbral de 5px para evitar activaciones múltiples
+            if (Math.abs(scrollDifference) > 5) {
+                if (scrollDifference > 0) {
+                    // Scroll hacia abajo
+                    setIsDockVisible(false);
+                } else {
+                    // Scroll hacia arriba
+                    setIsDockVisible(true);
+                }
+                lastScrollY.current = currentScrollY;
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     return (
         <>
@@ -247,16 +275,18 @@ export default function Header() {
 
             </motion.nav>
 
-            {/* Dock Móvil */}
+           {/* Dock Móvil Modificado */}
             <motion.div
                 ref={dockRef}
                 className="dock mobile-menu"
+                variants={dockVariants}
+                initial="show"
+                animate={isDockVisible ? "show" : "hidden"}
+                transition={{ type: 'spring', stiffness: 100, damping: 20 }}
                 onTouchStart={() => {
                     updateDockHighlight(active);
                     setHovered(null);
-                }}variants={dockVariants}
-                initial="hidden"
-                animate="show"
+                }}
             >
                 <motion.div
                     className="menu-highlight"
@@ -272,10 +302,15 @@ export default function Header() {
                     const isDropdownOpen = mobileDropdown === item.name;
 
                     return (
-                        <motion.div key={`mobile-${item.name}`} className="relative dropdown dropdown-top dropdown-end" variants={containerVariants}>
+                        <motion.div 
+                            key={`mobile-${item.name}`} 
+                            className="relative dropdown dropdown-top dropdown-end"
+                            variants={containerVariants}
+                        >
                             <motion.button
                                 id={`mobile-${item.name}`}
-                                onTouchStart={() => {
+
+                                onClick={() => {
                                     updateDockHighlight(item.name);
                                     setActive(item.name);
                                     if (item.dropdown) {
@@ -284,7 +319,6 @@ export default function Header() {
                                         setMobileDropdown(null);
                                     }
                                 }}
-                                onClick={() => setActive(item.name)}
                                 className={`menu-button w-full flex flex-col items-center ${isActive ? 'menu-button-active' : 'menu-button-inactive'}`}
                                 aria-label={`Botón móvil para ${item.name}`}
                                 whileHover={{ scale:1.1 }}
