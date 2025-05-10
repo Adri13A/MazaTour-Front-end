@@ -1,7 +1,7 @@
 import React from 'react';
 import CarouselWrapper from './CarouselWrapper';
-import CardCompanies from '../cards/CardCompanies';
-import { companies } from '../../data/companies.js'; 
+import CardCompanies from '../../../../components/cards/CardCompanies';
+import { companies } from '../../../../data/companies.js'; 
 
 const CarouselCompanies = () => {
   return (

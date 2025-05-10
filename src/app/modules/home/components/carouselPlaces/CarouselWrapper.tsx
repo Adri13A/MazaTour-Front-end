@@ -4,7 +4,7 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "../../../styles/CarouselWrapper.css";
+import "../../../../../styles/CarouselWrapper.css";
 
 interface CarouselWrapperProps {
   children: ReactNode;
@@ -48,7 +48,7 @@ const CarouselWrapper = ({
             spaceBetween: 14
           },
           400: {
-            slidesPerView: 3,
+            slidesPerView: 2,
             spaceBetween: 14
           },
           576: {
@@ -68,15 +68,15 @@ const CarouselWrapper = ({
             spaceBetween: 22
           },
           1024: {
-            slidesPerView: 3,
+            slidesPerView: 4,
             spaceBetween: 24
           },
           1200: {
-            slidesPerView: 3,
+            slidesPerView: 4,
             spaceBetween: 26
           },
           1400: {
-            slidesPerView: 4,
+            slidesPerView: 5,
             spaceBetween: 28
           }
         }}

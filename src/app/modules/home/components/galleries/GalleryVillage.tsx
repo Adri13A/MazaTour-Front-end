@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import footerBg from '@/public/images/footer.webp';
-import { locations } from '../../data/locations.js'; 
+import { locations } from '../../../../data/locations'; 
 import { Heart } from "lucide-react";
+import Image from "next/image";
 
 interface Localidad {
   nombre: string;
   descripcion: string;
-  imagen?: string;
+  imagen: string;
 }
 
 const GalleryVillages = () => {
@@ -75,7 +75,8 @@ const GalleryVillages = () => {
           >
             {/* Imagen */}
             <div className="absolute inset-0 bg-gray-200">
-              <img
+              <Image
+                fill
                 src={localidad.imagen}
                 alt={localidad.nombre}
                 className="w-full h-full object-cover"
