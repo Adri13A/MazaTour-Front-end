@@ -1,12 +1,12 @@
 import React from 'react';
 import { Camera, MapPin } from "lucide-react";
 import CarouselWrapper from './CarouselWrapper';
-import CardPlacesRoutes from '../../../../components/cards/CardPlacesRoutes';
+import CardPlacesRoutes from '../../../../components/cards/CardPlacesTransportation';
 import { placesRoutes } from '../../../../data/placesRoutes.js'; 
 import CountUp from "react-countup";
 import FadeInView from "../../../../components/FadeInView";
 
-const CarouselPlacesRoutes = () => {
+const CarouselPlacesTransportation = () => {
   return (
     <div className="w-full space-y-4 md:space-y-6">
       {/* Título (optimizado para tablets) */}
@@ -115,4 +115,4 @@ const CarouselPlacesRoutes = () => {
   );
 };
 
-export default CarouselPlacesRoutes;
+export default CarouselPlacesTransportation;

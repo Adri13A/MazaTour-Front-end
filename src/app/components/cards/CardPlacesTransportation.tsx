@@ -1,12 +1,12 @@
 import { ArrowUpRight, MapPin } from "lucide-react";
 
-interface CardPlacesRoutesProps {
+interface CardPlacesTransportationProps {
     readonly imagen: string;
     readonly nombreLugar: string;
     readonly nombreRuta: string;
   }
   
-export default function CardPlacesRoutes({ imagen, nombreLugar, nombreRuta }: CardPlacesRoutesProps) {
+export default function CardPlacesTransportation({ imagen, nombreLugar, nombreRuta }: CardPlacesTransportationProps) {
   return (
     <div className="relative aspect-[3/5] min-w-[120px] max-w-[18rem] w-full h-auto rounded-2xl overflow-hidden shadow-md">
     {/* Imagen de fondo personalizada */}

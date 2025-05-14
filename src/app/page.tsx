@@ -5,8 +5,8 @@ import GalleryVillages from "./modules/home/components/galleries/GalleryVillage"
 import CarouselFoods from './modules/home/components/carouselFood/CarouselFoods';
 import GalleryCategories from "./modules/home/components/galleries/GalleryCategories";
 import CarouselPlaces from "./modules/home/components/carouselPlaces/CarouselPlaces";
-import CarouselPlacesRoutes from "./modules/home/components/carouselPlacesRoutes/CarouselPlacesRoutes";
 import HistorySection from "./modules/home/components/histories/HistorySection";
+import CarouselPlacesTransportation from "./modules/home/components/carouselPlacesTransportation/CarouselPlacesTransportation";
 
 export default function Home() {
   return (
@@ -20,8 +20,9 @@ export default function Home() {
       {/* Carousel PlacesRoutes */}
       <section>
         <div className="p-5 md:pl-20 md:pr-20 md:pb-10 md:pt-10 bg-white">
-          <CarouselPlacesRoutes/> 
+          <CarouselPlacesTransportation/> 
         </div>
+
       </section>
 
       {/* Carousel Places */}
