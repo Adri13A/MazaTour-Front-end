@@ -14,7 +14,7 @@ interface NavCategoriesProps {
   onCategoryChange: (categoryId: Categoria) => void;
 }
 
-export default function NavCategories({ onCategoryChange }: NavCategoriesProps) {
+export default function NavCategories({ onCategoryChange }: Readonly<NavCategoriesProps>) {
   const [activeTab, setActiveTab] = useState<Categoria>(Categoria.HISTORIA_CULTURA);
   const [indicatorStyle, setIndicatorStyle] = useState({ left: "0px", width: "0px" });
 
@@ -36,10 +36,11 @@ export default function NavCategories({ onCategoryChange }: NavCategoriesProps) 
   };
 
   return (
-    <div className="relative flex space-x-6 border-b border-gray-300 px-4 sm:px-6 overflow-x-auto">
+    <div className="relative flex space-x-6 border-b border-gray-300 px-4 sm:px-6 overflow-x-auto" 
+    >
       <div
-        className="absolute bottom-0 h-[3px] bg-black rounded-full transition-all duration-300"
-        style={{ left: indicatorStyle.left, width: indicatorStyle.width }}
+        className="absolute bottom-0 h-[3px] rounded-full transition-all duration-300"
+        style={{ left: indicatorStyle.left, width: indicatorStyle.width,  background: "var(--color-accent2)"  }}
       />
 
       {tabs.map((tab, index) => (
@@ -48,11 +49,14 @@ export default function NavCategories({ onCategoryChange }: NavCategoriesProps) 
           ref={(el) => { tabRefs.current[index] = el; }}
           onClick={() => handleTabClick(tab)}
           className={`relative pt-4 pb-4 text-sm transition-colors ${
-            activeTab === tab.id ? "text-black font-semibold" : "text-gray-500 hover:text-black"
+            activeTab === tab.id
+              ? "text-[var(--color-accent2)] font-semibold"
+              : "text-gray-500 hover:text-[var(--color-accent2)]"
           }`}
         >
           {tab.nombre}
         </button>
+
       ))}
     </div>
   );
