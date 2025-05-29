@@ -15,15 +15,15 @@ export default function CardFoods({ imagen, nombre }: CardFoodsProps) {
       ></div>
 
       {/* Capa con degradado y contenido */}
-      <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent px-3 py-2 sm:px-4 sm:py-3">
-        <div className="flex items-end justify-between gap-2 w-full">
-          <h3 className="text-white font-bold text-lg md:text-2xl drop-shadow-2xl leading-snug line-clamp-2">
-            {nombre}
-          </h3>
+        <div className="absolute bottom-0 left-0 w-full px-3 py-2 sm:px-4 sm:py-3 faded-black">
+          <div className="flex items-end justify-between gap-2 w-full">
+            <h3 className="card-title"> 
+              {nombre}
+            </h3>
 
-          <div className="backdrop-blur-md bg-white/10 border border-white/20 rounded-full p-1 sm:p-1.5">
-            <Utensils className="text-white w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5" />
-          </div>
+            <div className="backdrop-blur-md bg-white/10 border border-white/20 rounded-full p-1 sm:p-1.5">
+              <Utensils className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5"style={{ color: "var(--color-accent2)" }} />
+            </div>
         </div>
       </div>
     </div>

@@ -69,24 +69,21 @@ export default function HistorySection() {
 
       {/* Columna derecha: Imagen */}
       <div className="w-full lg:w-1/2 mt-8 lg:mt-0 lg:sticky lg:top-4">
-              <FadeInView direction="right" duration={2}>
-        <div className="relative w-full h-full min-h-[300px] lg:min-h-[450px] rounded-2xl overflow-hidden shadow-lg">
-          <Image
-            fill 
-            src={panama.src} 
-            alt="Mazatlán histórico y cultural" 
-            className="w-full h-full object-cover absolute inset-0"
-          />
-
-          <div className="absolute inset-0 faded-black"></div>
-          
-          <div className="absolute bottom-0 left-0 p-6 text-white z-10">
-            <h2 className="font-bold text-lg md:text-2xl drop-shadow-2xl">Mazatlán Tradicional</h2>
-            <p className=" max-w-3xl mx-auto drop-shadow-md">Descubre nuestra rica historia</p>
+        <FadeInView direction="right" duration={2}>
+          <div className="relative w-full h-full min-h-[300px] lg:min-h-[450px] rounded-2xl overflow-hidden shadow-lg">
+            <Image
+              fill 
+              src={panama.src} 
+              alt="Mazatlán histórico y cultural" 
+              className="w-full h-full object-cover absolute inset-0"
+            />
+            <div className="absolute inset-0 faded-black"></div>
+            <div className="absolute bottom-0 left-0 p-6 text-white z-10">
+              <h2 className="font-bold text-lg md:text-2xl drop-shadow-2xl">Mazatlán Tradicional</h2>
+              <p className=" max-w-3xl mx-auto drop-shadow-md">Descubre nuestra rica historia</p>
+            </div>    
           </div>
-          
-        </div>
-                </FadeInView>
+        </FadeInView>
 
       </div>
     </div>

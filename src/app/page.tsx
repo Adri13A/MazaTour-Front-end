@@ -56,7 +56,7 @@ export default function Home() {
 
        {/* Gallery Villages */}
        <section>
-        <div className="p-5 md:p-20 bg-gray-100">
+      <div className="p-5 md:pl-20 md:pr-20 md:pb-10 md:pt-10 bg-white">
           <GalleryVillages />
         </div>
       </section>
