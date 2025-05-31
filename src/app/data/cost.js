@@ -1,10 +1,13 @@
-import panamaImage from '@/public/images/companies/panama.webp';
+import normalImage from '@/public/images/costs/normal.jpg';
+import sabaloImage from '@/public/images/costs/sabalo.jpeg';
+import estudianteImage from '@/public/images/costs/estudiante.webp';
+import aireImage from '@/public/images/costs/aire.jpg';
 
 export const costs = [
     
     {
       id: 1,
-      imagen: panamaImage.src,
+      imagen: estudianteImage.src,
       tipoUnidad: 'Unidades en general',
       tipoPago: 'Efectivo y Tajerta',
       tipoPasaje:'Estudiante',
@@ -12,7 +15,7 @@ export const costs = [
     },
     {
       id: 2,
-      imagen: panamaImage.src,
+      imagen: normalImage.src,
       tipoUnidad: 'Unidades sin aire',
       tipoPago: 'Solo Efectivo',
       tipoPasaje:'Normal',
@@ -20,7 +23,7 @@ export const costs = [
     },
     {
       id: 3,
-      imagen: panamaImage.src,
+      imagen: aireImage.src,
       tipoUnidad: 'Unidades con aire',
       tipoPago: 'Solo Efectivo',
       tipoPasaje:'Con Aire',
@@ -28,7 +31,7 @@ export const costs = [
     },
     {
       id: 4,
-      imagen: panamaImage.src,
+      imagen: sabaloImage.src,
       tipoUnidad: 'Unidades con aire',
       tipoPago: 'Solo Efectivo',
       tipoPasaje:'Sábalo Centro',

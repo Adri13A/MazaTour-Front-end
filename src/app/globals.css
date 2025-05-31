@@ -78,11 +78,11 @@ body {
 }
 
 .card-subtitle{
- @apply max-w-4xl mx-auto drop-shadow-md line-clamp-3 text-xs sm:text-sm md:text-base
+ @apply mx-auto drop-shadow-md line-clamp-3 text-xs sm:text-sm md:text-base
 }
 
 .card-text{
-   @apply max-w-4xl mx-auto drop-shadow-md text-xs sm:text-sm md:text-base
+   @apply mx-auto drop-shadow-md text-xs sm:text-sm md:text-base
 
 }
 
