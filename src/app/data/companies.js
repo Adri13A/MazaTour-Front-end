@@ -1,5 +1,6 @@
 import panamaImage from '@/public/images/companies/panama.webp';
-import footerImage from '@/public/images/footer.webp';
+import cafeMarinoImage from '@/public/images/companies/cafemarino.webp';
+import pacificoImage from '@/public/images/companies/pacifico.webp';
 
 export const companies = [
     
@@ -12,14 +13,14 @@ export const companies = [
     },
     {
       id: 2,
-      imagen: footerImage.src,
+      imagen: cafeMarinoImage.src,
       nombre: 'Cafe Marino',
       descripcion: 'Cafe, sabores e Historia desde 1950 ',
       ubicacion: 'Puente Juarez'
     },
     {
       id: 3,
-      imagen: panamaImage.src,
+      imagen: pacificoImage.src,
       nombre: 'Cerveceria Pacifico',
       descripcion: 'Cerveza, tradicion y cultura desde 1900',
       ubicacion: 'Centro'

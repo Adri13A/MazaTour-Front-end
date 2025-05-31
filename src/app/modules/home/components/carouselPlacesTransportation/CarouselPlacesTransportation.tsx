@@ -1,21 +1,21 @@
 import React from 'react';
 import { Camera, MapPin } from "lucide-react";
 import CarouselWrapper from './CarouselWrapper';
-import CardPlacesRoutes from '../../../../components/cards/CardPlacesRoutes';
+import CardPlacesRoutes from '../../../../components/cards/CardPlacesTransportation';
 import { placesRoutes } from '../../../../data/placesRoutes.js'; 
 import CountUp from "react-countup";
 import FadeInView from "../../../../components/FadeInView";
 
-const CarouselPlacesRoutes = () => {
+const CarouselPlacesTransportation = () => {
   return (
     <div className="w-full space-y-4 md:space-y-6">
       {/* Título (optimizado para tablets) */}
       <FadeInView direction="left" duration={2}>
-        <div className="text-center md:text-left md:px-0">
-          <p className="font-semibold text-sm sm:text-base md:text-lg text-gray-500">
+        <div className="text-center md:text-left">
+          <p className="subtitle">
             Recorre Mazatlán
           </p>
-          <h2 className="font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl uppercase text-black leading-tight">
+          <h2 className="title">
             Conoce cómo llegar a tu destino
           </h2>
         </div>
@@ -28,7 +28,7 @@ const CarouselPlacesRoutes = () => {
         <div className="flex flex-col gap-4 w-full lg:w-1/4">
           <FadeInView direction="left" duration={2}>
             <div className="md:flex-1">
-              <p className="text-justify md:text-justify text-gray-500 text-sm md:text-base leading-relaxed md:leading-normal">
+              <p className="text-justify md:text-justify text-body">
                 Explora los distintos puntos de interés turístico y cultural
                 a los que puedes llegar fácilmente a través de las variadas
                 rutas que conectan el puerto.
@@ -39,28 +39,26 @@ const CarouselPlacesRoutes = () => {
                 <div className="w-1/2 lg:w-full lg:pt-4">
                   <div className="flex flex-col items-center lg:items-start gap-3 pb-3">
                     <div className="flex items-center gap-2">
-                    <span className="bg-gray-200 p-1.5 rounded-md hover:scale-110 hover:bg-gray-300 transition-all duration-300 ease-in-out">
-                      <Camera className="h-5 w-5 text-black" />
+                    <span className="p-1.5 rounded-md hover:scale-110 hover:bg-gray-300 transition-all duration-300 ease-in-out" style={{ background: "var(--color-accent2)" }} >
+                      <Camera className="h-5 w-5 text-white" />
                     </span>
                       <h2 className="font-semibold text-black text-sm md:text-base">Visita</h2>
                     </div>
                   </div>
-                  <p className="text-gray-500 text-sm md:text-base text-center lg:text-left">Puedo contener máximo estos</p>
-                  <p className="text-gray-500 text-sm md:text-base text-center lg:text-left">Caracteres no más</p>
+                  <p className="text-body text-center md:text-left">Puedo contener máximo estos <br/> Caracteres no más</p>
                 </div>
 
                 {/* Recorre */}
                 <div className="w-1/2 lg:w-full lg:pt-4">
                   <div className="flex flex-col items-center lg:items-start gap-3 pb-3">
                     <div className="flex items-center gap-2">
-                    <span className="bg-gray-200 p-1.5 rounded-md hover:scale-110 hover:bg-gray-300 transition-all duration-300 ease-in-out">
-                        <MapPin className="h-5 w-5 text-black" />
+                    <span className="p-1.5 rounded-md hover:scale-110 hover:bg-gray-300 transition-all duration-300 ease-in-out" style={{ background: "var(--color-accent2)" }} >
+                        <MapPin className="h-5 w-5 text-white" />
                       </span>
                       <h2 className="font-semibold text-black text-sm md:text-base">Recorre</h2>
                     </div>
                   </div>
-                  <p className="text-gray-500 text-sm md:text-base text-center lg:text-left">Puedo contener máximo estos</p>
-                  <p className="text-gray-500 text-sm md:text-base text-center lg:text-left">Caracteres no más</p>
+                  <p className="text-body text-center md:text-left">Puedo contener máximo estos <br/> Caracteres no más</p>
                 </div>
               </div>
             </div>
@@ -90,7 +88,7 @@ const CarouselPlacesRoutes = () => {
         {/* Estadísticas (optimizadas) */}
         <div className="flex flex-col lg:flex-row gap-4 w-full px-4 md:px-0">
           <div className="hidden lg:block lg:w-1/4" />
-          <div className="pt-4 md:pt-5 w-full lg:w-3/4 border-t border-gray-300">
+          <div className="pt-4 md:pt-5 w-full lg:w-3/4 border-t border-gray-200" >
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 text-center text-black">
               {[
                 { label: "Lugares a Visitar", value: "+ 100" },
@@ -115,4 +113,4 @@ const CarouselPlacesRoutes = () => {
   );
 };
 
-export default CarouselPlacesRoutes;
+export default CarouselPlacesTransportation;

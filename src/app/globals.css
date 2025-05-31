@@ -9,6 +9,9 @@
 :root {
   --backgroundWhite: #ffffff;
   --foregroundBlack: #171717;
+  --color-accent1: #6d9830; /*#b6c073*/
+    --color-accent2: #ccda85;
+
 }
 
 .dark-mode{
@@ -16,7 +19,7 @@
 
   --color-text: #d4de95;
   --color-accent1: #636b2f;
-  --color-accent2: #b9c096
+  --color-accent2: #b9c096;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -57,3 +60,36 @@ body {
 }
 
 
+.title {
+  @apply font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl uppercase text-black leading-tight;
+}
+
+.subtitle {
+  @apply font-semibold text-lg sm:text-base md:text-lg;
+  color: var(--color-accent2);
+}
+
+.text-body{
+  @apply text-gray-500 text-sm md:text-base leading-normal md:leading-normal
+}
+
+.card-title{
+  @apply font-bold text-lg md:text-2xl drop-shadow-2xl leading-snug line-clamp-2
+}
+
+.card-subtitle{
+ @apply mx-auto drop-shadow-md line-clamp-3 text-xs sm:text-sm md:text-base
+}
+
+.card-text{
+   @apply mx-auto drop-shadow-md text-xs sm:text-sm md:text-base
+
+}
+
+.faded-transparant{
+  @apply bg-gradient-to-br from-white/20 to-white/5 backdrop-blur-sm flex items-center justify-center shadow-md
+}
+
+.faded-black{
+  @apply bg-gradient-to-t from-black/70 to-transparent
+}
