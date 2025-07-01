@@ -1,5 +1,5 @@
 'use client'
-import Hero from "./components/pages/inicio/hero";
+import Hero from "./modules/home/components/Hero/Hero";
 import CarouselCompanies from "./modules/home/components/carouselCompanies/CarouselCompanies";
 import GalleryVillages from "./modules/home/components/galleries/GalleryVillage";
 import CarouselFoods from './modules/home/components/carouselFood/CarouselFoods';

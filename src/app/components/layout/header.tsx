@@ -8,7 +8,7 @@ import {
     Landmark, Utensils, VenetianMask, Book, Church
 } from 'lucide-react';
 import '@/styles/header.css';
-import Weather from '../ui/weather/weather';
+import Weather from '../weather/weather';
 import { motion, Variants } from 'framer-motion';
 import Link from 'next/link';
 
