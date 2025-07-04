@@ -1,15 +1,14 @@
-'use client'
+
 
 import React, { useState } from 'react';
 import CarouselCost from "../components/carouselCost/CarouselCost";
-
+import Hero from '../../transportation/components/Hero';
 import TituloListaRutas from '../../transportation/components/TitleListRoutes';
 import BuscadorRuta from '../../transportation/components/SearchRoutes';
 import EstadoRutas from '../../transportation/components/StatusRoutes';
 import FiltroRutas from '../../transportation/components/FilterRoutes';
 import PaginacionRutas from '../../transportation/components/PaginationRoutes';
 import ListaRutas from '../../transportation/components/ListRoutes';
-import Hero from '../components/Hero';
 
 
 const ListRoutes = () => {
@@ -63,6 +62,4 @@ const ListRoutes = () => {
       </section>
     </div>
   );
-};
-
-export default DetailTransportation;
+}
