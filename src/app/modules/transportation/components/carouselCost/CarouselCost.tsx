@@ -1,8 +1,8 @@
 import React from 'react';
-import { costs } from '../../../../data/cost.js'; 
-import FadeInView from "../../../../components/FadeInView";
-import CardCostTransportation from '@/app/components/cards/CardCostTransportation';
+import { costs } from '@/app/data/cost.js';
 import CarouselWrapper from './CarouselWrapper';
+import CardCostTransportation from '@/app/components/cards/CardCostTransportation';
+import FadeInView from '@/app/components/FadeInView';
 
 const CarouselCost = () => {
   return (
