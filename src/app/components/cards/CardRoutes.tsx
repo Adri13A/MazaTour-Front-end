@@ -2,16 +2,25 @@
 
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 interface CardRutasProps {
-    title: string;
-    subtitle: string;
-    labels: string[];
+    nombreRuta: string;
+    origenDestino: string;
+    organizacion: string;
+    idRuta: string;
+    frecuencia: string;
 }
 
-export default function CardRutas({ title, subtitle, labels }: CardRutasProps) {
+export default function CardRutas({ idRuta, nombreRuta, origenDestino, organizacion, frecuencia }: CardRutasProps) {
+      const router = useRouter();
+    
+      const handleClick = () => {
+        router.push(`/routing/transportation/detailTransportation/${idRuta}`);
+      };
+
     return (
-        <div className="group font-gantari border relative bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-200 overflow-hidden w-100">
+        <div className="group font-gantari border relative bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-200 overflow-hidden w-100"       onClick={handleClick}>
             {/* Elementos de fondo decorativos */}
             {/*<div className="absolute rounded-2xl opacity-30 bg-gray-400" style={{ width: '40px', height: '60px', top: '-25px', left: '-15px', transform: 'rotate(-30deg)' }} />*/}
             <div
@@ -29,21 +38,19 @@ export default function CardRutas({ title, subtitle, labels }: CardRutasProps) {
             {/* Contenido principal de la tarjeta */}
             <div className="relative z-10 p-4">
                 {/*titulo*/}
-                <h3 className="text-lg md:text-xl font-bold text-black mb-1 text-left">{title}</h3>
+                <h3 className="text-lg md:text-xl font-bold text-black mb-1 text-left">{nombreRuta}</h3>
 
                 {/*subtitulo*/}
-                <p className="text-sm md:text-base text-gray-600 mb-2 text-left">{subtitle}</p>
+                <p className="text-sm md:text-base text-gray-600 mb-2 text-left">{origenDestino}</p>
 
                 {/*badges*/}
-                <div className="mt-1 flex flex-wrap gap-1">
-                    {labels.map((label, index) => (
-                        <span
-                            key={index}
-                            className="px-2 py-0.5 text-xs md:text-sm font-semibold bg-gray-200 rounded-full text-gray-700 inline-block"
-                        >
-                            {label}
-                        </span>
-                    ))}
+                <div className="mt-1 flex flex-wrap gap-2">
+                    <span className="px-2 py-0.5 text-xs md:text-sm font-semibold bg-gray-200 rounded-full text-gray-700 inline-block">
+                        {frecuencia}
+                    </span>
+                    <span className="px-2 py-0.5 text-xs md:text-sm font-semibold bg-gray-200 rounded-full text-gray-700 inline-block">
+                        {organizacion}
+                    </span>
                 </div>
             </div>
 

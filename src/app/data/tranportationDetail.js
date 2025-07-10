@@ -4,21 +4,24 @@ const transportationDetail = [
     idRuta: 'R001',
     nombreRuta: 'Ruta A',
     organizacion: 'Organización A',
-    destinoOrigen: 'Origen A - Destino A',
+    origenDestino: 'Origen A - Destino A',
+    frecuencia: '15 Minutos',
   },
   {
     id: 2,
     idRuta: 'R002',
     nombreRuta: 'Ruta B',
     organizacion: 'Organización B',
-    destinoOrigen: 'Origen B - Destino B',
+    origenDestino: 'Origen B - Destino B',
+    frecuencia: '15 Minutos',
   },
   {
     id: 3,
     idRuta: 'R003',
     nombreRuta: 'Ruta C',
     organizacion: 'Organización C',
-    destinoOrigen: 'Origen C - Destino C',
+    origenDestino: 'Origen C - Destino C',
+    frecuencia: '15 Minutos',
   },
 ];
 
