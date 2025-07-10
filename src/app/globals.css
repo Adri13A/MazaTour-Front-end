@@ -9,8 +9,8 @@
 :root {
   --backgroundWhite: #ffffff;
   --foregroundBlack: #171717;
-  --color-accent1: #6d9830; /*#b6c073*/
-    --color-accent2: #ccda85;
+  --color-accent1: #171717; /*#b6c073, 6d9830*/
+  --color-accent2: #171717; /*ccda85*/ 
 
 }
 
@@ -53,6 +53,16 @@ html {
   scrollbar-width: none;
 }
 
+.hide-scrollbar {
+  scrollbar-width: none;         
+  -ms-overflow-style: none;      
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none !important; 
+}
+
+
 body {
   color: var(--foreground);
   background: var(--background);
@@ -93,3 +103,4 @@ body {
 .faded-black{
   @apply bg-gradient-to-t from-black/70 to-transparent
 }
+

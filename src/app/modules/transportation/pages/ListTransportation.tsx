@@ -2,17 +2,16 @@
 
 import React, { useState } from 'react';
 import CarouselCost from "../components/carouselCost/CarouselCost";
-
+import Hero from '../../transportation/components/Hero';
 import TituloListaRutas from '../../transportation/components/TitleListRoutes';
 import BuscadorRuta from '../../transportation/components/SearchRoutes';
 import EstadoRutas from '../../transportation/components/StatusRoutes';
 import FiltroRutas from '../../transportation/components/FilterRoutes';
 import PaginacionRutas from '../../transportation/components/PaginationRoutes';
 import ListaRutas from '../../transportation/components/ListRoutes';
-import Hero from '../components/Hero';
 
 
-const ListRoutes = () => {
+const DetailTransportation = () => {
   // Estado para la página actual
   const [currentPage, setCurrentPage] = useState(1);
   // Número total de páginas (puedes obtener este valor de una API)
@@ -58,11 +57,8 @@ const ListRoutes = () => {
         <div className="p-5 md:pl-20 md:pr-20 md:pb-10 md:pt-10 bg-white">
           <CarouselCost />
         </div>
-
-
       </section>
     </div>
   );
 };
-
-export default ListRoutes;
+export default DetailTransportation;
