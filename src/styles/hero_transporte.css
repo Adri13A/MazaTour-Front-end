@@ -1,0 +1,85 @@
+.section-container{
+   @apply relative w-full h-screen overflow-hidden bg-white;
+}
+
+.bg-image{
+   @apply absolute inset-x-0 top-0 bottom-14 md:bottom-14;
+}
+
+.layer-image{
+   @apply absolute inset-0 bg-black/25 z-0;
+ }
+
+.title-container{
+   @apply relative p-5 pb-10 md:pl-20 md:pr-20 md:pb-0 z-20 h-full flex flex-col justify-center items-center;
+ }
+
+.Hero-title{
+   @apply ml-3 md:ml-0 text-5xl mb-8 md:text-[5.2rem] 2xl:text-[7rem] font-aboreto text-left md:text-center leading-[1] tracking-tight;
+}
+
+.Hero-subtitle{
+   @apply text-xl mt-6 md:text-3xl px-4 italic font-gantari text-left md:text-center;
+}
+.Hero-button{
+   @apply mt-4 ml-4 bg-black/10 flex backdrop-blur-md rounded-xl px-3 py-1 text-sm md:text-xl font-gantari text-white hover:bg-black/40 transition duration-300 ease-in-out
+}
+
+.Icon-Arrow{
+   @apply ml-2 w-4 h-4 md:w-6 md:h-6;
+}
+
+.badge-container{
+   @apply absolute left-[-3] md:left-[-1] top-[25%]  -translate-y-1/2 md:top-[30%] md:-translate-y-1/2 z-20 h-14 md:h-16 rotate-[-90deg] origin-left text-white tracking-widest text-[0.50rem] md:text-[0.70rem] pt-8 px-2 backdrop-blur-lg rounded-lg bg-black bg-opacity-10 justify-center flex items-center;
+}
+
+.badge{
+   @apply absolute left-[-2] top-[-2] md:left-[-1] md:top-[-1] w-full h-full bg-transparent border-0 rounded-lg;
+}
+
+.Card-container{
+  @apply absolute z-20 flex items-end gap-2 right-[-2] bottom-48 md:right-[-1] md:bottom-24 hover:cursor-pointer;
+}
+
+.textCard-container{
+   @apply hidden md:flex bg-black/10 backdrop-blur-md rounded-3xl p-3 w-52 h-[110px] hover:bg-black/20 transition duration-300 ease-in-out;
+}
+
+.textCard-TwoContainer{
+   @apply flex flex-col justify-between h-full;
+}
+
+.titleCard{
+   @apply flex items-center justify-between;
+}
+
+.titleCardText{
+   @apply text-lg text-white font-gantari;
+}
+
+.textCard{
+   @apply text-sm text-white font-gantari;
+}
+
+.imgCard-container{
+   @apply flex bg-black/10 backdrop-blur-md rounded-l-3xl p-2 w-20 h-20 md:w-[100px] md:h-[110px];
+}
+
+.imgCard{
+   @apply rounded-2xl object-cover w-full h-full bg-white;
+}
+
+.mobileScroll{
+   @apply absolute md:hidden flex bottom-36 md:bottom-14  left-[32%] transform -translate-x-1/2 z-20;
+}
+
+.deskScroll{
+   @apply absolute md:flex hidden bottom-[-19] left-[44.4%] transform -translate-x-1/2 z-20;
+}
+@media (max-width: 912px) and (min-width: 751px) {
+
+   .title{
+   @apply text-[6.2rem] ;
+   }
+  }
+  
