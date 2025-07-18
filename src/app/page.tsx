@@ -16,13 +16,11 @@ export default function Home() {
       {/* Imagen de Fondo */}
       <Hero/>
 
-
       {/* Carousel PlacesRoutes */}
       <section>
         <div className="p-5 md:pl-40 md:pr-40 md:pb-10 md:pt-10 bg-white">
           <CarouselPlacesTransportation/>
         </div>
-
       </section>
 
       {/* Carousel Places */}

@@ -1,4 +1,3 @@
-import MapComponent from "@/app/components/MapComponent";
 import { ChevronLeft } from 'lucide-react';
 import { JSX } from "react";
 import DetailMapTransportation from "../components/DetailMapTransportation";
@@ -27,7 +26,6 @@ const DetailTransportation = async ({ params }: DetailTransportationProps): Prom
               Regresar
             </span>
           </div>
-
       </div>
 
       <div className="p-5 md:pl-20 md:pr-20 md:pb-10 md:pt-10 bg-white">

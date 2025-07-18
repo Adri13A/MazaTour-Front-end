@@ -40,5 +40,5 @@ export default function MapComponent({ idRuta }: MapComponentProps) {
     };
   }, [idRuta]);
 
-  return <div ref={mapRef} className="h-full w-full" />;
+  return <div ref={mapRef} className="h-full w-full z-30" />;
 }
