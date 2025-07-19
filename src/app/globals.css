@@ -71,7 +71,7 @@ body {
 
 
 .title {
-  @apply font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl uppercase text-black leading-tight;
+  @apply font-bold text-lg sm:text-xl md:text-3xl lg:text-4xl xl:text-5xl uppercase text-black leading-tight;
 }
 
 .subtitle {

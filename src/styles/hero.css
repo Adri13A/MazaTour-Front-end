@@ -11,7 +11,7 @@
  }
 
 .title-container{
-   @apply relative p-5 md:pl-20 md:pr-20 md:pt-20 md:pb-0 z-20 h-full flex flex-col justify-center items-start;
+   @apply relative p-5 md:pl-40 md:pr-40 md:pt-20 md:pb-0 z-20 h-full flex flex-col justify-center items-start;
  }
 
 .Hero-title{
