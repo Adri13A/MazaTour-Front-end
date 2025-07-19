@@ -7,11 +7,11 @@ import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 
 import '@/styles/hero.css';
-import CardHero from '../cardhero/cardhero';
-import { HeroButton } from "../../../../components/buttons/herobutton";
-import Badge from "../../../../components/badge/badgevertical";
+import CardHero from '../cardhero/CardHero';
 
 import { slides } from "../../../../data/slides"; // Importa los datos de los slides
+import HeroButton from "@/app/components/buttons/Herobutton";
+import BadgeVertical from "@/app/components/badge/BadgeVertical";
 
 // Animations
 const container: Variants = {
@@ -148,7 +148,7 @@ export default function Hero() {
         initial="hidden"
         animate="show"
       >
-        <Badge text={slide.verticalText} />
+        <BadgeVertical text={slide.verticalText} />
       </motion.div>
 
 

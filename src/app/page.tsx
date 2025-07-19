@@ -2,11 +2,11 @@
 import Hero from "./modules/home/components/Hero/Hero";
 import CarouselCompanies from "./modules/home/components/carouselCompanies/CarouselCompanies";
 import GalleryVillages from "./modules/home/components/galleries/GalleryVillage";
-import CarouselFoods from './modules/home/components/carouselFood/CarouselFoods';
+import CarouselFoods from './modules/home/components/carouselFoods/CarouselFoods';
 import GalleryCategories from "./modules/home/components/galleries/GalleryCategories";
 import CarouselPlaces from "./modules/home/components/carouselPlaces/CarouselPlaces";
 import HistorySection from "./modules/home/components/histories/HistorySection";
-import CarouselPlacesTransportation from "./modules/home/components/carouselPlacesTransportation/CarouselPlacesTransportation";
+import CarouselPlacesRoutes from "./modules/home/components/carouselPlacesRoutes/CarouselPlacesRoutes";
 
 export default function Home() {
   return (
@@ -19,7 +19,7 @@ export default function Home() {
       {/* Carousel PlacesRoutes */}
       <section>
         <div className="p-5 md:pl-40 md:pr-40 md:pb-10 md:pt-10 bg-white">
-          <CarouselPlacesTransportation/>
+          <CarouselPlacesRoutes/>
         </div>
       </section>
 

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { places } from '../../../../data/places'; 
 import CarouselWrapper from './CarouselWrapper';
 import NavCategories from '../navs/NavCategories';
-import CardPlaces from '@/app/components/cards/CardPlaces';
+import CardPlace from '@/app/components/cards/CardPlace';
 import { Categoria } from '@/app/modules/home/utils/enums/categories';
 
 const CarouselPlaces = () => {
@@ -42,7 +42,7 @@ const CarouselPlaces = () => {
       
       <CarouselWrapper>
           {filteredPlaces.map((place) => (
-              <CardPlaces
+              <CardPlace
                   key={place.id}
                   imagen={place.imagen}
                   nombre={place.nombre}

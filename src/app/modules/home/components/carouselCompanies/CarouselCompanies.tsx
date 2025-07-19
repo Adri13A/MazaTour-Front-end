@@ -1,13 +1,13 @@
 import React from 'react';
 import CarouselWrapper from './CarouselWrapper';
-import CardCompanies from '../../../../components/cards/CardCompanies';
+import CardCompany from '../../../../components/cards/CardCompany';
 import { companies } from '../../../../data/companies.js'; 
 
 const CarouselCompanies = () => {
   return (   
       <CarouselWrapper>
           {companies.map((company) => (
-              <CardCompanies
+              <CardCompany
                 key={company.id}
                 imagen={company.imagen}
                 nombre={company.nombre}

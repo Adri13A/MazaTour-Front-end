@@ -73,7 +73,6 @@ const GalleryCategories = () => {
                         tabIndex={0}
                         aria-label={`Card de ${categoria.nombre}`}
                     >
-                    
                         <div className="absolute inset-0 bg-gray-200">
                             {categoria.imagen ? (
                                 <Image
