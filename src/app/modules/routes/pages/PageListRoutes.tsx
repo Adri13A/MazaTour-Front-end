@@ -17,7 +17,7 @@ const PageListRoutes = () => {
     <>
       <Hero />
 
-      <div className="p-5 md:pl-20 md:pr-20 md:pb-10 md:pt-10 bg-white">
+      <div className="p-5 md:pl-40 md:pr-40 md:pb-10 md:pt-10 bg-white">
         <DashboardRoutes
           totalPages={totalPages}
           currentPage={currentPage}
@@ -25,7 +25,7 @@ const PageListRoutes = () => {
         />
       </div>
 
-      <div className="p-5 md:pl-20 md:pr-20 md:pb-10 md:pt-10 bg-white">
+      <div className="p-5 md:pl-40 md:pr-40 md:pb-10 md:pt-10 bg-white">
         <CarouselCostRoutes />
       </div>
     </>

@@ -6,6 +6,8 @@ import StatusRoutePanel from './StatusRoutePanel';
 import ListRoutes from './ListRoutes';
 import PaginationRoute from './PaginationRoute';
 import FilterRoutes from './FilterRoutes';
+import Title from '@/app/components/letters/Title';
+import Subtitle from '@/app/components/letters/Subtitle';
 
 interface RoutesDashboardProps {
   totalPages: number;
@@ -21,10 +23,10 @@ const DashboardRoutes = ({
     return (
     <>
       <div className="font-gantari md:max-w-full md:mx-auto">
-        <h4 className="text-gray-400 md:text-3xl tracking-wider pb-2 md:pb-5">
+        <Subtitle className="text-center md:text-left">
           Locales, Suspendidas y Desplazadas
-        </h4>
-        <h1 className="font-bold text-black text-3xl md:text-5xl">LISTA DE LAS RUTAS</h1>
+        </Subtitle>
+        <Title className="text-center md:text-left">Lista de Rutas</Title>
       </div>
 
       <div className="md:flex gap-2">

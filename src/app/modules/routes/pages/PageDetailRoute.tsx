@@ -1,6 +1,8 @@
 import { ChevronLeft } from 'lucide-react';
 import { JSX } from "react";
 import DetailMapRoute from "../components/DetailMapRoute";
+import Title from '@/app/components/letters/Title';
+import Subtitle from '@/app/components/letters/Subtitle';
 
 interface PageDetailRouteProps {
   readonly params: Promise<{ idRuta: string }>;
@@ -12,11 +14,11 @@ const PageDetailRoute = async ({ params }: PageDetailRouteProps): Promise<JSX.El
 
   return (
     <>
-      <div className="pb-2 pl-5 pr-5 pt-14 md:pl-20 md:pr-20 md:pb-0 md:pt-14 bg-white">
-        <h3 className="title pt-4">20 de Noviembre - Juarez</h3>
-        <p className="subtitle">Huerta Grande - Centro {idRuta}</p>
+      <div className="p-5 md:pl-40 md:pr-40 md:pb-10 md:pt-10 bg-white">
+        <Title className="pt-4">20 de Noviembre - Juarez</Title>
+        <Subtitle>Huerta Grande - Centro {idRuta}</Subtitle>
         
-        <div className="md:text-left pt-2">
+        <div className="md:text-left">
             <span className="inline-flex items-center gap-2 text-white py-1 px-5 rounded-2xl font-semibold justify-center md:justify-start" style={{ background: "var(--color-accent2)" }}>
               <button className="focus:outline-none">
                 <ChevronLeft 
@@ -28,7 +30,7 @@ const PageDetailRoute = async ({ params }: PageDetailRouteProps): Promise<JSX.El
           </div>
       </div>
 
-      <div className="p-5 md:pl-20 md:pr-20 md:pb-10 md:pt-10 bg-white">
+      <div className="p-5 md:pl-40 md:pr-40 md:pb-10 md:pt-0 bg-white">
         <DetailMapRoute idRuta={idRuta} />
       </div>
     </>
