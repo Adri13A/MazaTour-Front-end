@@ -8,7 +8,7 @@ interface CardPlaceRouteProps {
 
 const CardPlaceRoute = ({ imagen, nombreLugar, nombreRuta }: CardPlaceRouteProps) => {
   return (
-<div className="relative aspect-[3/5] min-w-[120px] max-w-[18rem] w-full h-auto rounded-2xl overflow-hidden transition-transform duration-300 transform hover:-translate-y-1 hover:scale-[1.02] bg-white">
+<div className="relative aspect-[3/5] min-w-[120px] max-w-[20rem] w-full h-auto rounded-2xl overflow-hidden transition-transform duration-300 transform hover:-translate-y-1 hover:scale-[1.02] bg-white">
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${imagen})` }}

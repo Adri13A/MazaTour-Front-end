@@ -45,39 +45,39 @@ const CarouselWrapper = ({
         breakpoints={{
           320: {
             slidesPerView: 2,
-            spaceBetween: 14
+            spaceBetween: 6
           },
           400: {
             slidesPerView: 3,
-            spaceBetween: 14
+            spaceBetween: 6
           },
           576: {
             slidesPerView: 3,
-            spaceBetween: 16
+            spaceBetween: 6
           },
           640: {
-            slidesPerView: 3,
-            spaceBetween: 18
+            slidesPerView: 4,
+            spaceBetween: 6
           },
           768: {
             slidesPerView: 3,
-            spaceBetween: 20
+            spaceBetween: 6
           },
           900: {
             slidesPerView: 3,
-            spaceBetween: 22
+            spaceBetween: 6
           },
           1024: {
-            slidesPerView: 3,
-            spaceBetween: 24
+            slidesPerView: 2,
+            spaceBetween: 6
           },
           1200: {
             slidesPerView: 3,
-            spaceBetween: 26
+            spaceBetween: 6
           },
           1400: {
             slidesPerView: 4,
-            spaceBetween: 28
+            spaceBetween: 6
           }
         }}
       >
@@ -86,7 +86,7 @@ const CarouselWrapper = ({
           key={index}
           className="!overflow-visible"
         >
-          <div className="md:pt-5 md:pb-4">
+          <div className="md:pt-5 md:pb-5 md:pl-2 md:pr-2">
             {item}
           </div>
         </SwiperSlide>
