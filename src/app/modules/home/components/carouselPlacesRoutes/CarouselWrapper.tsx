@@ -82,11 +82,15 @@ const CarouselWrapper = ({
         }}
       >
         {items.map((item, index) => (
-          <SwiperSlide
-            key={index}
-          >
-            <div className="mx-auto">{item}</div>
-          </SwiperSlide>
+        <SwiperSlide
+          key={index}
+          className="!overflow-visible"
+        >
+          <div className="md:pt-5 md:pb-4">
+            {item}
+          </div>
+        </SwiperSlide>
+
         ))}
       </Swiper>
 

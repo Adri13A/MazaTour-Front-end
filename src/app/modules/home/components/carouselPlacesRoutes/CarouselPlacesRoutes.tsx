@@ -11,7 +11,7 @@ import TextBody from '@/app/components/letters/Text';
 
 const CarouselPlacesRoutes = () => {
   return (
-    <div className="w-full space-y-4 md:space-y-6">
+    <div className="w-full space-y-4 md:space-y-0">
         <div className="text-center md:text-left">
           <Subtitle className='text-accent2'>Recorre Mazatlán</Subtitle>
           <Title className="text-black">Conoce cómo llegar a tu destino</Title>
@@ -20,7 +20,7 @@ const CarouselPlacesRoutes = () => {
         <div className="flex flex-col lg:flex-row gap-6 w-full md:px-0">
             <div className="flex flex-col gap-4 w-full lg:w-1/4">
                 <div className="md:flex-1">
-                  <TextBody className="text-justify">
+                  <TextBody className="text-justify md:pt-5">
                       Explora los distintos puntos de interés turístico y cultural
                       a los que puedes llegar fácilmente a través de las variadas
                       rutas que conectan el puerto.
