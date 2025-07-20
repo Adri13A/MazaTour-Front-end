@@ -9,7 +9,7 @@ import Subtitle from '@/app/components/letters/Subtitle';
 import TextBody from '@/app/components/letters/Text';
 
 
-const CarouselPlacesRoutes = () => {
+const CarouselPlacesRoute = () => {
   return (
     <div className="w-full space-y-4 md:space-y-0">
         <div className="text-center md:text-left">
@@ -94,4 +94,4 @@ const CarouselPlacesRoutes = () => {
   );
 };
 
-export default CarouselPlacesRoutes;
+export default CarouselPlacesRoute;

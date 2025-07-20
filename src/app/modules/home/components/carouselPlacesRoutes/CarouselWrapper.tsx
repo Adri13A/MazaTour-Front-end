@@ -44,12 +44,12 @@ const CarouselWrapper = ({
         className="select-none"
         breakpoints={{
           320: {
-            slidesPerView: 2,
-            spaceBetween: 6
+            slidesPerView: 3,
+            spaceBetween: 4
           },
           400: {
             slidesPerView: 3,
-            spaceBetween: 6
+            spaceBetween: 12
           },
           576: {
             slidesPerView: 3,

@@ -40,7 +40,7 @@ const GalleryVillages = () => {
         <>
           <div className="flex flex-col md:flex-row justify-between mb-12 gap-2">
               <div className="w-full md:w-2/3 flex items-center justify-center md:self-start  order-1 md:order-2">
-                  <Title className="title text-center md:text-right">
+                  <Title className="text-center md:text-right">
                     Descubre las localidades que nos rodean
                   </Title>
               </div>

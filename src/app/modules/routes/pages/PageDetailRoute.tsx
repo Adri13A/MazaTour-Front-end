@@ -3,6 +3,7 @@ import { JSX } from "react";
 import DetailMapRoute from "../components/DetailMapRoute";
 import Title from '@/app/components/letters/Title';
 import Subtitle from '@/app/components/letters/Subtitle';
+import CarouselPlacesRoute from '../components/carouselPlacesRoute.tsx/CarouselPlacesRoute';
 
 interface PageDetailRouteProps {
   readonly params: Promise<{ idRuta: string }>;
@@ -32,6 +33,9 @@ const PageDetailRoute = async ({ params }: PageDetailRouteProps): Promise<JSX.El
 
       <div className="p-5 md:pl-40 md:pr-40 md:pb-10 md:pt-0 bg-white">
         <DetailMapRoute idRuta={idRuta} />
+      </div>
+       <div className="p-5 md:pl-40 md:pr-40 md:pb-10 md:pt-10 bg-white">
+        <CarouselPlacesRoute/>
       </div>
     </>
   );

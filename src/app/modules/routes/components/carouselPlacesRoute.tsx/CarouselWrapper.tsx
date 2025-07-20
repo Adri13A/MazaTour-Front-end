@@ -1,3 +1,5 @@
+'use client'
+
 import React, { ReactNode, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
@@ -25,10 +27,10 @@ const CarouselWrapper = ({
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         loop={true}
-        autoplay={{
-          delay: 3000,
-          disableOnInteraction: false,
-        }}
+        // autoplay={{
+        //   delay: 10000,
+        //   disableOnInteraction: false,
+        // }}
         centeredSlides={false}
      
         pagination={{
@@ -49,7 +51,7 @@ const CarouselWrapper = ({
           },
           400: {
             slidesPerView: 3,
-            spaceBetween: 18
+            spaceBetween: 12
           },
           576: {
             slidesPerView: 3,
@@ -76,7 +78,7 @@ const CarouselWrapper = ({
             spaceBetween: 6
           },
           1400: {
-            slidesPerView: 4,
+            slidesPerView: 3.5,
             spaceBetween: 6
           }
         }}
@@ -86,7 +88,7 @@ const CarouselWrapper = ({
           key={index}
           className="!overflow-visible"
         >
-          <div className="md:m1 m-2 md:pt-5 md:pb-5">
+          <div className="m-2 md:pt-5 md:pb-5 md:pl-2 md:pr-2">
             {item}
           </div>
         </SwiperSlide>
