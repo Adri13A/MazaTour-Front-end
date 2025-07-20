@@ -26,18 +26,18 @@ const HistorySection = () => {
             </TextBody>
 
             <div className="flex flex-row flex-wrap justify-between gap-4 mb-8">
-                <div className="flex-1 min-w-[120px] flex flex-col items-center text-center">
-                    <HeartIcon className="w-6 h-6 mb-2"style={{ color: "var(--color-accent2)" }} />
+                <div className="flex-1 min-w-[100px] flex flex-col items-center text-center">
+                    <HeartIcon className="w-6 h-6 mb-2 text-black"/>
                     <p className="text-sm text-black font-semibold">Título Uno</p>
                     <TextBody>Descripción Uno</TextBody>
                 </div>
-                <div className="flex-1 min-w-[120px] flex flex-col items-center text-center">
-                    <HeartIcon className="w-6 h-6 mb-2"style={{ color: "var(--color-accent2)" }} />
+                <div className="flex-1 min-w-[100px] flex flex-col items-center text-center">
+                    <HeartIcon className="w-6 h-6 mb-2 text-black"/>
                     <p className="text-sm text-black font-semibold">Título Dos</p>
                     <TextBody>Descripción Dos</TextBody>
                 </div>
-                <div className="flex-1 min-w-[120px] flex flex-col items-center text-center">
-                    <HeartIcon className="w-6 h-6 mb-2"style={{ color: "var(--color-accent2)" }} />
+                <div className="flex-1 min-w-[100px] flex flex-col items-center text-center">
+                    <HeartIcon className="w-6 h-6 mb-2 text-black"/>
                     <p className="text-sm text-black font-semibold">Título Tres</p>
                     <TextBody>Descripción Tres</TextBody>
                 </div>
@@ -49,7 +49,7 @@ const HistorySection = () => {
             </TextBody>
 
             <div className="text-center md:text-left">
-                <span className="inline-flex items-center gap-2 text-white py-1 px-5 rounded-2xl font-semibold justify-center md:justify-start" style={{ background: "var(--color-accent2)" }}>
+                <span className="inline-flex items-center gap-2 text-white py-1 px-5 rounded-2xl font-semibold justify-center md:justify-start cursor-pointer bg-black transition-transform duration-300 transform hover:-translate-y-1 hover:scale-[1.02]">
                   Descubre
                     <button className="focus:outline-none">
                         <Heart 
@@ -61,7 +61,7 @@ const HistorySection = () => {
         </div>
 
         <div className="w-full lg:w-1/2 mt-8 lg:mt-0 lg:sticky lg:top-4">
-            <div className="relative w-full h-full min-h-[300px] lg:min-h-[450px] rounded-2xl overflow-hidden shadow-lg">
+            <div className="relative w-full h-full min-h-[300px] lg:min-h-[450px] rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 transform hover:-translate-y-1 hover:scale-[1.02]">
                 <Image
                   fill 
                   src={panama.src} 

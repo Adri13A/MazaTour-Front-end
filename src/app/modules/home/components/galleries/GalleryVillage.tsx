@@ -46,7 +46,7 @@ const GalleryVillages = () => {
               </div>
             
               <div className="w-full md:w-2/3 text-justify md:text-left order-2 md:order-1 flex flex-col items-center md:items-start">
-                  <span className="inline-flex items-center gap-2 text-white py-1 px-5 rounded-2xl font-semibold justify-center md:justify-start" style={{ background: "var(--color-accent2)" }}>
+                  <span className="inline-flex items-center gap-2 text-white py-1 px-5 rounded-2xl font-semibold justify-center md:justify-start cursor-pointer bg-black transition-transform duration-300 transform hover:-translate-y-1 hover:scale-[1.02]">
                       Descubre
                       <button className="focus:outline-none">
                         <Heart 
