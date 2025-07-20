@@ -4,29 +4,28 @@ import CountUp from "react-countup";
 import CarouselWrapper from './CarouselWrapper';
 import CardPlaceRoute from '../../../../components/cards/CardPlaceRoute';
 import { placesRoutes } from '../../../../data/placesRoutes.js'; 
+import Title from '@/app/components/letters/Title';
+import Subtitle from '@/app/components/letters/Subtitle';
+import TextBody from '@/app/components/letters/Text';
 
 
 const CarouselPlacesRoutes = () => {
   return (
     <div className="w-full space-y-4 md:space-y-6">
         <div className="text-center md:text-left">
-            <p className="subtitle">
-                Recorre Mazatlán
-            </p>
-            <h2 className="title">
-                Conoce cómo llegar a tu destino
-            </h2>
+          <Subtitle className='text-accent2'>Recorre Mazatlán</Subtitle>
+          <Title className="text-black">Conoce cómo llegar a tu destino</Title>
         </div>
       
         <div className="flex flex-col lg:flex-row gap-6 w-full md:px-0">
             <div className="flex flex-col gap-4 w-full lg:w-1/4">
                 <div className="md:flex-1">
-                    <p className="text-justify md:text-justify text-body">
+                  <TextBody className="text-justify">
                       Explora los distintos puntos de interés turístico y cultural
                       a los que puedes llegar fácilmente a través de las variadas
                       rutas que conectan el puerto.
-                    </p>
-                    
+                    </TextBody>
+                                        
                     <div className="flex flex-row lg:flex-col gap-4 mt-4 md:mt-6">
                         {/* Visita */}
                         <div className="w-1/2 lg:w-full lg:pt-4">
@@ -38,7 +37,7 @@ const CarouselPlacesRoutes = () => {
                                     <h2 className="font-semibold text-black text-sm md:text-base">Visita</h2>
                                 </div>
                             </div>
-                          <p className="text-body text-center md:text-left">Puedo contener máximo estos <br/> Caracteres no más</p>
+                          <TextBody className="text-center md:text-left">Puedo contener máximo estos <br/> Caracteres no más</TextBody>
                         </div>
 
                         {/* Recorre */}
@@ -51,7 +50,7 @@ const CarouselPlacesRoutes = () => {
                                       <h2 className="font-semibold text-black text-sm md:text-base">Recorre</h2>
                                 </div>
                             </div>
-                          <p className="text-body text-center md:text-left">Puedo contener máximo estos <br/> Caracteres no más</p>
+                          <TextBody className="text-body text-center md:text-left">Puedo contener máximo estos <br/> Caracteres no más</TextBody>
                         </div>
                     </div>
                 </div>
@@ -83,9 +82,9 @@ const CarouselPlacesRoutes = () => {
                   ].map((item, i) => (
                       <div key={i}>
                           <p className="font-semibold text-xs md:text-sm lg:text-base">{item.label}</p>
-                          <h2 className="font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl uppercase leading-tight">
+                           <Title className="text-black">
                             <CountUp end={parseInt(item.value.replace(/\D/g, ""))} duration={4} />+
-                          </h2>
+                          </Title>
                       </div>
                   ))}
               </div>

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { locations } from '../../../../data/locations'; 
 import { Heart } from "lucide-react";
 import Image from "next/image";
+import TextBody from "@/app/components/letters/Text";
+import Title from "@/app/components/letters/Title";
 
 interface Localidad {
   nombre: string;
@@ -30,7 +32,7 @@ const GalleryVillages = () => {
     const getCardClass = (index: number) => {
       const base = 'relative rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl hover:z-10 hover:scale-[1.02]';
       const mobile = index === 6 ? 'col-span-2' : 'col-span-1';
-      const aspect = 'min-h-[160px] md:min-h-[160px]';
+      const aspect = 'min-h-[120px] md:min-h-[120px]';
       return `${base} ${mobile} ${aspect} ${puzzleLayout[index]}`;
     };
 
@@ -38,9 +40,9 @@ const GalleryVillages = () => {
         <>
           <div className="flex flex-col md:flex-row justify-between mb-12 gap-2">
               <div className="w-full md:w-2/3 flex items-center justify-center md:self-start  order-1 md:order-2">
-                  <h2 className="title text-center md:text-right">
-                    DESCUBRE LAS LOCALIDADES QUE NOS RODEAN
-                  </h2>
+                  <Title className="title text-center md:text-right">
+                    Descubre las localidades que nos rodean
+                  </Title>
               </div>
             
               <div className="w-full md:w-2/3 text-justify md:text-left order-2 md:order-1 flex flex-col items-center md:items-start">
@@ -51,15 +53,15 @@ const GalleryVillages = () => {
                             className="w-4 h-4 text-white hover:fill-white transition-all duration-200 hover:scale-110 hover:animate-pulse cursor-pointer"/>
                       </button>
                   </span>
-                  <p className="text-body text-center md:text-left mt-2">
+                  <TextBody className="text-center md:text-left mt-2">
                     Conoce y explora las localidades del puerto de Mazatlán.
                     Descubre su historia, tradiciones, cultura y gastronomía,
                     entre paisajes de la zona serrana a las playas del Pacífico.
-                  </p>    
+                  </TextBody>    
               </div>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 auto-rows-[minmax(180px,auto)] gap-4 md:gap-4 w-full">
+          <div className="grid grid-cols-2 md:grid-cols-3 auto-rows-[minmax(100px,auto)] gap-4 md:gap-4 w-full">
               {localidades.map((localidad, index) => (
                   <article
                       key={index}

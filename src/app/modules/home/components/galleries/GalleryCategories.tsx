@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { categories } from '../../../../data/categories';
 import { Heart } from 'lucide-react';
 import Image from "next/image";
+import TextBody from "@/app/components/letters/Text";
+import Title from "@/app/components/letters/Title";
 
 
 interface Categories {
@@ -31,7 +33,7 @@ const GalleryCategories = () => {
     const getCardClass = (index: number) => {
         const base = 'relative rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl hover:z-10 hover:scale-[1.02]';
         const mobile = index === 6 ? 'col-span-2' : 'col-span-1';
-        const aspect = 'min-h-[160px] md:min-h-[160px]';
+        const aspect = 'min-h-[120px] md:min-h-[120px]';
         return `${base} ${mobile} ${aspect} ${puzzleLayout[index]}`;
     };
 
@@ -39,9 +41,9 @@ const GalleryCategories = () => {
         <div className="">
             <div className="flex flex-col md:flex-row justify-between items-start mb-12 gap-2">               
                 <div className="w-full md:w-2/3 flex justify-center md:justify-start order-1 md:order-1">
-                    <h2 className="title text-center md:text-left">
+                    <Title className="text-center md:text-left">
                         EXPLORA Y CONOCE TODO LO QUE DEASEAS VISITAR
-                    </h2>
+                    </Title>
                 </div>
 
                 <div className="w-full md:w-2/3 text-justify md:text-right order-2 md:order-2 flex flex-col items-center md:items-end">
@@ -53,15 +55,15 @@ const GalleryCategories = () => {
                                 />
                         </button>
                     </span>
-                    <p className="text-body text-center md:text-right mt-2">
+                    <TextBody className="text-center md:text-right mt-2">
                         Conoce y explora las localidades del puerto de Mazatlán.
                         Descubre su historia, tradiciones, cultura y gastronomía,
                         entre paisajes de la zona serrana a las playas del Pacífico.
-                    </p>            
+                    </TextBody>            
                 </div>
             </div>
             
-            <div className="grid grid-cols-2 md:grid-cols-3 auto-rows-[minmax(180px,auto)] gap-4 md:gap-4 w-full">
+            <div className="grid grid-cols-2 md:grid-cols-3 auto-rows-[minmax(100px,auto)] gap-4 md:gap-4 w-full">
                 {categoriesList.map((categoria, index) => (
                     <article
                         key={index}
