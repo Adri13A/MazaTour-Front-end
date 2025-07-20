@@ -86,7 +86,7 @@ const CarouselWrapper = ({
           key={index}
           className="!overflow-visible"
         >
-          <div className="md:pt-5 md:pb-5 md:pl-2 md:pr-2">
+          <div className="m-2 md:pt-5 md:pb-5 md:pl-2 md:pr-2">
             {item}
           </div>
         </SwiperSlide>
