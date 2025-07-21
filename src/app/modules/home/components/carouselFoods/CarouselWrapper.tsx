@@ -26,7 +26,7 @@ const CarouselWrapper = ({
         modules={[Navigation, Pagination, Autoplay]}
         loop={true}
         autoplay={{
-          delay: 5000,
+          delay: 3000,
           disableOnInteraction: false,
         }}
         centeredSlides={false}
@@ -83,13 +83,13 @@ const CarouselWrapper = ({
       >
         {items.map((item, index) => (
           <SwiperSlide
-                   key={index}
-                   className="!overflow-visible"
-                 >
+                  key={index}
+                  className="!overflow-visible"
+                >
                    <div className="p-2 md:pt-2 md:pb-2 md:pl-2 md:pr-2">
-                     {item}
-                   </div>
-          </SwiperSlide>
+                    {item}
+                  </div>
+            </SwiperSlide>
         ))}
       </Swiper>
 

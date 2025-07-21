@@ -2,12 +2,14 @@
 
 import React from "react";
 
-interface BadgeProps {
+interface BadgeVerticalProps {
     text: string;
 }
 
-export default function Badge({ text }: BadgeProps) {
+const BadgeVertical = ({ text }: BadgeVerticalProps) => {
     return (
         <span className="badge-container">{text}</span>
     );
 }
+
+export default BadgeVertical;

@@ -71,18 +71,18 @@ body {
 }
 
 
-.title {
+/* .title {
   @apply font-bold text-lg sm:text-xl md:text-3xl lg:text-4xl xl:text-5xl uppercase text-black leading-tight;
-}
+} */
 
-.subtitle {
+/* .subtitle {
   @apply font-semibold text-lg sm:text-base md:text-lg;
   color: var(--color-accent2);
-}
+} */
 
-.text-body{
+/* .text-body{
   @apply text-gray-500 text-sm md:text-base leading-normal md:leading-normal
-}
+} */
 
 .card-title{
   @apply font-bold text-lg md:text-2xl drop-shadow-2xl leading-snug line-clamp-2

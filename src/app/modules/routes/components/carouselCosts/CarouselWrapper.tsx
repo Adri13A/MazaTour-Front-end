@@ -26,7 +26,7 @@ const CarouselWrapper = ({
         modules={[Navigation, Pagination, Autoplay]}
         loop={true}
         autoplay={{
-          delay: 5000,
+          delay: 3000,
           disableOnInteraction: false,
         }}
         centeredSlides={false}
@@ -44,19 +44,19 @@ const CarouselWrapper = ({
         className="select-none"
         breakpoints={{
           320: {
-            slidesPerView: 2,
-            spaceBetween: 6
+            slidesPerView: 3,
+            spaceBetween: 4
           },
           400: {
-            slidesPerView: 2,
-            spaceBetween: 6
+            slidesPerView: 3,
+            spaceBetween: 18
           },
           576: {
             slidesPerView: 3,
             spaceBetween: 6
           },
           640: {
-            slidesPerView: 3,
+            slidesPerView: 4,
             spaceBetween: 6
           },
           768: {
@@ -68,28 +68,29 @@ const CarouselWrapper = ({
             spaceBetween: 6
           },
           1024: {
-            slidesPerView: 4,
+            slidesPerView: 2,
             spaceBetween: 6
           },
           1200: {
-            slidesPerView: 4,
+            slidesPerView: 3,
             spaceBetween: 6
           },
           1400: {
-            slidesPerView: 5,
+            slidesPerView: 4,
             spaceBetween: 6
           }
         }}
       >
         {items.map((item, index) => (
-          <SwiperSlide
-                   key={index}
-                   className="!overflow-visible"
-                 >
-                   <div className="p-2 md:pt-2 md:pb-2 md:pl-2 md:pr-2">
-                     {item}
-                   </div>
-          </SwiperSlide>
+        <SwiperSlide
+          key={index}
+          className="!overflow-visible"
+        >
+          <div className="md:m1 m-2 md:pt-5 md:pb-5">
+            {item}
+          </div>
+        </SwiperSlide>
+
         ))}
       </Swiper>
 
