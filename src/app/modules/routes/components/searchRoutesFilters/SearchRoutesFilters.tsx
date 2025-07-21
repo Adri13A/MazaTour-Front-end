@@ -9,17 +9,17 @@ import FilterRoutes from './FilterRoutes';
 import Title from '@/app/components/letters/Title';
 import Subtitle from '@/app/components/letters/Subtitle';
 
-interface RoutesDashboardProps {
+interface SearchRoutesFiltersProps {
   totalPages: number;
   currentPage: number;
   handlePageChange: (page: number) => void;
 }
 
-const DashboardRoutes = ({
+const SearchRoutesFilters = ({
   totalPages,
   currentPage,
   handlePageChange,
-}: RoutesDashboardProps) => {
+}: SearchRoutesFiltersProps) => {
     return (
     <>
       <div className="font-gantari md:max-w-full md:mx-auto">
@@ -48,4 +48,4 @@ const DashboardRoutes = ({
     </>
   );
 };
-export default DashboardRoutes;
+export default SearchRoutesFilters;

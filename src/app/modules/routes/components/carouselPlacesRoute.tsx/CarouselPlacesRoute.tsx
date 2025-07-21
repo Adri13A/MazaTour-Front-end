@@ -1,8 +1,6 @@
 'use client'
 
 import React from 'react';
-import { Camera, MapPin } from "lucide-react";
-import CountUp from "react-countup";
 import CarouselWrapper from './CarouselWrapper';
 import Title from '@/app/components/letters/Title';
 import Subtitle from '@/app/components/letters/Subtitle';
