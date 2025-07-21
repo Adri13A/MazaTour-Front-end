@@ -45,48 +45,51 @@ const CarouselWrapper = ({
         breakpoints={{
           320: {
             slidesPerView: 2,
-            spaceBetween: 14
+            spaceBetween: 6
           },
           400: {
-            slidesPerView: 3,
-            spaceBetween: 14
+            slidesPerView: 2,
+            spaceBetween: 6
           },
           576: {
             slidesPerView: 3,
-            spaceBetween: 16
+            spaceBetween: 6
           },
           640: {
             slidesPerView: 3,
-            spaceBetween: 18
+            spaceBetween: 6
           },
           768: {
             slidesPerView: 3,
-            spaceBetween: 20
+            spaceBetween: 6
           },
           900: {
-            slidesPerView: 4,
-            spaceBetween: 22
+            slidesPerView: 3,
+            spaceBetween: 6
           },
           1024: {
             slidesPerView: 4,
-            spaceBetween: 24
+            spaceBetween: 6
           },
           1200: {
-            slidesPerView: 5,
-            spaceBetween: 26
+            slidesPerView: 4,
+            spaceBetween: 6
           },
           1400: {
             slidesPerView: 5,
-            spaceBetween: 28
+            spaceBetween: 6
           }
         }}
       >
         {items.map((item, index) => (
           <SwiperSlide
-            key={index}
-          >
-            <div className="mx-auto">{item}</div>
-          </SwiperSlide>
+                  key={index}
+                  className="!overflow-visible"
+                >
+                   <div className="p-2 md:pt-2 md:pb-2 md:pl-2 md:pr-2">
+                    {item}
+                  </div>
+            </SwiperSlide>
         ))}
       </Swiper>
 

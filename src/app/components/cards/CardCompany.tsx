@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Title from "../letters/Title";
 
 interface CardCompanyProps {
   imagen: string;
@@ -23,9 +24,9 @@ const CardCompany = ({ imagen, nombre, descripcion, ubicacion }: CardCompanyProp
             <div className="pl-3 sm:pl-5 mx-auto">
                 <div className="flex flex-col items-start space-y-1 sm:space-y-2 md:space-y-3">
                     <p className="text-xs sm:text-sm md:text-base lg:text-lg">Negocios Locales</p>
-                    <h2 className="font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl uppercase">
+                    <Title className="text-white">
                         {nombre}
-                    </h2>
+                    </Title>
                     <p className="text-xs sm:text-sm md:text-base lg:text-lg">
                         {descripcion}
                         <br className="hidden sm:block" />

@@ -10,6 +10,8 @@ export default {
   theme: {
     extend: {
       colors: {
+        accent1: 'var(--color-accent1)',
+        accent2: 'var(--color-accent2)',
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
