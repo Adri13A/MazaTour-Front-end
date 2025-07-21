@@ -67,6 +67,7 @@ body {
   color: var(--foreground);
   background: var(--background);
   color: var(--backgroundWhite);
+  
 }
 
 
@@ -104,3 +105,11 @@ body {
   @apply bg-gradient-to-t from-black/70 to-transparent
 }
 
+.stroke-text {
+  -webkit-text-stroke: 2px white;
+  color: transparent;
+}
+
+.bg-hero-image {
+  background-image: src('/images/hero/heroFaro.jpg');
+}

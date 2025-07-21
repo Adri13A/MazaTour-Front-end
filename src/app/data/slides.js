@@ -56,7 +56,7 @@ export const slides = [
     heroImg: heroAcuario,
     title: 'DESTINOS',
     subtitle: 'Descubre los lugares más emblemáticos de Mazatlán',
-    link: 'https://mazatlan.travel/',
+    link: 'routing/Places/PlaceDetails',
     verticalText: 'ACUARIO MAR DE CORTES',
     card: {
       title: 'MAZATLÁN',

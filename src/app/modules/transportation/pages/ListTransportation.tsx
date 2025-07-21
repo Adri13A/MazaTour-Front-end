@@ -25,7 +25,7 @@ const DetailTransportation = () => {
   };
 
   return (
-    <div>
+    <div >
       <Hero />
 
       {/* Carousel PlacesRoutes */}

@@ -9,7 +9,7 @@ interface MapComponentProps {
 
 export default function MapComponent({ idRuta }: MapComponentProps) {
   const mapRef = useRef<HTMLDivElement>(null);
-  const leafletMapRef = useRef<any>(null);
+  const leafletMapRef = useRef<L.Map | null>(null);
 
   useEffect(() => {
     const initMap = async () => {
