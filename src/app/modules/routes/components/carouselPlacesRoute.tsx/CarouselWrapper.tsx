@@ -47,7 +47,7 @@ const CarouselWrapper = ({
         breakpoints={{
           320: {
             slidesPerView: 3,
-            spaceBetween: 4
+            spaceBetween: 24
           },
           400: {
             slidesPerView: 3,
