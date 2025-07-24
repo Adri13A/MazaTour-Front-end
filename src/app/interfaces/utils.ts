@@ -1,0 +1,21 @@
+export interface BaseEntity {
+  id: number | string;
+}
+
+export interface Company extends BaseEntity {
+  image: string;
+  name: string;
+  description: string;
+  location: string;
+}
+
+export interface Location extends BaseEntity {
+  image: string;
+  name: string;
+  description: string;
+}
+
+export interface Food extends BaseEntity {
+  image: string;
+  name: string;
+}

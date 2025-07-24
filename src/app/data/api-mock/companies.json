@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "image": "/images/companies/panama.webp",
+    "name": "Panamá",
+    "description": "Repostería, panadería y restaurante desde 1974.",
+    "location": "Centro Histórico"
+  },
+  {
+    "id": 2,
+    "image": "/images/companies/panama.webp",
+    "name": "Cafe Marino",
+    "description": "Cafe, sabores e Historia desde 1950",
+    "location": "Puente Juarez"
+  },
+  {
+    "id": 3,
+    "image": "/images/companies/panama.webp",
+    "name": "Cerveceria Pacifico",
+    "description": "Cerveza, tradición y cultura desde 1900",
+    "location": "Centro"
+  }
+]

@@ -2,20 +2,20 @@ import Image from "next/image";
 import Title from "../letters/Title";
 
 interface CardCompanyProps {
-  imagen: string;
-  nombre: string;
-  descripcion: string;
-  ubicacion: string;
+  image: string;
+  name: string;
+  description: string;
+  location: string;
 }
 
-const CardCompany = ({ imagen, nombre, descripcion, ubicacion }: CardCompanyProps) => {
+const CardCompany = ({ image, name, description, location }: CardCompanyProps) => {
   return (
     <div className="relative w-full aspect-[4/2] md:aspect-[6/2] overflow-hidden rounded-2xl">
         <div className="absolute inset-0 bg-gray-300">
             <Image  
-              src={imagen}
+              src={image}
               fill
-              alt={`Negocios locales ${nombre}`}
+              alt={`Negocios locales ${name}`}
               className="w-full h-full object-cover"
             />
         </div>
@@ -25,12 +25,12 @@ const CardCompany = ({ imagen, nombre, descripcion, ubicacion }: CardCompanyProp
                 <div className="flex flex-col items-start space-y-1 sm:space-y-2 md:space-y-3">
                     <p className="text-xs sm:text-sm md:text-base lg:text-lg">Negocios Locales</p>
                     <Title className="text-white">
-                        {nombre}
+                        {name}
                     </Title>
                     <p className="text-xs sm:text-sm md:text-base lg:text-lg">
-                        {descripcion}
+                        {description}
                         <br className="hidden sm:block" />
-                        {ubicacion}
+                        {location}
                     </p>
                 </div>
             </div>

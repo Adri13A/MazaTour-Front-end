@@ -1,4 +1,4 @@
-import panamaImage from '@/public/images/companies/panama.webp';
+import panamaImage from '@/public/images/cloudy.png';
 
 export const foods = [
     

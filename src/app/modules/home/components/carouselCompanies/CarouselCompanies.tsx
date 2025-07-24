@@ -1,22 +1,25 @@
-import React from 'react';
+'use client';
+
 import CarouselWrapper from './CarouselWrapper';
-import CardCompany from '../../../../components/cards/CardCompany';
-import { companies } from '../../../../data/companies.js'; 
+import CardCompany from '@/app/components/cards/CardCompany';
+import { Company } from '@/app/interfaces/utils';
 
-const CarouselCompanies = () => {
-  return (   
-      <CarouselWrapper>
-          {companies.map((company) => (
-              <CardCompany
-                key={company.id}
-                imagen={company.imagen}
-                nombre={company.nombre}
-                descripcion={company.descripcion}
-                ubicacion={company.ubicacion}
-              />
-          ))}
-      </CarouselWrapper>
+interface CarouselCompaniesProps {
+  companies: Company[];
+}
+
+export default function CarouselCompanies({ companies }: Readonly<CarouselCompaniesProps>) {
+  return (
+    <CarouselWrapper>
+      {companies?.map(company => (
+        <CardCompany
+          key={company.id}
+          image={company.image}
+          name={company.name}
+          description={company.description}
+          location={company.location}
+        />
+      ))}
+    </CarouselWrapper>
   );
-};
-
-export default CarouselCompanies;
+}

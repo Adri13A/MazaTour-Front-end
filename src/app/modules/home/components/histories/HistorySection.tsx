@@ -1,5 +1,5 @@
 import { HeartIcon, Heart } from "lucide-react";
-import panama from '@/public/images/companies/panama.webp';
+import panama from '@/public/images/cloudy.png';
 import Image from "next/image";
 import Subtitle from "@/app/components/letters/Subtitle";
 import Title from "@/app/components/letters/Title";

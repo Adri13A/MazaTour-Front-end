@@ -1,23 +1,16 @@
-import React, { useState, useEffect } from "react";
-import { locations } from '../../../../data/locations'; 
+import React, { useState } from "react";
 import { Heart } from "lucide-react";
 import Image from "next/image";
 import TextBody from "@/app/components/letters/Text";
 import Title from "@/app/components/letters/Title";
+import { Location } from '@/app/interfaces/utils';
 
-interface Localidad {
-  nombre: string;
-  descripcion: string;
-  imagen: string;
+interface GalleryVillageProps {
+  locations: Location[];
 }
 
-const GalleryVillages = () => {
-    const [hoveredCard, setHoveredCard] = useState<number | null>(null);
-    const [localidades, setLocalidades] = useState<Localidad[]>([]);
-
-    useEffect(() => {
-      setLocalidades(locations);
-    }, []);
+const GalleryVillages = ({ locations }: Readonly<GalleryVillageProps>) => {
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
     const puzzleLayout = [
       'md:col-span-2 md:row-span-2', // El Habal
@@ -62,7 +55,7 @@ const GalleryVillages = () => {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 auto-rows-[minmax(100px,auto)] gap-4 md:gap-4 w-full">
-              {localidades.map((localidad, index) => (
+              {locations.map((village, index) => (
                   <article
                       key={index}
                       className={getCardClass(index)}
@@ -71,14 +64,14 @@ const GalleryVillages = () => {
                       onFocus={() => setHoveredCard(index)}
                       onBlur={() => setHoveredCard(null)}
                       tabIndex={0}
-                      aria-label={`Card de ${localidad.nombre}`}
+                      aria-label={`Card de ${village.name}`}
                   >
 
                       <div className="absolute inset-0 bg-gray-200">
                           <Image
                             fill
-                            src={localidad.imagen}
-                            alt={localidad.nombre}
+                            src={village.image}
+                            alt={village.name}
                             className="w-full h-full object-cover"
                             loading="lazy"
                           />
@@ -87,7 +80,7 @@ const GalleryVillages = () => {
 
                       <div className={`absolute bottom-4 left-4 transition-all duration-300 ${hoveredCard === index ? 'opacity-0' : 'opacity-100'}`}>
                           <h2 className="text-white font-bold text-lg md:text-2xl drop-shadow-2xl">
-                            {localidad.nombre}
+                            {village.name}
                           </h2>
                           <p className="text-white/90 max-w-3xl mx-auto mt-1 drop-shadow-md">
                             Haz clic para explorar
@@ -97,10 +90,10 @@ const GalleryVillages = () => {
                       <div className={`absolute inset-x-3 bottom-3 bg-black-900/80 backdrop-blur-sm rounded-2xl p-4 transition-all duration-500 ease-in-out ${hoveredCard === index ? 'translate-y-0 opacity-100 h-auto' : 'translate-y-full opacity-0 h-0'}`}>
                           <div className="text-white">
                               <h2 className="text-white font-bold text-lg md:text-2xl drop-shadow-2xl mb-2">
-                                {localidad.nombre}
+                                {village.name}
                               </h2>
                               <p className="max-w-3xl mx-auto text-white/80 line-clamp-3">
-                              {localidad.descripcion}
+                              {village.description}
                               </p>
                           </div>
                       </div>

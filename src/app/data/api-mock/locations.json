@@ -1,0 +1,45 @@
+[   
+    {
+        "id": 1,
+        "image": "/images/locations/elHabal.jpg",
+        "name": "El Habal",
+        "description": "Repostería, panadería y restaurante desde 1974."
+    },
+    {
+        "id": 2,
+        "image": "/images/locations/elquelite.jpg",
+        "name": "El Quelite",
+        "description": "Cafe, sabores e Historia desde 1950 "
+    },
+    {
+        "id": 3,
+        "image": "/images/locations/elmarmol.jpg",
+        "name": "Marmol",
+        "description": "Cerveza, tradicion y cultura desde 1900"
+    },
+    {
+        "id": 4,
+        "image": "/images/locations/siqueros.jpeg",
+        "name": "Siqueros",
+        "description": "Cerveza, tradicion y cultura desde 1900"
+    },
+    {
+        "id": 5,
+        "image": "/images/locations/lanoria.webp",
+        "name": "La Noria",
+        "description": "Cerveza, tradicion y cultura desde 1900"
+    },
+    {
+        "id": 6,
+        "image": "/images/locations/elrecodo.webp",
+        "name": "El Recodo",
+        "description": "Cerveza, tradicion y cultura desde 1900"
+    },
+    {
+        "id": 7,
+        "image": "/images/locations/villaUnion.jpg",
+        "name": "Villa Unión",
+        "description": "Cerveza, tradicion y cultura desde 1900"
+    }
+]
+  

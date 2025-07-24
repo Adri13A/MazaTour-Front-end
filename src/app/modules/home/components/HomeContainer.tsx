@@ -8,8 +8,16 @@ import GalleryCategories from "../components/galleries/GalleryCategories";
 import CarouselPlaces from "../components/carouselPlaces/CarouselPlaces";
 import HistorySection from "../components/histories/HistorySection";
 import CarouselPlacesRoutes from "../components/carouselPlacesRoutes/CarouselPlacesRoutes";
+import { useCompanies } from "../hooks/useCompanies";
+import { useLocations } from "../hooks/useLocations";
+import { useFoods } from "../hooks/useFoods";
 
 export default function HomeContainer() {
+
+  const { companies } = useCompanies();
+  const { locations } = useLocations();
+  const { foods } = useFoods();
+
   return (
     <div>
       {/* Imagen de Fondo */}
@@ -39,28 +47,28 @@ export default function HomeContainer() {
       {/* Gallery Categories */}
       <section>
         <div className="p-5 md:pl-40 md:pr-40 md:pb-10 md:pt-10 bg-white">
-          <GalleryCategories />
+          <GalleryCategories/>
         </div>
       </section>
 
       {/* Carousel Foods */}
       <section>
         <div className="p-5 md:pl-40 md:pr-40 md:pb-10 md:pt-10 bg-white">
-          <CarouselFoods />
+          <CarouselFoods foods={foods ?? []} />
         </div>
       </section>
 
       {/* Gallery Villages */}
       <section>
         <div className="p-5 md:pl-40 md:pr-40 md:pb-10 md:pt-10 bg-white">
-          <GalleryVillages />
+          <GalleryVillages locations={locations ?? []} />
         </div>
       </section>
 
       {/* Carousel Companies */}
       <section>
         <div className="md:pb-10 md:pt-10 md:pl-20 md:pr-20 bg-white">
-          <CarouselCompanies />
+          <CarouselCompanies companies={companies ?? []} />
         </div>
       </section>
     </div>
