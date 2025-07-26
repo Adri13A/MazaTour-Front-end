@@ -10,8 +10,8 @@ interface GalleryVillageProps {
 }
 
 const GalleryVillages = ({ locations }: Readonly<GalleryVillageProps>) => {
-  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
-
+    
+    const [hoveredCard, setHoveredCard] = useState<number | null>(null);
     const puzzleLayout = [
       'md:col-span-2 md:row-span-2', // El Habal
       'md:col-span-1 md:row-span-1', // El Quelite

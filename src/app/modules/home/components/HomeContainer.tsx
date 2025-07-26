@@ -6,18 +6,22 @@ import GalleryVillages from "../components/galleries/GalleryVillage";
 import CarouselFoods from '../components/carouselFoods/CarouselFoods';
 import GalleryCategories from "../components/galleries/GalleryCategories";
 import CarouselPlaces from "../components/carouselPlaces/CarouselPlaces";
-import HistorySection from "../components/histories/HistorySection";
+import HistorySections from "../components/histories/HistorySection";
 import CarouselPlacesRoutes from "../components/carouselPlacesRoutes/CarouselPlacesRoutes";
 import { useCompanies } from "../hooks/useCompanies";
 import { useLocations } from "../hooks/useLocations";
 import { useFoods } from "../hooks/useFoods";
+import { useCategories } from "../hooks/useCategories";
+import { useHistoriesSection } from "../hooks/useHistoriesSection";
 
 export default function HomeContainer() {
 
   const { companies } = useCompanies();
   const { locations } = useLocations();
   const { foods } = useFoods();
-
+  const { categories } = useCategories();
+  const { historiessection } = useHistoriesSection();
+  
   return (
     <div>
       {/* Imagen de Fondo */}
@@ -40,14 +44,14 @@ export default function HomeContainer() {
       {/* History Section */}
       <section>
         <div className="p-5 md:pl-40 md:pr-40 md:pb-10 md:pt-10 bg-white">
-          <HistorySection />
+          <HistorySections historiessection={historiessection ?? []} />
         </div>
       </section>
 
       {/* Gallery Categories */}
       <section>
         <div className="p-5 md:pl-40 md:pr-40 md:pb-10 md:pt-10 bg-white">
-          <GalleryCategories/>
+          <GalleryCategories categories={categories ?? []} />
         </div>
       </section>
 

@@ -1,0 +1,39 @@
+ [
+    
+    {
+      "id": "1",
+      "image": "/images/categories/panama.webp",
+      "name": "Historia & CultrA"
+    },
+    {
+      "id": "2",
+      "image": "/images/categories/panama.webp",
+      "name": "Musesos"
+    },
+    {
+      "id": "3",
+      "image": "/images/categories/panama.webp",
+      "name": "Playas"
+    },
+    {
+      "id": "4",
+      "image": "/images/categories/panama.webp",
+      "name": "Parques"
+    },
+    {
+      "id": "5",
+      "image": "/images/categories/panama.webp",
+      "name": "Areas Recreativas"
+    },
+    {
+      "id": "6",
+      "image": "/images/categories/panama.webp",
+      "name": "Naturaleza"
+    },
+    {
+      "id": "7",
+      "image": null,
+      "name": "Descubre Categorias"
+    }
+  ]
+  

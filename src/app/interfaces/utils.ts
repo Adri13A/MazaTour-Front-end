@@ -19,3 +19,13 @@ export interface Food extends BaseEntity {
   image: string;
   name: string;
 }
+
+export interface Category extends BaseEntity {
+  image: string;
+  name: string;
+}
+
+export interface HistorySection extends BaseEntity{
+  name: string;
+  description: string;
+}
