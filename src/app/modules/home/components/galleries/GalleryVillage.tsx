@@ -67,7 +67,7 @@ const GalleryVillages = ({ locations }: Readonly<GalleryVillageProps>) => {
                       aria-label={`Card de ${village.name}`}
                   >
 
-                      <div className="absolute inset-0 bg-gray-200">
+                      <div className="absolute inset-0 bg-gray-200 cursor-pointer">
                           <Image
                             fill
                             src={village.image}

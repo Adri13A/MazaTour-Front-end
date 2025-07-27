@@ -67,7 +67,7 @@ const GalleryCategories = ({ categories }: Readonly<GalleryCategoriesProps>) => 
                         tabIndex={0}
                         aria-label={`Card de ${categoria.name}`}
                     >
-                        <div className="absolute inset-0 bg-gray-200">
+                        <div className="absolute inset-0 bg-gray-200 cursor-pointer">
                             {categoria.image ? (
                                 <Image
                                     fill

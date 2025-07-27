@@ -1,5 +1,4 @@
 import { HeartIcon, Heart } from "lucide-react";
-import panama from '@/public/images/cloudy.png';
 import Image from "next/image";
 import Subtitle from "@/app/components/letters/Subtitle";
 import Title from "@/app/components/letters/Title";
@@ -59,11 +58,11 @@ const HistorySections = ({ historiessection }: Readonly<HistoriesSectionProps>) 
             </div>
         </div>
 
-        <div className="w-full lg:w-1/2 mt-8 lg:mt-0 lg:sticky lg:top-4">
+        <div className="w-full lg:w-1/2 mt-8 lg:mt-0 lg:sticky lg:top-4 cursor-pointer">
             <div className="relative w-full h-full min-h-[300px] lg:min-h-[450px] rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 transform hover:-translate-y-1 hover:scale-[1.02]">
                 <Image
                   fill 
-                  src={panama.src} 
+                  src="/images/historiesSection/panama.webp" // ✅ Ruta relativa al public
                   alt="Mazatlán histórico y cultural" 
                   className="w-full h-full object-cover absolute inset-0"
                 />

@@ -1,4 +1,4 @@
-export enum Categoria {
+export enum Category {
     HISTORIA_CULTURA = 1,
     PARQUES = 2,
     MUSEOS = 3,
@@ -7,7 +7,3 @@ export enum Categoria {
     TODAS = 6
   }
   
-  export type Tab = {
-    id: Categoria;
-    nombre: string;
-  };

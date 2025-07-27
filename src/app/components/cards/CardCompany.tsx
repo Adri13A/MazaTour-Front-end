@@ -10,7 +10,7 @@ interface CardCompanyProps {
 
 const CardCompany = ({ image, name, description, location }: CardCompanyProps) => {
   return (
-    <div className="relative w-full aspect-[4/2] md:aspect-[6/2] overflow-hidden rounded-2xl">
+    <div className="relative w-full aspect-[4/2] md:aspect-[6/2] overflow-hidden rounded-2xl cursor-pointer">
         <div className="absolute inset-0 bg-gray-300">
             <Image  
               src={image}

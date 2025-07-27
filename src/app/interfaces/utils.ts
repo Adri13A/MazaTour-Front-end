@@ -29,3 +29,11 @@ export interface HistorySection extends BaseEntity{
   name: string;
   description: string;
 }
+
+export interface Place extends BaseEntity {
+  image: string;
+  name: string;
+  description: string,
+  categoryId: number;
+  categoryName: string;
+}

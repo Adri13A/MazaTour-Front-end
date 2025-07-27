@@ -13,6 +13,7 @@ import { useLocations } from "../hooks/useLocations";
 import { useFoods } from "../hooks/useFoods";
 import { useCategories } from "../hooks/useCategories";
 import { useHistoriesSection } from "../hooks/useHistoriesSection";
+import { usePlaces } from "../hooks/usePlaces";
 
 export default function HomeContainer() {
 
@@ -21,7 +22,8 @@ export default function HomeContainer() {
   const { foods } = useFoods();
   const { categories } = useCategories();
   const { historiessection } = useHistoriesSection();
-  
+  const { places } = usePlaces();
+
   return (
     <div>
       {/* Imagen de Fondo */}
@@ -37,7 +39,7 @@ export default function HomeContainer() {
       {/* Carousel Places */}
       <section>
         <div className="p-5 md:pl-40 md:pr-40 md:pb-10 md:pt-10 bg-white">
-          <CarouselPlaces />
+          <CarouselPlaces places={places ?? []}/>
         </div>
       </section>
 
