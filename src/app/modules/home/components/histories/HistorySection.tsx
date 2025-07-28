@@ -3,10 +3,10 @@ import Image from "next/image";
 import Subtitle from "@/app/components/letters/Subtitle";
 import Title from "@/app/components/letters/Title";
 import TextBody from "@/app/components/letters/Text";
-import { HistorySection } from "@/app/interfaces/utils";
+import { IHistorySection } from "@/app/interfaces/utils";
 
 interface HistoriesSectionProps{
-  historiessection: HistorySection[];
+  historiessection: IHistorySection[];
 }
 
 const HistorySections = ({ historiessection }: Readonly<HistoriesSectionProps>) => {

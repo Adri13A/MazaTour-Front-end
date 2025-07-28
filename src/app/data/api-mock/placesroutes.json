@@ -1,0 +1,45 @@
+ [   
+    {
+      "id": 1,
+      "image": "/images/places/panama.webp",
+      "placeName": "Gran Plaza",
+      "routeName": "Chulavista - Ferry"
+    },
+    {
+      "id": 2,
+      "image": "/images/places/panama.webp",
+      "placeName": "Gran Plaza",
+      "routeName": "Cerritos - Juarez"
+    },
+    {
+      "id": 3,
+      "image": "/images/places/panama.webp",
+      "placeName": "Gran Plaza",
+      "routeName": "Gran Plaza - Liverpool"
+    },
+    {
+      "id": 4,
+      "image": "/images/places/panama.webp",
+      "placeName": "Galerias",
+      "routeName": "Gran Plaza - Liverpool"
+    },
+    {
+      "id": 5,
+      "image": "/images/places/panama.webp",
+      "placeName": "Galerias",
+      "routeName": "Cocos Juarez - Liverpool"
+    },
+    {
+      "id": 6,
+      "image": "/images/places/panama.webp",
+      "placeName": "Galerias",
+      "routeName": "Dorados - Liverpool"
+    },
+    {
+      "id": 7,
+      "image": "/images/places/panama.webp",
+      "placeName": "Galerias",
+      "routeName": "Prados del Sor - Liverpool"
+    }
+]
+  

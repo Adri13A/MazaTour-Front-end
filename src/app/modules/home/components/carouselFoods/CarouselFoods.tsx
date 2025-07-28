@@ -4,10 +4,10 @@ import CarouselWrapper from './CarouselWrapper';
 import Title from '@/app/components/letters/Title';
 import Subtitle from '@/app/components/letters/Subtitle';
 import TextBody from '@/app/components/letters/Text';
-import { Food } from '@/app/interfaces/utils';
+import { ICardFood } from '@/app/interfaces/utils';
 
 interface CarouselFoodsProps {
-  foods: Food[];
+  foods: ICardFood[];
 }
 
 const CarouselFoods = ({ foods }: Readonly<CarouselFoodsProps>) => {

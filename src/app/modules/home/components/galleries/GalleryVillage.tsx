@@ -3,10 +3,10 @@ import { Heart } from "lucide-react";
 import Image from "next/image";
 import TextBody from "@/app/components/letters/Text";
 import Title from "@/app/components/letters/Title";
-import { Location } from '@/app/interfaces/utils';
+import { IListLocation } from '@/app/interfaces/utils';
 
 interface GalleryVillageProps {
-  locations: Location[];
+  locations: IListLocation[];
 }
 
 const GalleryVillages = ({ locations }: Readonly<GalleryVillageProps>) => {

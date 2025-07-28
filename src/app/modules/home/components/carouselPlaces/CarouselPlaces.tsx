@@ -6,11 +6,11 @@ import { Category } from '@/app/modules/home/utils/enums/categories';
 import Subtitle from '@/app/components/letters/Subtitle';
 import Title from '@/app/components/letters/Title';
 import TextBody from '@/app/components/letters/Text';
-import { Place } from '@/app/interfaces/utils';
+import { ICardPlace } from '@/app/interfaces/utils';
 import { GenericTab } from '@/app/interfaces/tabs';
 
 interface CarouselPlacesProps{
-  places: Place[];
+  places: ICardPlace[];
 }
 
 const placeTabs: GenericTab<Category>[] = [

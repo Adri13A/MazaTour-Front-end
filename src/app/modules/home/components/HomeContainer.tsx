@@ -14,6 +14,7 @@ import { useFoods } from "../hooks/useFoods";
 import { useCategories } from "../hooks/useCategories";
 import { useHistoriesSection } from "../hooks/useHistoriesSection";
 import { usePlaces } from "../hooks/usePlaces";
+import { usePlacesRoutes } from "../hooks/usePlacesRoutes";
 
 export default function HomeContainer() {
 
@@ -23,6 +24,7 @@ export default function HomeContainer() {
   const { categories } = useCategories();
   const { historiessection } = useHistoriesSection();
   const { places } = usePlaces();
+  const { placesRoutes } = usePlacesRoutes();
 
   return (
     <div>
@@ -32,7 +34,7 @@ export default function HomeContainer() {
       {/* Carousel PlacesRoutes */}
       <section>
         <div className="p-5 md:pl-40 md:pr-40 md:pb-10 md:pt-10 bg-white">
-          <CarouselPlacesRoutes />
+          <CarouselPlacesRoutes placesRoutes={placesRoutes ?? []}/>
         </div>
       </section>
 

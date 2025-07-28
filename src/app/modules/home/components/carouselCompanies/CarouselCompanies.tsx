@@ -2,10 +2,10 @@
 
 import CarouselWrapper from './CarouselWrapper';
 import CardCompany from '@/app/components/cards/CardCompany';
-import { Company } from '@/app/interfaces/utils';
+import { ICardCompany } from '@/app/interfaces/utils';
 
 interface CarouselCompaniesProps {
-  companies: Company[];
+  companies: ICardCompany[];
 }
 
 export default function CarouselCompanies({ companies }: Readonly<CarouselCompaniesProps>) {

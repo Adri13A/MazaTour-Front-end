@@ -3,10 +3,10 @@ import { Heart } from 'lucide-react';
 import Image from "next/image";
 import TextBody from "@/app/components/letters/Text";
 import Title from "@/app/components/letters/Title";
-import { Category } from "@/app/interfaces/utils";
+import { IListCategory } from "@/app/interfaces/utils";
 
 interface GalleryCategoriesProps {
-  categories: Category[];
+  categories: IListCategory[];
 }
 
 const GalleryCategories = ({ categories }: Readonly<GalleryCategoriesProps>) => {

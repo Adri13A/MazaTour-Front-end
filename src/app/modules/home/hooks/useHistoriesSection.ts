@@ -1,7 +1,7 @@
 import { useFetch } from '../../../hooks/useFetch';
-import { HistorySection } from '@/app/interfaces/utils';
+import { IHistorySection } from '@/app/interfaces/utils';
 
 export function useHistoriesSection() {
-  const { data, isLoading, isError } = useFetch<HistorySection[]>('/api/historiessection');
+  const { data, isLoading, isError } = useFetch<IHistorySection[]>('/api/historiessection');
   return { historiessection: data, isLoading, isError };
 }

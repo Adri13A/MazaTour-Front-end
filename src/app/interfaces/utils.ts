@@ -2,38 +2,45 @@ export interface BaseEntity {
   id: number | string;
 }
 
-export interface Company extends BaseEntity {
+export interface ICardCompany extends BaseEntity {
   image: string;
   name: string;
   description: string;
   location: string;
 }
 
-export interface Location extends BaseEntity {
+export interface IListLocation extends BaseEntity {
   image: string;
   name: string;
   description: string;
 }
 
-export interface Food extends BaseEntity {
+export interface ICardFood extends BaseEntity {
   image: string;
   name: string;
 }
 
-export interface Category extends BaseEntity {
+export interface IListCategory extends BaseEntity {
   image: string;
   name: string;
 }
 
-export interface HistorySection extends BaseEntity{
+export interface IHistorySection extends BaseEntity{
   name: string;
   description: string;
 }
 
-export interface Place extends BaseEntity {
+export interface ICardPlace extends BaseEntity {
   image: string;
   name: string;
   description: string,
   categoryId: number;
   categoryName: string;
+}
+
+export interface ICardPlaceRoute extends BaseEntity{
+  name: string;
+  image: string;
+  placeName: string;
+  routeName: string;
 }

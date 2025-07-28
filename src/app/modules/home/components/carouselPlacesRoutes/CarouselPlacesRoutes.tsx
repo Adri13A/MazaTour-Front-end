@@ -3,13 +3,17 @@ import { Camera, MapPin } from "lucide-react";
 import CountUp from "react-countup";
 import CarouselWrapper from './CarouselWrapper';
 import CardPlaceRoute from '../../../../components/cards/CardPlaceRoute';
-import { placesRoutes } from '../../../../data/placesRoutes.js'; 
 import Title from '@/app/components/letters/Title';
 import Subtitle from '@/app/components/letters/Subtitle';
 import TextBody from '@/app/components/letters/Text';
+import { ICardPlaceRoute } from '@/app/interfaces/utils';
+
+interface CarouselPlacesRouteProps{
+  placesRoutes: ICardPlaceRoute[];
+}
 
 
-const CarouselPlacesRoute = () => {
+const CarouselPlacesRoute = ({ placesRoutes }: Readonly<CarouselPlacesRouteProps>) => {
   return (
     <div className="w-full space-y-4 md:space-y-0">
         <div className="text-center md:text-left">
@@ -61,9 +65,9 @@ const CarouselPlacesRoute = () => {
                     {placesRoutes.map((placeRoute) => (
                         <CardPlaceRoute
                             key={placeRoute.id}
-                            imagen={placeRoute.imagen}
-                            nombreRuta={placeRoute.nombreRuta}
-                            nombreLugar={placeRoute.nombreLugar}
+                            image={placeRoute.image}
+                            routeName={placeRoute.routeName}
+                            placeName={placeRoute.placeName}
                         />
                     ))}
                   </CarouselWrapper>

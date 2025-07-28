@@ -1,7 +1,7 @@
 import { useFetch } from '../../../hooks/useFetch';
-import { Food } from '@/app/interfaces/utils';
+import { ICardFood } from '@/app/interfaces/utils';
 
 export function useFoods() {
-  const { data, isLoading, isError } = useFetch<Food[]>('/api/foods');
+  const { data, isLoading, isError } = useFetch<ICardFood[]>('/api/foods');
   return { foods: data, isLoading, isError };
 }
