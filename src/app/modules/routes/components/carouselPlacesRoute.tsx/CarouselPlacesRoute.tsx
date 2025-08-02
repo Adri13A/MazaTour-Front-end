@@ -6,10 +6,13 @@ import Title from '@/app/components/letters/Title';
 import Subtitle from '@/app/components/letters/Subtitle';
 import TextBody from '@/app/components/letters/Text';
 import CardPlace from '@/app/components/cards/CardPlace';
-import { places } from '../../../../data/places'; 
+import { ICardPlacesRoute } from '@/app/interfaces/utils';
 
+interface CarouselPlacesRoutesProps{
+  placesroute: ICardPlacesRoute[];
+}
 
-const CarouselPlacesRoutes = () => {
+const CarouselPlacesRoutes = ({ placesroute }: Readonly<CarouselPlacesRoutesProps>) => {
   return (
     <div className="w-full space-y-4 md:space-y-0">
         <div className="flex flex-col lg:flex-row gap-6 w-full md:px-0">
@@ -43,13 +46,13 @@ const CarouselPlacesRoutes = () => {
 
             <div className="rounded-lg w-full lg:w-3/4">
                 <CarouselWrapper>
-                    {places.map((place) => (
+                    {placesroute.map((place) => (
                         <CardPlace
                           key={place.id}
-                          imagen={place.imagen}
-                          nombre={place.nombre}
-                          descripcion={place.descripcion}
-                          nombreCategoria={place.nombreCategoria}
+                          image={place.image}
+                          name={place.name}
+                          description={place.description}
+                          categoryName={place.categoryName}
                       />
                     ))}
                   </CarouselWrapper>

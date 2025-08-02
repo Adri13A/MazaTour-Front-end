@@ -1,0 +1,35 @@
+[
+    {
+      "id": 1,
+      "image": "/images/costs/estudiante.webp",
+      "unitType": "Unidades en general",
+      "paymentType": "Efectivo y Tajerta",
+      "ticketType":"Estudiante",
+      "cost": "$ 3.50"
+    },
+    {
+      "id": 2,
+      "image": "/images/costs/normal.jpg",
+      "unitType": "Unidades sin aire",
+      "paymentType": "Solo Efectivo",
+      "ticketType":"Normal",
+      "cost": "$ 11.00"
+    },
+    {
+      "id": 3,
+      "image": "/images/costs/aire.jpg",
+      "unitType": "Unidades con aire",
+      "paymentType": "Solo Efectivo",
+      "ticketType":"Con Aire",
+      "cost": "$ 12.50"
+    },
+    {
+      "id": 4,
+      "image": "/images/costs/sabalo.jpeg",
+      "unitType": "Unidades con aire",
+      "paymentType": "Solo Efectivo",
+      "ticketType":"Sábalo Centro",
+      "cost": "$ 13.00"
+    }
+]
+  

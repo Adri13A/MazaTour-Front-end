@@ -2,7 +2,7 @@ import { useRef, useEffect } from 'react';
 
 export function useHorizontalDragScroll<T extends HTMLElement>() {
   const containerRef = useRef<T>(null);
-  const isDragging = useRef(false);
+  const isDown = useRef(false);
   const startX = useRef(0);
   const scrollLeft = useRef(0);
 
@@ -10,37 +10,41 @@ export function useHorizontalDragScroll<T extends HTMLElement>() {
     const container = containerRef.current;
     if (!container) return;
 
-    const handleMouseDown = (e: MouseEvent) => {
-      isDragging.current = true;
+    const onMouseDown = (e: MouseEvent) => {
+      isDown.current = true;
+      container.classList.add('dragging');
       startX.current = e.pageX - container.offsetLeft;
       scrollLeft.current = container.scrollLeft;
     };
 
-    const handleMouseUp = () => {
-      isDragging.current = false;
+    const onMouseLeave = () => {
+      isDown.current = false;
+      container.classList.remove('dragging');
     };
 
-    const handleMouseLeave = () => {
-      isDragging.current = false;
+    const onMouseUp = () => {
+      isDown.current = false;
+      container.classList.remove('dragging');
     };
 
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!isDragging.current) return;
+    const onMouseMove = (e: MouseEvent) => {
+      if (!isDown.current) return;
+      e.preventDefault();
       const x = e.pageX - container.offsetLeft;
-      const walk = (x - startX.current) * 2; // sensibilidad
+      const walk = (x - startX.current) * 2.5; // sensibilidad
       container.scrollLeft = scrollLeft.current - walk;
     };
 
-    container.addEventListener('mousedown', handleMouseDown);
-    container.addEventListener('mouseleave', handleMouseLeave);
-    container.addEventListener('mouseup', handleMouseUp);
-    container.addEventListener('mousemove', handleMouseMove);
+    container.addEventListener('mousedown', onMouseDown);
+    container.addEventListener('mouseleave', onMouseLeave);
+    container.addEventListener('mouseup', onMouseUp);
+    container.addEventListener('mousemove', onMouseMove);
 
     return () => {
-      container.removeEventListener('mousedown', handleMouseDown);
-      container.removeEventListener('mouseleave', handleMouseLeave);
-      container.removeEventListener('mouseup', handleMouseUp);
-      container.removeEventListener('mousemove', handleMouseMove);
+      container.removeEventListener('mousedown', onMouseDown);
+      container.removeEventListener('mouseleave', onMouseLeave);
+      container.removeEventListener('mouseup', onMouseUp);
+      container.removeEventListener('mousemove', onMouseMove);
     };
   }, []);
 

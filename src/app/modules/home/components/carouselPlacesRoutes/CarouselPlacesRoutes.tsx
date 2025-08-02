@@ -12,7 +12,6 @@ interface CarouselPlacesRouteProps{
   placesRoutes: ICardPlaceRoute[];
 }
 
-
 const CarouselPlacesRoute = ({ placesRoutes }: Readonly<CarouselPlacesRouteProps>) => {
   return (
     <div className="w-full space-y-4 md:space-y-0">

@@ -1,12 +1,16 @@
 import React from 'react';
-import { costs } from '@/app/data/cost.js';
 import CarouselWrapper from './CarouselWrapper';
 import CardCostRoute from '@/app/components/cards/CardCostRoute';
 import Subtitle from '@/app/components/letters/Subtitle';
 import Title from '@/app/components/letters/Title';
 import TextBody from '@/app/components/letters/Text';
+import { ICardCostRoute } from '@/app/interfaces/utils';
 
-const CarouselCostRoutes = () => {
+interface CarouselCostsRouteProps{
+  costsRoutes: ICardCostRoute[];
+}
+
+const CarouselCostRoutes = ({ costsRoutes }: Readonly<CarouselCostsRouteProps>) => {
     return (
       <div className="w-full space-y-4 md:space-y-6">
           <div className="flex flex-col lg:flex-row gap-6 w-full md:px-0">
@@ -41,14 +45,14 @@ const CarouselCostRoutes = () => {
 
               <div className="rounded-lg w-full lg:w-3/4">
                   <CarouselWrapper>
-                      {costs.map((cost) => (
+                      {costsRoutes.map((cost) => (
                           <CardCostRoute
                               key={cost.id}
-                              imagen={cost.imagen}
-                              tipoUnidad={cost.tipoUnidad}
-                              tipoPago={cost.tipoPago}
-                              tipoPasaje={cost.tipoPasaje}
-                              costo={cost.costo}
+                              image={cost.image}
+                              unitType={cost.unitType}
+                              paymentType={cost.paymentType}
+                              ticketType={cost.ticketType}
+                              cost={cost.cost}
                           />
                       ))}
                   </CarouselWrapper>

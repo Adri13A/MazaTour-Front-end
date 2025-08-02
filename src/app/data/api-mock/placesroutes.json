@@ -2,44 +2,56 @@
     {
       "id": 1,
       "image": "/images/places/panama.webp",
-      "placeName": "Gran Plaza",
-      "routeName": "Chulavista - Ferry"
+      "placeName": "Venadillo",
+      "routeName": "20 de Noviembre - Jaurez"
     },
     {
       "id": 2,
       "image": "/images/places/panama.webp",
-      "placeName": "Gran Plaza",
-      "routeName": "Cerritos - Juarez"
+      "placeName": "Colonia Juarez",
+      "routeName": "20 de Noviembre - Jaurez"
     },
     {
       "id": 3,
       "image": "/images/places/panama.webp",
-      "placeName": "Gran Plaza",
-      "routeName": "Gran Plaza - Liverpool"
+      "placeName": "Cancha German Evers",
+      "routeName": "20 de Noviembre - Jaurez"
     },
     {
       "id": 4,
       "image": "/images/places/panama.webp",
-      "placeName": "Galerias",
-      "routeName": "Gran Plaza - Liverpool"
+      "placeName": "Plaza Acaya",
+      "routeName": "Hogar del Pescador - Centro"
     },
     {
       "id": 5,
       "image": "/images/places/panama.webp",
-      "placeName": "Galerias",
-      "routeName": "Cocos Juarez - Liverpool"
+      "placeName": "Plaza Ley del Mar",
+      "routeName": "Hogar del Pescador - Centro"
     },
     {
       "id": 6,
       "image": "/images/places/panama.webp",
-      "placeName": "Galerias",
-      "routeName": "Dorados - Liverpool"
+      "placeName": "Centro",
+      "routeName": "Hogar del Pescador - Centro"
     },
     {
       "id": 7,
       "image": "/images/places/panama.webp",
-      "placeName": "Galerias",
-      "routeName": "Prados del Sor - Liverpool"
+      "placeName": "Rafael Buelna",
+      "routeName": "Alarcon - Sabalo"
+    },
+    {
+      "id": 8,
+      "image": "/images/places/panama.webp",
+      "placeName": "Valentinos",
+      "routeName": "Alarcon - Sabalo"
+    },
+    {
+      "id": 9,
+      "image": "/images/places/panama.webp",
+      "placeName": "Zona Dorada",
+      "routeName": "Alarcon - Sabalo"
     }
 ]
   

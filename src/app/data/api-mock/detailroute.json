@@ -1,0 +1,63 @@
+[
+  {
+    "id": 1,
+    "name": "20 de Noviembre - Juárez",
+    "originDestination": "Huerta Grande - Centro",
+    "frequency": "20 minutos",
+    "schedule": "5:00 AM - 8:00 PM",
+    "distance": "23 KM",
+    "timeTraveled": "1HR 0MIN",
+    "climatizacion": "No",
+    "polylinaOrigin": "...",
+    "polylineDestination": "...",
+    "costRoutes": [
+      { "costId": 1, "name": "Normal", "cost": 11 },
+      { "costId": 2, "name": "Estudiante", "cost": 3.5 }
+    ],
+    "stopRoutes": [
+      { "stopId": 1, "name": "20 de Noviembre", "coordinates": "23.232,-106.420" },
+      { "stopId": 2, "name": "Juárez", "coordinates": "23.239,-106.430" }
+    ],
+    "companyRoute": { "companyId": 1, "companyName": "Alianza de Camiones" }
+  },
+  {
+    "id": 2,
+    "name": "Alarcón - Sabalo",
+    "originDestination": "Pradera V - Centro",
+    "frequency": "15 minutos",
+    "schedule": "5:00 AM - 10:00 PM",
+    "distance": "25 KM",
+    "timeTraveled": "1HR 15MIN",
+    "polylinaOrigin": "...",
+    "polylineDestination": "...",
+    "costRoutes": [
+      { "costId": 1, "name": "Normal", "cost": 12.5 },
+      { "costId": 2, "name": "Estudiante", "cost": 3.5 }
+    ],
+    "stopRoutes": [
+      { "stopId": 1, "name": "Alarcón", "coordinates": "23.210,-106.410" },
+      { "stopId": 2, "name": "Sabalo", "coordinates": "23.250,-106.450" }
+    ],
+    "companyRoute": { "companyId": 1, "companyName": "Alianza de Camiones" }
+  },
+  {
+    "id": 3,
+    "name": "Hogar del Pescador - Centro",
+    "originDestination": "Fracc Riviera - Centro",
+    "frequency": "10 minutos",
+    "schedule": "5:00 AM - 8:00 PM",
+    "distance": "15 KM",
+    "timeTraveled": "1HR 10MIN",
+    "polylinaOrigin": "...",
+    "polylineDestination": "...",
+    "costRoutes": [
+      { "costId": 1, "name": "Normal", "cost": 12.5 },
+      { "costId": 2, "name": "Estudiante", "cost": 3.5 }
+    ],
+    "stopRoutes": [
+      { "stopId": 1, "name": "Hogar del Pescador", "coordinates": "23.200,-106.400" },
+      { "stopId": 2, "name": "Centro", "coordinates": "23.240,-106.460" }
+    ],
+    "companyRoute": { "companyId": 2, "companyName": "Aguilas del Pacifico" }
+  }
+]

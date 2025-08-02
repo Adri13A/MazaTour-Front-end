@@ -5,10 +5,10 @@ import 'leaflet/dist/leaflet.css';
 import { Map as LeafletMap } from 'leaflet';
 
 interface MapSectionProps {
-  readonly idRuta: string;
+  readonly id: string;
 }
 
-const MapSection = ({ idRuta }: MapSectionProps) => {
+const MapSection = ({ id }: MapSectionProps) => {
   const mapRef = useRef<HTMLDivElement>(null);
   const leafletMapRef = useRef<LeafletMap | null>(null);
 
@@ -39,7 +39,7 @@ const MapSection = ({ idRuta }: MapSectionProps) => {
         leafletMapRef.current = null;
       }
     };
-  }, [idRuta]);
+  }, [id]);
 
   return <div ref={mapRef} className="h-full w-full z-30" />;
 };

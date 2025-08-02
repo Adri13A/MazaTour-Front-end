@@ -2,7 +2,6 @@ import React from 'react';
 import Title from '@/app/components/letters/Title';
 import Subtitle from '@/app/components/letters/Subtitle';
 import SearchRoute from '../searchRoutesFilters/SearchRoute';
-import ListRoutes from '../searchRoutesFilters/ListRoutes';
 
 const SearchRoutes = () => {
   return (
@@ -18,7 +17,7 @@ const SearchRoutes = () => {
           <div className="md:flex gap-2">
         <div className="flex-grow flex-col w-full">
           <SearchRoute/>
-          <ListRoutes />
+          {/* <ListRoutes /> */}
         </div>
       </div>
     </div>

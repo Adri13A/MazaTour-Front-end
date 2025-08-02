@@ -8,17 +8,20 @@ import PaginationRoute from './PaginationRoute';
 import FilterRoutes from './FilterRoutes';
 import Title from '@/app/components/letters/Title';
 import Subtitle from '@/app/components/letters/Subtitle';
+import { ICardRoute } from '@/app/interfaces/utils';
 
 interface SearchRoutesFiltersProps {
   totalPages: number;
   currentPage: number;
   handlePageChange: (page: number) => void;
+  routes: ICardRoute[];
 }
 
 const SearchRoutesFilters = ({
   totalPages,
   currentPage,
   handlePageChange,
+  routes,
 }: SearchRoutesFiltersProps) => {
     return (
     <>
@@ -33,7 +36,7 @@ const SearchRoutesFilters = ({
         <div className="flex-grow flex-col w-full">
           <SearchRoute/>
           <StatusRoutePanel />
-          <ListRoutes />
+          <ListRoutes routes={routes ?? []} />
           <PaginationRoute
             totalPages={totalPages}
             currentPage={currentPage}

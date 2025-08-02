@@ -1,28 +1,73 @@
 'use client';
 
-import { Navigation, Repeat2, Navigation2, Truck, X } from 'lucide-react';
-import { infoRuta } from '@/app/data/aditionalData';
 import MapSection from '@/app/components/MapSection';
 import CardIcon from '@/app/components/cards/CardIcon';
 import { useHorizontalDragScroll } from '@/app/hooks/useHorizontalDragScroll';
 import { useState } from 'react';
+import {  Clock,CalendarClock,Route,Ruler,DollarSign,Snowflake,Flag,Navigation, Repeat2, Navigation2, Truck, X, ChevronLeft} from 'lucide-react';
+import Subtitle from '@/app/components/letters/Subtitle';
+import Title from '@/app/components/letters/Title';
+import { useDetailRoute } from '../hooks/useDetailRoute';
 
-const paradas = [
-  "20 de Noviembre",
-  "Av. Gabriel Leyva",
-  "Huerta Grande",
-  "Jabalíes",
-  "Juárez",
-  "Plaza Acaya",
-  "Venadillo",
-  "Villa Galaxia",
-];
+const iconList = [Clock, CalendarClock, Route, Ruler, DollarSign, DollarSign, Snowflake, Flag];
 
-const DetailMapRoute = ({ idRuta }: Readonly<{ idRuta: string }>) => {
-  const scrollRef = useHorizontalDragScroll<HTMLDivElement>();
-  const [showDetalles, setShowDetalles] = useState(true);
+interface DetailMapRouteProps {
+  routeId: string;
+}
+
+
+const DetailMapRoute = ({ routeId }: DetailMapRouteProps) => {
+  const { detailroute, isLoading  } = useDetailRoute(routeId);
+   const scrollRef = useHorizontalDragScroll<HTMLDivElement>();
+   const [showDetalles, setShowDetalles] = useState(true);
+
+  if (isLoading || !detailroute) {
+    return <div className='text-teal-950'>Cargando detalles...</div>;
+  }
+
+  const paradas = detailroute.stopRoutes.map((stop) => stop.name);
+
+  const infoRuta = [
+    { titulo: "Frecuencia", valor: detailroute.frequency ?? "N/A"},
+    { titulo: "Horario", valor: detailroute.schedule ?? "N/A"},
+    { titulo: "Origen - Destino", valor: detailroute.originDestination ?? "N/A"},
+    { titulo: "Distancia", valor: detailroute.distance ?? "N/A"},
+    {
+      titulo: `Tarifa ${detailroute.costRoutes[0]?.name ?? "N/A"}`,
+      valor: `$${detailroute.costRoutes[0]?.cost ?? "-"}`,
+    },
+    {
+      titulo: `Tarifa ${detailroute.costRoutes[1]?.name ?? "N/A"}`,
+      valor: `$${detailroute.costRoutes[1]?.cost ?? "-"}`,
+    },
+    { titulo: "Unidad Con A/c", valor: detailroute.climatizacion ?? "N/A"},
+    { titulo: "Compañía", valor: detailroute.companyRoute?.companyName  ?? "N/A"},
+
+    ...detailroute.stopRoutes.map((stop, index) => ({
+      titulo: `Parada ${index + 1}`,
+      valor: stop.name,
+    })),
+  ];
 
   return (
+    <>
+      <div className="pb-5 pt-5 md:pb-10 md:pt-10 bg-white">
+        <Title className="pt-4">{detailroute.name}</Title>
+        <Subtitle>{detailroute.originDestination}</Subtitle>
+
+        <div className="md:text-left">
+          <span
+            className="inline-flex items-center gap-2 text-white py-1 px-5 rounded-2xl font-semibold justify-center md:justify-start cursor-pointer"
+            style={{ background: 'var(--color-accent2)' }}
+          >
+            <button className="focus:outline-none">
+              <ChevronLeft className="w-4 h-4 text-white hover:fill-white transition-all duration-200 hover:scale-110 hover:animate-pulse cursor-pointer" />
+            </button>
+            Regresar
+          </span>
+        </div>
+      </div>
+
     <div className="relative w-full h-[510px] rounded-lg overflow-hidden shadow-lg border">
 
       {/* Panel Detalles */}
@@ -45,9 +90,9 @@ const DetailMapRoute = ({ idRuta }: Readonly<{ idRuta: string }>) => {
 
         {/* Icon Cards - solo escritorio */}
         <div className="flex justify-center gap-3 hidden md:flex">
-          <CardIcon icon={<Navigation className="w-6 h-6 mb-1" />} label="Salida" />
-          <CardIcon icon={<Repeat2 className="w-6 h-6 mb-1" />} label="Temporal" />
-          <CardIcon icon={<Navigation2 className="w-6 h-6 mb-1 rotate-180" />} label="Regreso" />
+          <CardIcon icon={<Navigation className="w-6 h-6 mb-1 cursor-pointer" />} label="Salida" />
+          <CardIcon icon={<Repeat2 className="w-6 h-6 mb-1 cursor-pointer" />} label="Temporal" />
+          <CardIcon icon={<Navigation2 className="w-6 h-6 mb-1 rotate-180 cursor-pointer" />} label="Regreso" />
         </div>
 
       {/* Sección Paradas */}
@@ -108,25 +153,28 @@ const DetailMapRoute = ({ idRuta }: Readonly<{ idRuta: string }>) => {
           role="region"
           aria-label="Carrusel de información de ruta"
         >
-          {infoRuta.map((item, index) => (
-            <div
-              key={index}
-              className="min-w-[160px] bg-black/40 backdrop-blur-sm rounded-3xl px-2 py-1 flex items-center gap-2 shrink-0"
-            >
-              <div className="w-5 h-5 bg-white rounded-full flex items-center justify-center">
-                <item.icon className="w-4 h-4 text-black" />
+          {infoRuta.map((item, index) => {
+            const Icon = iconList[index];
+            return (
+              <div
+                key={index}
+                className="min-w-[160px] bg-black/40 backdrop-blur-sm rounded-3xl px-2 py-1 flex items-center gap-2 shrink-0"
+              >
+                <div className="w-5 h-5 bg-white rounded-full flex items-center justify-center">
+                  {Icon && <Icon className="w-4 h-4 text-black" />}
+                </div>
+                <div className="flex flex-col leading-tight">
+                  <h3 className="text-white text-xs font-semibold">{item.titulo}</h3>
+                  <h4 className="text-white text-[10px] font-light uppercase">{item.valor}</h4>
+                </div>
               </div>
-              <div className="flex flex-col leading-tight">
-                <h3 className="text-white text-xs font-semibold">{item.titulo}</h3>
-                <h4 className="text-white text-[10px] font-light uppercase">{item.valor}</h4>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 
       {/* Mapa */}
-      <MapSection idRuta={idRuta} />
+      <MapSection id={routeId} />
 
       {/* Botones móviles (sin cambios) */}
       <div className="md:hidden absolute top-4 left-2 z-40 flex flex-col gap-2">
@@ -149,6 +197,7 @@ const DetailMapRoute = ({ idRuta }: Readonly<{ idRuta: string }>) => {
         </button>
       </div>
     </div>
+    </>
   );
 };
 
