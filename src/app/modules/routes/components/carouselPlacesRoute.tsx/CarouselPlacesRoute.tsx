@@ -28,7 +28,7 @@ const CarouselPlacesRoutes = ({ placesroute }: Readonly<CarouselPlacesRoutesProp
                   
                   <div className="md:flex-1">
                       <TextBody className="md:pt-4">
-                          Informate y conoce algunos de los lugares que reocorre la ruta [20 de Novienbre]
+                          Informate y conoce algunos de los lugares que reocorre la ruta.
                       </TextBody>
                       <div className="flex flex-row lg:flex-col gap-4 mt-4 md:mt-6">
                           <div className="w-full lg:w-full lg:pt-4">

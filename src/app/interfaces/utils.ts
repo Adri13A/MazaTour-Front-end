@@ -80,7 +80,7 @@ export interface IDetailRoute extends BaseEntity {
   distance: string;
   timeTraveled: string;
   climatizacion: string;
-  polylinaOrigin: string;
+  polylineOrigin: string;
   polylineDestination: string;
   costRoutes: ICostRoute[];
   stopRoutes: IStopRoute[];

@@ -8,8 +8,8 @@
     "distance": "23 KM",
     "timeTraveled": "1HR 0MIN",
     "climatizacion": "No",
-    "polylinaOrigin": "...",
-    "polylineDestination": "...",
+    "polylineOrigin": "}fcmCh|nhS`CwAd@_@~@u@h@m@DIB?DA@C@Er@Ur@YfCy@LENCJA\\Bn@Jx@TdCr@hBl@`EdAfCv@HQXo@bElB`@Nv@VjAXn@L~HjArG`ArEr@xDj@fG~@rG~@fBV`Dd@lBXjCZvDf@bALR@V@TATCXEb@SXMZUl@o@xEiFj@m@`DoD`BeBzAcB~AmBzFqGdCoClBuBnAuA\\TPVh@|@|BrD`BlC~DlGxExHLRVYv@w@zDcEb@e@`DeDbAeAx@}@hC~CnAvAn@t@XVZ`@tAlChAzBFJLHLJ|@l@XPXTtB~Bb@b@N{AV}BZmCJcAJg@Hw@Ji@Lc@N]Zg@f@o@n@y@][YYY[w@}@lBqBpBwBfBgBdAcAfCmCfBxBd@f@NRHDJBz@RfAPdAPfC^~Ex@pATtBZfDh@bDh@bC^v@NY~B?DG@EBCF?F@HDFDBH@DADCBGlGdAjFz@xEt@bBXNAbHhAVmBLeA^oCLkARyANeAZaC@Uf@mDP{ARyAR{ARwATwAP{AR}AFm@Ps@b@}AvAn@h@VpCxA@EbAeB|@kAx@gAr@_AjKgNhCiDVHj@RbDlAfCbAvAh@|FvBhE`BhA^dCn@tAZx@Rd@Jx@Vb@Nl@Rh@TvDlBzBrAbCtAxBtArClBxD`ChBjAnCjB~AdA|E|Ch@^rAt@lCbBpEvCdBjAXNJXZzBd@~Dd@|Df@`Ef@vDZpCl@xE`@fEp@fFb@hDZlCvCWlAGnCS~CSx@KZC",
+    "polylineDestination": "}trlCzgphShAIvAOhCU|AMg@mEi@qEe@cEc@mEa@cEcALYcCe@eF[aD@YmA_@{@YuBs@kA_@q@U{@Yu@Ug@Qs@Ui@S{Bw@k@Q{@YqC}@aA]kA[wDoAwAg@wAk@o@]{AaAeBgAyA_A{AaAaBeA{ByA_Aq@wBuA_BcAyAcA{CmBqBqAg@[c@S}@c@k@SgAk@]Sc@Ui@Us@Wo@WYIuBk@oAY_AUm@OeAYw@Wq@SqAg@uBw@wAk@aC{@wB{@{B_Ao@UoAa@sAe@OV_CzCsIbLsBnC{@hAy@fA}@zAsCyAyBcAaCcAmCqAc@lAW~@c@fCUxAQxASzASxAQzAQxAg@pDYhBMhAg@pDQvAg@fDQrAM|@C^eDi@iDi@_Di@wCe@oDo@?EAECCCCBEXcCsAWeAOaAOaAQeAQiAQoASuCe@cAOQCkAUgAQeAQkAQcAQeAO}@Oy@QOGGGUWgC}CuCzCmDjDiAnAqCtCCHw@|@}@x@i@j@eAdAuAzA}AxAWVk@h@]q@c@{@S]UWW[m@q@wAcBeCsCKM]`@eFlFm@l@_EdEsAvAWc@{C_Fy@qA{AcCmAsBeBsCyBsDw@oA[_@RWb@e@\\_@dAkAt@w@MUIKoBvBUb@AR}AbBkApAuAxAkDxDuAzAmArA[\\_AbAwA|A[VUZc@b@k@l@m@r@_CbCi@l@uAxA_ChCcAhAa@b@KJMJMHMFSFWDU@a@?YEiEi@c@G_@?}BUcCg@eCWsC]sF{@cEo@aC_@wDm@gBYkBYkFw@qASoCc@}@OaB[m@OaA[Kd@Md@gAa@aBm@YKMIyAa@kA]yAa@qA_@iBk@m@QsAa@k@M_@Ic@MO?O?QBWDkC~@cBl@CACAC@C@ABAB@BBDUTk@j@wAhA}BtA",
     "costRoutes": [
       { "costId": 1, "name": "Normal", "cost": 11 },
       { "costId": 2, "name": "Estudiante", "cost": 3.5 }
@@ -28,9 +28,10 @@
     "schedule": "5:00 AM - 10:00 PM",
     "distance": "25 KM",
     "timeTraveled": "1HR 15MIN",
-    "polylinaOrigin": "...",
+    "climatizacion": "Si",
+    "polylineOrigin": "...",
     "polylineDestination": "...",
-    "costRoutes": [
+        "costRoutes": [
       { "costId": 1, "name": "Normal", "cost": 12.5 },
       { "costId": 2, "name": "Estudiante", "cost": 3.5 }
     ],
@@ -48,7 +49,8 @@
     "schedule": "5:00 AM - 8:00 PM",
     "distance": "15 KM",
     "timeTraveled": "1HR 10MIN",
-    "polylinaOrigin": "...",
+    "climatizacion": "Si",
+    "polylineOrigin": "...",
     "polylineDestination": "...",
     "costRoutes": [
       { "costId": 1, "name": "Normal", "cost": 12.5 },
