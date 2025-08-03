@@ -104,3 +104,7 @@ body {
   @apply bg-gradient-to-t from-black/70 to-transparent
 }
 
+.fade-out {
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}

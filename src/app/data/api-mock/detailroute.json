@@ -15,8 +15,14 @@
       { "costId": 2, "name": "Estudiante", "cost": 3.5 }
     ],
     "stopRoutes": [
-      { "stopId": 1, "name": "20 de Noviembre", "coordinates": "23.232,-106.420" },
-      { "stopId": 2, "name": "Juárez", "coordinates": "23.239,-106.430" }
+      { "stopId": 1, "name": "Huerta Grande", "coordinates": "23.285896, -106.412774" },
+      { "stopId": 2, "name": "Venadillo", "coordinates": "23.279487, -106.413410" },
+      { "stopId": 3, "name": "Plaza Acaya",  "coordinates": "23.272460, -106.417333" },
+      { "stopId": 4, "name": "Jabalíes", "coordinates": "23.255510, -106.414056"},
+      { "stopId": 5, "name": "20 de Noviembre", "coordinates": "23.246427, -106.410502" },
+      { "stopId": 6, "name": "Villa Galaxia", "coordinates": "23.238126, -106.411638" },
+      { "stopId": 7, "name": "Juárez", "coordinates": "23.229269, -106.405198" },
+      { "stopId": 8, "name": "Centro", "coordinates": "23.202171, -106.421123" }
     ],
     "companyRoute": { "companyId": 1, "companyName": "Alianza de Camiones" }
   },

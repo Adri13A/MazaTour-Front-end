@@ -5,15 +5,41 @@ import 'leaflet/dist/leaflet.css';
 import { Map as LeafletMap, Polyline, Marker } from 'leaflet';
 import { decodePolyline } from '../utils/decodePolyline';
 import { getTruckIcon } from '../utils/iTruck';
+import { getStopIcon } from '../utils/iStop';
+
+type TruckAnimationType = 'origin' | 'destination' | null;
+
+interface Stop {
+  stopId: number;
+  name: string;
+  coordinates: string; // formato: "23.202171, -106.421123"
+}
 
 interface MapSectionProps {
   readonly id: string;
   readonly polylineOrigin?: string;
   readonly polylineDestination?: string;
-  readonly truckAnimationCount?: number;
+  readonly truckAnimationType?: TruckAnimationType;
 }
 
-const MapSection = ({ id, polylineOrigin, polylineDestination, truckAnimationCount = 0 }: MapSectionProps) => {
+interface MapSectionProps {
+  readonly id: string;
+  readonly polylineOrigin?: string;
+  readonly polylineDestination?: string;
+  readonly truckAnimationType?: TruckAnimationType;
+  readonly animationKey?: number; 
+  readonly stops?: Stop[];
+}
+
+const MapSection = ({
+  id,
+  polylineOrigin,
+  polylineDestination,
+  truckAnimationType = null,
+  animationKey = 0,
+   stops = [],
+}: MapSectionProps) => {
+
   const mapRef = useRef<HTMLDivElement>(null);
   const leafletMapRef = useRef<LeafletMap | null>(null);
 
@@ -37,67 +63,72 @@ const MapSection = ({ id, polylineOrigin, polylineDestination, truckAnimationCou
     return result;
   };
 
+  //Polilineas y paradas
   useEffect(() => {
     const initMap = async () => {
-      const L = await import('leaflet');
-      if (mapRef.current && !leafletMapRef.current) {
-        const map = L.map(mapRef.current, {
-          center: [23.2329, -106.4202],
-          zoom: 13,
-          zoomControl: false,
+    const L = await import('leaflet');
+    if (mapRef.current && !leafletMapRef.current) {
+      const map = L.map(mapRef.current, {
+        center: [23.2329, -106.4202],
+        zoom: 13,
+        zoomControl: false,
+      });
+
+      L.control.zoom({ position: 'topright' }).addTo(map);
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors',
+      }).addTo(map);
+
+      leafletMapRef.current = map;
+
+      const allCoords: any[] = [];
+
+      if (polylineOrigin) {
+        const originCoords = decodePolyline(polylineOrigin);
+        originPolylineRef.current = L.polyline(originCoords, { color: '#A6A6A6', weight: 5 }).addTo(map);
+        allCoords.push(...originCoords);
+      }
+
+      if (polylineDestination) {
+        const destCoords = decodePolyline(polylineDestination);
+        destPolylineRef.current = L.polyline(destCoords, { color: '#111111', weight: 5 }).addTo(map);
+        allCoords.push(...destCoords);
+      }
+
+      if (stops && stops.length > 0) {
+        const stopIcon = await getStopIcon();
+
+        stops.forEach(stop => {
+          const [lat, lng] = stop.coordinates.split(',').map(c => Number(c.trim()));
+          if (!isNaN(lat) && !isNaN(lng)) {
+            const marker = L.marker([lat, lng], {
+              icon: stopIcon,
+              title: stop.name,
+            }).bindPopup(`<strong>${stop.name}</strong>`);
+
+            marker.addTo(map);
+            allCoords.push([lat, lng]);
+          }
         });
-
-        L.control.zoom({ position: 'topright' }).addTo(map);
-
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          attribution: '&copy; OpenStreetMap contributors',
-        }).addTo(map);
-
-        leafletMapRef.current = map;
-
-        if (polylineOrigin) {
-          const originCoords = decodePolyline(polylineOrigin);
-          originPolylineRef.current = L.polyline(originCoords, { color: '#A6A6A6', weight: 5 }).addTo(map);
-        }
-
-        if (polylineDestination) {
-          const destCoords = decodePolyline(polylineDestination);
-          destPolylineRef.current = L.polyline(destCoords, { color: '#111111', weight: 5 }).addTo(map);
-        }
-
-        const allCoordsNested = [
-          ...(originPolylineRef.current?.getLatLngs() || []),
-          ...(destPolylineRef.current?.getLatLngs() || []),
-        ];
-
-        const allCoords = flattenLatLngs(allCoordsNested);
-
-        if (allCoords.length > 0) {
-          map.fitBounds(L.polyline(allCoords).getBounds(), { padding: [20, 20] });
-        }
       }
-    };
 
-    initMap();
-
-    return () => {
-      if (leafletMapRef.current) {
-        leafletMapRef.current.remove();
-        leafletMapRef.current = null;
+      if (allCoords.length > 0) {
+        map.fitBounds(L.latLngBounds(allCoords), { padding: [20, 20] });
       }
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-      }
-    };
-  }, [id, polylineOrigin, polylineDestination]);
+    }
+  };
+ 
+  initMap();
+  }, [id, polylineOrigin, polylineDestination, stops]);
 
- useEffect(() => {
-  if (!leafletMapRef.current) return;
+ //Animación de recorrido
+  useEffect(() => {
+  if (!leafletMapRef.current || !truckAnimationType) return;
 
   const map = leafletMapRef.current;
-
   const polylineToUse =
-    truckAnimationCount % 2 === 0
+    truckAnimationType === 'origin'
       ? originPolylineRef.current
       : destPolylineRef.current;
 
@@ -107,6 +138,7 @@ const MapSection = ({ id, polylineOrigin, polylineDestination, truckAnimationCou
   if (coords.length === 0) return;
 
   let currentIndex = 0;
+  let fadeOutTimeout: ReturnType<typeof setTimeout> | null = null;
 
   if (truckMarkerRef.current) {
     map.removeLayer(truckMarkerRef.current);
@@ -121,7 +153,29 @@ const MapSection = ({ id, polylineOrigin, polylineDestination, truckAnimationCou
 
     const animate = () => {
       currentIndex++;
-      if (currentIndex >= coords.length) return;
+      if (currentIndex >= coords.length) {
+        // Inicio fade out después de 5 segundos
+        fadeOutTimeout = setTimeout(() => {
+          if (truckMarkerRef.current) {
+            const markerElem = truckMarkerRef.current.getElement();
+            if (markerElem) {
+              markerElem.classList.add('fade-out');
+              // Remover marcador después de la transición (1.5s)
+              setTimeout(() => {
+                if (truckMarkerRef.current) {
+                  map.removeLayer(truckMarkerRef.current);
+                  truckMarkerRef.current = null;
+                }
+              }, 1500);
+            } else {
+              // Si no se puede obtener el elemento, remueve inmediatamente
+              map.removeLayer(truckMarkerRef.current);
+              truckMarkerRef.current = null;
+            }
+          }
+        }, 3000);
+        return;
+      }
 
       truckMarkerRef.current?.setLatLng(coords[currentIndex]);
       animationRef.current = requestAnimationFrame(animate);
@@ -140,12 +194,15 @@ const MapSection = ({ id, polylineOrigin, polylineDestination, truckAnimationCou
     if (animationRef.current) {
       cancelAnimationFrame(animationRef.current);
     }
+    if (fadeOutTimeout) {
+      clearTimeout(fadeOutTimeout);
+    }
     if (truckMarkerRef.current) {
       map.removeLayer(truckMarkerRef.current);
       truckMarkerRef.current = null;
     }
   };
-}, [truckAnimationCount]);
+}, [truckAnimationType, animationKey]);
 
 
   return <div ref={mapRef} className="h-full w-full z-30" />;

@@ -15,11 +15,22 @@ interface DetailMapRouteProps {
   routeId: string;
 }
 
+type AnimationType = 'origin' | 'destination' | null;
 
-const DetailMapRoute = ({ routeId }: DetailMapRouteProps) => {
-  const { detailroute, isLoading  } = useDetailRoute(routeId);
-  const [truckAnimationCount, setTruckAnimationCount] = useState(0);
-
+  const DetailMapRoute = ({ routeId }: DetailMapRouteProps) => {
+    const { detailroute, isLoading  } = useDetailRoute(routeId);
+    const [showDetalles, setShowDetalles] = useState(true);
+  const [animationConfig, setAnimationConfig] = useState<{ type: AnimationType; key: number }>({
+    type: null,
+    key: 0,
+  });
+  const startAnimation = (type: AnimationType) => {
+    setAnimationConfig(prev => ({
+      type,
+      key: prev.key + 1, // incrementa siempre, incluso si el tipo es igual
+    }));
+  };
+  
   const {
     containerRef,
     onMouseDown,
@@ -27,7 +38,6 @@ const DetailMapRoute = ({ routeId }: DetailMapRouteProps) => {
     onMouseUp,
     onMouseMove,
   } = useHorizontalDragScroll<HTMLDivElement>();
-   const [showDetalles, setShowDetalles] = useState(true);
 
   if (isLoading || !detailroute) {
     return <div className='text-teal-950'>Cargando detalles...</div>;
@@ -50,8 +60,6 @@ const DetailMapRoute = ({ routeId }: DetailMapRouteProps) => {
     },
     { titulo: "Unidad Con A/c", valor: detailroute.climatizacion ?? "N/A"},
     { titulo: "Compañía", valor: detailroute.companyRoute?.companyName  ?? "N/A"},
-
-    
   ];
 
   return (
@@ -95,9 +103,22 @@ const DetailMapRoute = ({ routeId }: DetailMapRouteProps) => {
 
         {/* Icon Cards - solo escritorio */}
         <div className="flex justify-center gap-3 hidden md:flex">
-          <CardIcon icon={<Navigation className="w-6 h-6 mb-1 cursor-pointer" />} label="Salida" onClick={() => setTruckAnimationCount(count => count + 1)}/>
-          <CardIcon icon={<Repeat2 className="w-6 h-6 mb-1 cursor-pointer" />} label="Temporal" />
-          <CardIcon icon={<Navigation2 className="w-6 h-6 mb-1 rotate-180 cursor-pointer" />} label="Regreso" onClick={() => setTruckAnimationCount(count => count + 1)}/>
+        <CardIcon
+          icon={<Navigation className="w-6 h-6 mb-1 cursor-pointer" />}
+          label="Salida"
+        onClick={() => startAnimation('origin')}
+        />
+
+        <CardIcon
+          icon={<Repeat2 className="w-6 h-6 mb-1 cursor-pointer" />}
+          label="Temporal"
+        />
+
+        <CardIcon
+          icon={<Navigation2 className="w-6 h-6 mb-1 rotate-180 cursor-pointer" />}
+          label="Regreso"
+          onClick={() => startAnimation('destination')}
+        />
         </div>
 
       {/* Sección Paradas */}
@@ -184,8 +205,10 @@ const DetailMapRoute = ({ routeId }: DetailMapRouteProps) => {
         id={routeId}
         polylineOrigin={detailroute.polylineOrigin}
         polylineDestination={detailroute.polylineDestination}
-        truckAnimationCount={truckAnimationCount}
-    />
+        truckAnimationType={animationConfig.type}
+        animationKey={animationConfig.key}
+        stops={detailroute.stopRoutes} // ← así directo
+      />
 
       {/* Botones móviles (sin cambios) */}
       <div className="md:hidden absolute top-4 left-2 z-40 flex flex-col gap-2">
@@ -197,13 +220,15 @@ const DetailMapRoute = ({ routeId }: DetailMapRouteProps) => {
           {showDetalles ? <X className="w-5 h-5" /> : <Truck className="w-6 h-6" />}
         </button>
 
-        <button aria-label="Salida" className="w-10 h-10 rounded-full bg-black/40 backdrop-blur-md text-white shadow-md flex items-center justify-center" onClick={() => setTruckAnimationCount(count => count + 1)}>
+        <button aria-label="Salida" className="w-10 h-10 rounded-full bg-black/40 backdrop-blur-md text-white shadow-md flex items-center justify-center" 
+            onClick={() => startAnimation('origin')}>
           <Navigation className="w-5 h-5" />
         </button>
         <button aria-label="Temporal" className="w-10 h-10 rounded-full bg-black/40 backdrop-blur-md text-white shadow-md flex items-center justify-center">
           <Repeat2 className="w-5 h-5" />
         </button>
-        <button aria-label="Regreso" className="w-10 h-10 rounded-full bg-black/40 backdrop-blur-md text-white shadow-md flex items-center justify-center"  onClick={() => setTruckAnimationCount(count => count + 1)}>
+        <button aria-label="Regreso" className="w-10 h-10 rounded-full bg-black/40 backdrop-blur-md text-white shadow-md flex items-center justify-center"  
+               onClick={() => startAnimation('destination')}>
           <Navigation2 className="w-5 h-5 rotate-180" />
         </button>
       </div>

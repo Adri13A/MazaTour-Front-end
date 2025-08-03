@@ -1,13 +1,13 @@
 import { renderToStaticMarkup } from 'react-dom/server';
-import { BusFront } from 'lucide-react';
+import { MapPin } from 'lucide-react';
 
-export async function getTruckIcon() {
+export async function getStopIcon() {
   const L = await import('leaflet');
 
   const iconHtml = renderToStaticMarkup(
     <div
       style={{
-        width: '30px',
+         width: '30px',
         height: '30px',
         borderRadius: '9999px', // círculo completo
         backgroundColor: 'rgba(0, 0, 0, 0.4)', // fondo oscuro translúcido
@@ -17,13 +17,14 @@ export async function getTruckIcon() {
         justifyContent: 'center',
       }}
     >
-      <BusFront color="white" size={20} />
+      <MapPin color="white" size={16} />
     </div>
   );
+
   return L.divIcon({
     html: iconHtml,
-    className: '', // evitar estilos de Leaflet por defecto
+    className: '',
     iconSize: [30, 30],
-    iconAnchor: [20, 20], // centrado exacto
+    iconAnchor: [15, 15],
   });
 }
