@@ -6,10 +6,13 @@ import Title from '@/app/components/letters/Title';
 import Subtitle from '@/app/components/letters/Subtitle';
 import TextBody from '@/app/components/letters/Text';
 import CardPlace from '@/app/components/cards/CardPlace';
-import { places } from '../../../../data/places'; 
+import { ICardPlacesRoute } from '@/app/interfaces/utils';
 
+interface CarouselPlacesRoutesProps{
+  placesroute: ICardPlacesRoute[];
+}
 
-const CarouselPlacesRoutes = () => {
+const CarouselPlacesRoutes = ({ placesroute }: Readonly<CarouselPlacesRoutesProps>) => {
   return (
     <div className="w-full space-y-4 md:space-y-0">
         <div className="flex flex-col lg:flex-row gap-6 w-full md:px-0">
@@ -19,13 +22,13 @@ const CarouselPlacesRoutes = () => {
                           Lugares Sugeridos
                       </Subtitle>
                       <Title>
-                          Lista de lugares que recorre
+                          Lista <span className="text-stroke-black">de</span> lugares <span className="text-stroke-black">que </span>recorre
                       </Title>
                   </div>
                   
                   <div className="md:flex-1">
                       <TextBody className="md:pt-4">
-                          Informate y conoce algunos de los lugares que reocorre la ruta [20 de Novienbre]
+                          Informate y conoce algunos de los lugares que reocorre la ruta.
                       </TextBody>
                       <div className="flex flex-row lg:flex-col gap-4 mt-4 md:mt-6">
                           <div className="w-full lg:w-full lg:pt-4">
@@ -43,13 +46,13 @@ const CarouselPlacesRoutes = () => {
 
             <div className="rounded-lg w-full lg:w-3/4">
                 <CarouselWrapper>
-                    {places.map((place) => (
+                    {placesroute.map((place) => (
                         <CardPlace
                           key={place.id}
-                          imagen={place.imagen}
-                          nombre={place.nombre}
-                          descripcion={place.descripcion}
-                          nombreCategoria={place.nombreCategoria}
+                          image={place.image}
+                          name={place.name}
+                          description={place.description}
+                          categoryName={place.categoryName}
                       />
                     ))}
                   </CarouselWrapper>

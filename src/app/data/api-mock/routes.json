@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "20 de Noviembre",
+    "companyName": "Alianza de Camiones",
+    "originDestination": "Huerta Grande - Centro",
+    "frequency": "20 Minutos"
+  },
+  {
+    "id": 2,
+    "name": "Alarcon - Sabalo",
+    "companyName": "Alianza de Camiones",
+    "originDestination": "Pradera V - Sabalo Country",
+    "frequency": "10 Minutos"
+  },
+  {
+    "id": 3,
+    "name": "Hogar del Pescador - Centro",
+    "companyName": "Aguilas del Pacifico",
+    "originDestination": "La Riviera - Centro",
+    "frequency": "10 Minutos"
+  }
+]

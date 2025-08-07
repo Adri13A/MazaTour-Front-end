@@ -1,0 +1,71 @@
+[
+  {
+    "id": 1,
+    "name": "20 de Noviembre - Juárez",
+    "originDestination": "Huerta Grande - Centro",
+    "frequency": "20 minutos",
+    "schedule": "5:00 AM - 8:00 PM",
+    "distance": "23 KM",
+    "timeTraveled": "1HR 0MIN",
+    "climatizacion": "No",
+    "polylineOrigin": "}fcmCh|nhS`CwAd@_@~@u@h@m@DIB?DA@C@Er@Ur@YfCy@LENCJA\\Bn@Jx@TdCr@hBl@`EdAfCv@HQXo@bElB`@Nv@VjAXn@L~HjArG`ArEr@xDj@fG~@rG~@fBV`Dd@lBXjCZvDf@bALR@V@TATCXEb@SXMZUl@o@xEiFj@m@`DoD`BeBzAcB~AmBzFqGdCoClBuBnAuA\\TPVh@|@|BrD`BlC~DlGxExHLRVYv@w@zDcEb@e@`DeDbAeAx@}@hC~CnAvAn@t@XVZ`@tAlChAzBFJLHLJ|@l@XPXTtB~Bb@b@N{AV}BZmCJcAJg@Hw@Ji@Lc@N]Zg@f@o@n@y@][YYY[w@}@lBqBpBwBfBgBdAcAfCmCfBxBd@f@NRHDJBz@RfAPdAPfC^~Ex@pATtBZfDh@bDh@bC^v@NY~B?DG@EBCF?F@HDFDBH@DADCBGlGdAjFz@xEt@bBXNAbHhAVmBLeA^oCLkARyANeAZaC@Uf@mDP{ARyAR{ARwATwAP{AR}AFm@Ps@b@}AvAn@h@VpCxA@EbAeB|@kAx@gAr@_AjKgNhCiDVHj@RbDlAfCbAvAh@|FvBhE`BhA^dCn@tAZx@Rd@Jx@Vb@Nl@Rh@TvDlBzBrAbCtAxBtArClBxD`ChBjAnCjB~AdA|E|Ch@^rAt@lCbBpEvCdBjAXNJXZzBd@~Dd@|Df@`Ef@vDZpCl@xE`@fEp@fFb@hDZlCvCWlAGnCS~CSx@KZC",
+    "polylineDestination": "}trlCzgphShAIvAOhCU|AMg@mEi@qEe@cEc@mEa@cEcALYcCe@eF[aD@YmA_@{@YuBs@kA_@q@U{@Yu@Ug@Qs@Ui@S{Bw@k@Q{@YqC}@aA]kA[wDoAwAg@wAk@o@]{AaAeBgAyA_A{AaAaBeA{ByA_Aq@wBuA_BcAyAcA{CmBqBqAg@[c@S}@c@k@SgAk@]Sc@Ui@Us@Wo@WYIuBk@oAY_AUm@OeAYw@Wq@SqAg@uBw@wAk@aC{@wB{@{B_Ao@UoAa@sAe@OV_CzCsIbLsBnC{@hAy@fA}@zAsCyAyBcAaCcAmCqAc@lAW~@c@fCUxAQxASzASxAQzAQxAg@pDYhBMhAg@pDQvAg@fDQrAM|@C^eDi@iDi@_Di@wCe@oDo@?EAECCCCBEXcCsAWeAOaAOaAQeAQiAQoASuCe@cAOQCkAUgAQeAQkAQcAQeAO}@Oy@QOGGGUWgC}CuCzCmDjDiAnAqCtCCHw@|@}@x@i@j@eAdAuAzA}AxAWVk@h@]q@c@{@S]UWW[m@q@wAcBeCsCKM]`@eFlFm@l@_EdEsAvAWc@{C_Fy@qA{AcCmAsBeBsCyBsDw@oA[_@RWb@e@\\_@dAkAt@w@MUIKoBvBUb@AR}AbBkApAuAxAkDxDuAzAmArA[\\_AbAwA|A[VUZc@b@k@l@m@r@_CbCi@l@uAxA_ChCcAhAa@b@KJMJMHMFSFWDU@a@?YEiEi@c@G_@?}BUcCg@eCWsC]sF{@cEo@aC_@wDm@gBYkBYkFw@qASoCc@}@OaB[m@OaA[Kd@Md@gAa@aBm@YKMIyAa@kA]yAa@qA_@iBk@m@QsAa@k@M_@Ic@MO?O?QBWDkC~@cBl@CACAC@C@ABAB@BBDUTk@j@wAhA}BtA",
+    "costRoutes": [
+      { "costId": 1, "name": "Normal", "cost": 11 },
+      { "costId": 2, "name": "Estudiante", "cost": 3.5 }
+    ],
+    "stopRoutes": [
+      { "stopId": 1, "name": "Huerta Grande", "coordinates": "23.285896, -106.412774" },
+      { "stopId": 2, "name": "Venadillo", "coordinates": "23.279487, -106.413410" },
+      { "stopId": 3, "name": "Plaza Acaya",  "coordinates": "23.272460, -106.417333" },
+      { "stopId": 4, "name": "Jabalíes", "coordinates": "23.255510, -106.414056"},
+      { "stopId": 5, "name": "20 de Noviembre", "coordinates": "23.246427, -106.410502" },
+      { "stopId": 6, "name": "Villa Galaxia", "coordinates": "23.238126, -106.411638" },
+      { "stopId": 7, "name": "Juárez", "coordinates": "23.229269, -106.405198" },
+      { "stopId": 8, "name": "Centro", "coordinates": "23.202171, -106.421123" }
+    ],
+    "companyRoute": { "companyId": 1, "companyName": "Alianza de Camiones" }
+  },
+  {
+    "id": 2,
+    "name": "Alarcón - Sabalo",
+    "originDestination": "Pradera V - Centro",
+    "frequency": "15 minutos",
+    "schedule": "5:00 AM - 10:00 PM",
+    "distance": "25 KM",
+    "timeTraveled": "1HR 15MIN",
+    "climatizacion": "Si",
+    "polylineOrigin": "",
+    "polylineDestination": "",
+        "costRoutes": [
+      { "costId": 1, "name": "Normal", "cost": 12.5 },
+      { "costId": 2, "name": "Estudiante", "cost": 3.5 }
+    ],
+    "stopRoutes": [
+      { "stopId": 1, "name": "Alarcón", "coordinates": "23.210,-106.410" },
+      { "stopId": 2, "name": "Sabalo", "coordinates": "23.250,-106.450" }
+    ],
+    "companyRoute": { "companyId": 1, "companyName": "Alianza de Camiones" }
+  },
+  {
+    "id": 3,
+    "name": "Hogar del Pescador - Centro",
+    "originDestination": "Fracc Riviera - Centro",
+    "frequency": "10 minutos",
+    "schedule": "5:00 AM - 8:00 PM",
+    "distance": "15 KM",
+    "timeTraveled": "1HR 10MIN",
+    "climatizacion": "Si",
+    "polylineOrigin": "",
+    "polylineDestination": "",
+    "costRoutes": [
+      { "costId": 1, "name": "Normal", "cost": 12.5 },
+      { "costId": 2, "name": "Estudiante", "cost": 3.5 }
+    ],
+    "stopRoutes": [
+      { "stopId": 1, "name": "Hogar del Pescador", "coordinates": "23.200,-106.400" },
+      { "stopId": 2, "name": "Centro", "coordinates": "23.240,-106.460" }
+    ],
+    "companyRoute": { "companyId": 2, "companyName": "Aguilas del Pacifico" }
+  }
+]

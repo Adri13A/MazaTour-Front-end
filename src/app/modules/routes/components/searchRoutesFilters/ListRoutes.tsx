@@ -2,23 +2,27 @@
 
 import React from 'react';
 import CardRoute from '../../../../components/cards/CardRoute';
-import transportationDetail from '../../../../data/tranportationDetail';
 import { useRouter } from 'next/navigation';
+import { ICardRoute } from '@/app/interfaces/utils';
 
-const ListRoutes = () => {
+interface ListRoutesProps {
+  routes: ICardRoute[];
+}
+
+const ListRoutes = ({ routes = [] }: Readonly<ListRoutesProps>) => {
     
     const router = useRouter();
 
     return (
         <div className="grid grid-cols-2 md:grid-cols-3 gap-2 mt-5">
-            {transportationDetail.map((detail) => (
+            {routes.map((route) => (
                 <CardRoute
-                    key={detail.id}
-                    nombreRuta={detail.nombreRuta}
-                    origenDestino={detail.origenDestino}
-                    organizacion={detail.organizacion}
-                    frecuencia={detail.frecuencia}
-                    onClick={() => router.push(`/routing/routes/${detail.idRuta}`)}
+                    key={route.id}
+                    name={route.name}
+                    originDestination={route.originDestination}
+                    companyName={route.companyName}
+                    frequency={route.frequency}
+                    onClick={() => router.push(`/routing/routes/${route.id}`)}
                 />
             ))}
         </div>

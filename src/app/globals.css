@@ -104,3 +104,13 @@ body {
   @apply bg-gradient-to-t from-black/70 to-transparent
 }
 
+.fade-out {
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+
+/* En tu CSS global o archivo styles.css */
+.text-stroke-black {
+  -webkit-text-stroke: 2px black;
+  color: white;
+}

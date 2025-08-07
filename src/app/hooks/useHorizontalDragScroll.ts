@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
 
 export function useHorizontalDragScroll<T extends HTMLElement>() {
   const containerRef = useRef<T>(null);
@@ -6,43 +6,46 @@ export function useHorizontalDragScroll<T extends HTMLElement>() {
   const startX = useRef(0);
   const scrollLeft = useRef(0);
 
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
+  const onMouseDown = (e: React.MouseEvent) => {
+    if (!containerRef.current) return;
 
-    const handleMouseDown = (e: MouseEvent) => {
-      isDragging.current = true;
-      startX.current = e.pageX - container.offsetLeft;
-      scrollLeft.current = container.scrollLeft;
-    };
+    isDragging.current = true;
+    startX.current = e.pageX - containerRef.current.offsetLeft;
+    scrollLeft.current = containerRef.current.scrollLeft;
 
-    const handleMouseUp = () => {
-      isDragging.current = false;
-    };
+    containerRef.current.style.cursor = 'grabbing';
+    containerRef.current.style.userSelect = 'none';
+  };
 
-    const handleMouseLeave = () => {
-      isDragging.current = false;
-    };
+  const onMouseLeave = () => {
+    isDragging.current = false;
+    if (containerRef.current) {
+      containerRef.current.style.cursor = 'grab';
+      containerRef.current.style.userSelect = 'auto';
+    }
+  };
 
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!isDragging.current) return;
-      const x = e.pageX - container.offsetLeft;
-      const walk = (x - startX.current) * 2; // sensibilidad
-      container.scrollLeft = scrollLeft.current - walk;
-    };
+  const onMouseUp = () => {
+    isDragging.current = false;
+    if (containerRef.current) {
+      containerRef.current.style.cursor = 'grab';
+      containerRef.current.style.userSelect = 'auto';
+    }
+  };
 
-    container.addEventListener('mousedown', handleMouseDown);
-    container.addEventListener('mouseleave', handleMouseLeave);
-    container.addEventListener('mouseup', handleMouseUp);
-    container.addEventListener('mousemove', handleMouseMove);
+  const onMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging.current || !containerRef.current) return;
 
-    return () => {
-      container.removeEventListener('mousedown', handleMouseDown);
-      container.removeEventListener('mouseleave', handleMouseLeave);
-      container.removeEventListener('mouseup', handleMouseUp);
-      container.removeEventListener('mousemove', handleMouseMove);
-    };
-  }, []);
+    const x = e.pageX - containerRef.current.offsetLeft;
+    const walk = (x - startX.current) * 2; // sensibilidad
+    containerRef.current.scrollLeft = scrollLeft.current - walk;
+  };
 
-  return containerRef;
+  return {
+    containerRef,
+    onMouseDown,
+    onMouseLeave,
+    onMouseUp,
+    onMouseMove,
+  };
 }

@@ -2,14 +2,14 @@ import { JSX } from 'react';
 import DetailRouteContainer from '../components/DetailRouteContainer';
 
 interface PageDetailRouteProps {
-  readonly params: Promise<{ idRuta: string }>;
+  readonly params: Promise<{ id: string }>;
 }
 
 const PageDetailRoute = async ({ params }: PageDetailRouteProps): Promise<JSX.Element> => {
   const resolvedParams = await params;
-  const { idRuta } = resolvedParams;
+  const { id } = resolvedParams;
 
-  return <DetailRouteContainer idRuta={idRuta} />;
+  return <DetailRouteContainer routeId ={id} />;
 };
 
 export default PageDetailRoute;

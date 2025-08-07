@@ -1,25 +1,17 @@
-import React, { useState, useEffect } from "react";
-import { categories } from '../../../../data/categories';
+import React, { useState } from "react";
 import { Heart } from 'lucide-react';
 import Image from "next/image";
 import TextBody from "@/app/components/letters/Text";
 import Title from "@/app/components/letters/Title";
+import { IListCategory } from "@/app/interfaces/utils";
 
-
-interface Categories {
-    nombre: string;
-    imagen?: string;
+interface GalleryCategoriesProps {
+  categories: IListCategory[];
 }
 
-const GalleryCategories = () => {
+const GalleryCategories = ({ categories }: Readonly<GalleryCategoriesProps>) => {
     
     const [hoveredCard, setHoveredCard] = useState<number | null>(null);
-    const [categoriesList, setCategoriesList] = useState<Categories[]>([]);
-
-    useEffect(() => {
-        setCategoriesList(categories); 
-    }, []); 
-
     const puzzleLayout = [
         'md:col-span-1 md:row-span-2', 
         'md:col-span-2 md:row-span-1', 
@@ -64,7 +56,7 @@ const GalleryCategories = () => {
             </div>
             
             <div className="grid grid-cols-2 md:grid-cols-3 auto-rows-[minmax(100px,auto)] gap-4 md:gap-4 w-full">
-                {categoriesList.map((categoria, index) => (
+                {categories.map((categoria, index) => (
                     <article
                         key={index}
                         className={getCardClass(index)}
@@ -73,14 +65,14 @@ const GalleryCategories = () => {
                         onFocus={() => setHoveredCard(index)}
                         onBlur={() => setHoveredCard(null)}
                         tabIndex={0}
-                        aria-label={`Card de ${categoria.nombre}`}
+                        aria-label={`Card de ${categoria.name}`}
                     >
-                        <div className="absolute inset-0 bg-gray-200">
-                            {categoria.imagen ? (
+                        <div className="absolute inset-0 bg-gray-200 cursor-pointer">
+                            {categoria.image ? (
                                 <Image
                                     fill
-                                    src={categoria.imagen}
-                                    alt={categoria.nombre}
+                                    src={categoria.image}
+                                    alt={categoria.name}
                                     className="w-full h-full object-cover"
                                     loading="lazy"
                                     />
@@ -93,7 +85,7 @@ const GalleryCategories = () => {
 
                         <div className={`absolute bottom-4 left-4 transition-all duration-300`}>
                             <h2 className="text-white font-bold text-lg md:text-2xl drop-shadow-2xl">
-                                {categoria.nombre}
+                                {categoria.name}
                             </h2>
                             <p className="text-white max-w-3xl mx-auto mt-1 drop-shadow-md">
                                 Haz clic para explorar

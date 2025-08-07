@@ -1,12 +1,15 @@
 import { HeartIcon, Heart } from "lucide-react";
-import panama from '@/public/images/companies/panama.webp';
 import Image from "next/image";
 import Subtitle from "@/app/components/letters/Subtitle";
 import Title from "@/app/components/letters/Title";
 import TextBody from "@/app/components/letters/Text";
+import { IHistorySection } from "@/app/interfaces/utils";
 
+interface HistoriesSectionProps{
+  historiessection: IHistorySection[];
+}
 
-const HistorySection = () => {
+const HistorySections = ({ historiessection }: Readonly<HistoriesSectionProps>) => {
   return (
     <div className="mx-auto flex flex-col lg:flex-row lg:items-start lg:gap-12">
         <div className="w-full lg:w-1/2 flex flex-col">
@@ -25,22 +28,17 @@ const HistorySection = () => {
               Descubre cómo cada rincón de Mazatlán guarda relatos únicos que han marcado generaciones.
             </TextBody>
 
-            <div className="flex flex-row flex-wrap justify-between gap-4 mb-8">
-                <div className="flex-1 min-w-[100px] flex flex-col items-center text-center">
-                    <HeartIcon className="w-6 h-6 mb-2 text-black"/>
-                    <p className="text-sm text-black font-semibold">Título Uno</p>
-                    <TextBody>Descripción Uno</TextBody>
+           <div className="flex flex-row flex-wrap justify-between gap-4 mb-8">
+              {historiessection.map((historySection, index) => (
+                <div
+                  key={index}
+                  className="flex-1 min-w-[100px] flex flex-col items-center text-center"
+                >
+                  <HeartIcon className="w-6 h-6 mb-2 text-black" />
+                  <p className="text-sm text-black font-semibold">{historySection.name}</p>
+                  <TextBody>{historySection.description}</TextBody>
                 </div>
-                <div className="flex-1 min-w-[100px] flex flex-col items-center text-center">
-                    <HeartIcon className="w-6 h-6 mb-2 text-black"/>
-                    <p className="text-sm text-black font-semibold">Título Dos</p>
-                    <TextBody>Descripción Dos</TextBody>
-                </div>
-                <div className="flex-1 min-w-[100px] flex flex-col items-center text-center">
-                    <HeartIcon className="w-6 h-6 mb-2 text-black"/>
-                    <p className="text-sm text-black font-semibold">Título Tres</p>
-                    <TextBody>Descripción Tres</TextBody>
-                </div>
+              ))}
             </div>
 
             <TextBody className="mb-6 text-center md:text-left">
@@ -60,11 +58,11 @@ const HistorySection = () => {
             </div>
         </div>
 
-        <div className="w-full lg:w-1/2 mt-8 lg:mt-0 lg:sticky lg:top-4">
+        <div className="w-full lg:w-1/2 mt-8 lg:mt-0 lg:sticky lg:top-4 cursor-pointer">
             <div className="relative w-full h-full min-h-[300px] lg:min-h-[450px] rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 transform hover:-translate-y-1 hover:scale-[1.02]">
                 <Image
                   fill 
-                  src={panama.src} 
+                  src="/images/historiesSection/panama.webp" // ✅ Ruta relativa al public
                   alt="Mazatlán histórico y cultural" 
                   className="w-full h-full object-cover absolute inset-0"
                 />
@@ -79,4 +77,4 @@ const HistorySection = () => {
   );
 };
 
-export default HistorySection;
+export default HistorySections;

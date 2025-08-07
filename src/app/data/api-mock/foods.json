@@ -1,0 +1,43 @@
+ [   
+    {
+      "id": 1,
+      "image": "/images/foods/panama.webp",
+      "name": "Sauves"
+    },
+    {
+      "id": 2,        
+      "image": "/images/foods/panama.webp",
+      "name": "Cerveza Pacifico"
+    },
+    {
+      "id": 3,        
+      "image": "/images/foods/panama.webp",
+      "name": "Agua Chile"
+    },
+    {
+      "id": 3,        
+      "image": "/images/foods/panama.webp",
+      "name": "Asado Mazatleco"
+    },
+    {
+      "id": 4,        
+      "image": "/images/foods/panama.webp",
+      "name": "Ceviche de Sierra"
+    },
+    {
+      "id": 5,        
+      "image": "/images/foods/panama.webp",
+      "name": "Coricos"
+    },
+    {
+      "id": 6,        
+      "image": "/images/foods/panama.webp",
+      "name": "Tonico"
+    },
+    {
+      "id": 7,        
+      "image": "/images/foods/panama.webp",
+      "name": "Tacos Gobernador"
+    }
+]
+  
