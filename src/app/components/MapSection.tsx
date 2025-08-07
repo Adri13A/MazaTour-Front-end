@@ -6,13 +6,14 @@ import { Map as LeafletMap, Polyline, Marker } from 'leaflet';
 import { decodePolyline } from '../utils/decodePolyline';
 import { getTruckIcon } from '../utils/iTruck';
 import { getStopIcon } from '../utils/iStop';
+import { getDestinationIcon, getOriginIcon } from '../utils/iOriginDest';
 
 type TruckAnimationType = 'origin' | 'destination' | null;
 
 interface Stop {
   stopId: number;
   name: string;
-  coordinates: string; // formato: "23.202171, -106.421123"
+  coordinates: string;
 }
 
 interface MapSectionProps {
@@ -64,8 +65,8 @@ const MapSection = ({
   };
 
   //Polilineas y paradas
-  useEffect(() => {
-    const initMap = async () => {
+useEffect(() => {
+  const initMap = async () => {
     const L = await import('leaflet');
     if (mapRef.current && !leafletMapRef.current) {
       const map = L.map(mapRef.current, {
@@ -88,12 +89,32 @@ const MapSection = ({
         const originCoords = decodePolyline(polylineOrigin);
         originPolylineRef.current = L.polyline(originCoords, { color: '#A6A6A6', weight: 5 }).addTo(map);
         allCoords.push(...originCoords);
+
+        // Icono y marcador en la primera coordenada de origen
+        if (originCoords.length > 0) {
+          const originIcon = await getOriginIcon();
+          const firstOriginCoord = originCoords[0];
+          L.marker(firstOriginCoord, {
+            icon: originIcon,
+            title: 'Base',
+          }).addTo(map).bindPopup('<strong>Base</strong>');
+        }
       }
 
       if (polylineDestination) {
         const destCoords = decodePolyline(polylineDestination);
         destPolylineRef.current = L.polyline(destCoords, { color: '#111111', weight: 5 }).addTo(map);
         allCoords.push(...destCoords);
+
+        // Icono y marcador en la primera coordenada de destino
+        if (destCoords.length > 0) {
+          const destinationIcon = await getDestinationIcon();
+          const firstDestCoord = destCoords[0];
+          L.marker(firstDestCoord, {
+            icon: destinationIcon,
+            title: 'Salida',
+          }).addTo(map).bindPopup('<strong>Salida</strong>');
+        }
       }
 
       if (stops && stops.length > 0) {
@@ -118,9 +139,9 @@ const MapSection = ({
       }
     }
   };
- 
+
   initMap();
-  }, [id, polylineOrigin, polylineDestination, stops]);
+}, [id, polylineOrigin, polylineDestination, stops]);
 
  //Animación de recorrido
   useEffect(() => {

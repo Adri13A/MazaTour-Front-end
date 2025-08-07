@@ -11,7 +11,7 @@ const SearchRoutes = () => {
                 Elige tu destino
             </Subtitle>     
             <Title className="text-black">
-                Recorre tu proxima parada
+                Recorre tu <span className="text-stroke-black">proxima</span> parada
             </Title>
         </div>
           <div className="md:flex gap-2">

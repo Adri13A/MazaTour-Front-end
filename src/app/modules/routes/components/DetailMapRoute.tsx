@@ -8,6 +8,7 @@ import {  Clock,CalendarClock,Route,Ruler,DollarSign,Snowflake,Flag,Navigation, 
 import Subtitle from '@/app/components/letters/Subtitle';
 import Title from '@/app/components/letters/Title';
 import { useDetailRoute } from '../hooks/useDetailRoute';
+import Breadcrumb from '@/app/components/Breadcrumb';
 
 const iconList = [Clock, CalendarClock, Route, Ruler, DollarSign, DollarSign, Snowflake, Flag];
 
@@ -65,11 +66,14 @@ type AnimationType = 'origin' | 'destination' | null;
   return (
     <>
       <div className="pb-5 pt-5 md:pb-10 md:pt-10 bg-white">
-        <Title className="pt-4">{detailroute.name}</Title>
+        <Title className="pt-4">
+          {detailroute.name.split('-')[0]} -
+          <span className="text-stroke-black"> {detailroute.name.split('-')[1]}</span>
+        </Title>
         <Subtitle>{detailroute.originDestination}</Subtitle>
 
         <div className="md:text-left">
-          <span
+          {/* <span
             className="inline-flex items-center gap-2 text-white py-1 px-5 rounded-2xl font-semibold justify-center md:justify-start cursor-pointer"
             style={{ background: 'var(--color-accent2)' }}
           >
@@ -77,7 +81,8 @@ type AnimationType = 'origin' | 'destination' | null;
               <ChevronLeft className="w-4 h-4 text-white hover:fill-white transition-all duration-200 hover:scale-110 hover:animate-pulse cursor-pointer" />
             </button>
             Regresar
-          </span>
+          </span> */}
+            <Breadcrumb routeName={detailroute.name} />
         </div>
       </div>
 
@@ -207,7 +212,7 @@ type AnimationType = 'origin' | 'destination' | null;
         polylineDestination={detailroute.polylineDestination}
         truckAnimationType={animationConfig.type}
         animationKey={animationConfig.key}
-        stops={detailroute.stopRoutes} // ← así directo
+        stops={detailroute.stopRoutes}
       />
 
       {/* Botones móviles (sin cambios) */}
