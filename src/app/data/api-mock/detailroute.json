@@ -35,8 +35,8 @@
     "distance": "25 KM",
     "timeTraveled": "1HR 15MIN",
     "climatizacion": "Si",
-    "polylineOrigin": "...",
-    "polylineDestination": "...",
+    "polylineOrigin": "",
+    "polylineDestination": "",
         "costRoutes": [
       { "costId": 1, "name": "Normal", "cost": 12.5 },
       { "costId": 2, "name": "Estudiante", "cost": 3.5 }
@@ -56,8 +56,8 @@
     "distance": "15 KM",
     "timeTraveled": "1HR 10MIN",
     "climatizacion": "Si",
-    "polylineOrigin": "...",
-    "polylineDestination": "...",
+    "polylineOrigin": "",
+    "polylineDestination": "",
     "costRoutes": [
       { "costId": 1, "name": "Normal", "cost": 12.5 },
       { "costId": 2, "name": "Estudiante", "cost": 3.5 }

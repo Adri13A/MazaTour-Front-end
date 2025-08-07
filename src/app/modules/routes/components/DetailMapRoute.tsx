@@ -73,15 +73,6 @@ type AnimationType = 'origin' | 'destination' | null;
         <Subtitle>{detailroute.originDestination}</Subtitle>
 
         <div className="md:text-left">
-          {/* <span
-            className="inline-flex items-center gap-2 text-white py-1 px-5 rounded-2xl font-semibold justify-center md:justify-start cursor-pointer"
-            style={{ background: 'var(--color-accent2)' }}
-          >
-            <button className="focus:outline-none">
-              <ChevronLeft className="w-4 h-4 text-white hover:fill-white transition-all duration-200 hover:scale-110 hover:animate-pulse cursor-pointer" />
-            </button>
-            Regresar
-          </span> */}
             <Breadcrumb routeName={detailroute.name} />
         </div>
       </div>
