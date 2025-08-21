@@ -15,6 +15,7 @@ export async function getTruckIcon() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+        boxShadow: '0 4px 10px rgba(0, 0, 0, 0.3)',
       }}
     >
       <BusFront color="white" size={20} />

@@ -9,3 +9,4 @@ export interface Place extends BaseEntity {
     idCategory: number,
     nameCategory: string,
 }
+

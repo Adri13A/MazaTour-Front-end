@@ -22,7 +22,7 @@ const CarouselPlacesRoutes = ({ placesroute }: Readonly<CarouselPlacesRoutesProp
                           Lugares Sugeridos
                       </Subtitle>
                       <Title>
-                          Lista <span className="text-stroke-black">de</span> lugares <span className="text-stroke-black">que </span>recorre
+                          Lista de lugares que recorre
                       </Title>
                   </div>
                   

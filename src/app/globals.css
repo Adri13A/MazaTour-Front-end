@@ -114,3 +114,16 @@ body {
   -webkit-text-stroke: 2px black;
   color: white;
 }
+
+.custom-terminal-popup .leaflet-popup-content-wrapper {
+  background-color: rgba(255, 255, 255, 0.1); /* bg-white/10 */
+  backdrop-filter: blur(4px); /* blur similar a backdrop-blur-sm */
+  border-radius: .8rem; /* rounded-xl */
+  padding: 0.3rem 0.1rem;
+}
+
+
+.custom-terminal-popup .leaflet-popup-tip {
+  background-color: rgba(255, 255, 255, 0.1); /* punta del popup */
+  backdrop-filter: blur(4px);
+}

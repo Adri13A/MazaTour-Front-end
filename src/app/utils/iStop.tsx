@@ -15,6 +15,7 @@ export async function getStopIcon() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+        boxShadow: '0 4px 10px rgba(0, 0, 0, 0.3)',
       }}
     >
       <MapPin color="white" size={16} />

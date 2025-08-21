@@ -71,7 +71,6 @@ export interface ICardPlacesRoute extends BaseEntity {
   routeId: number;
 }
 
-
 export interface IDetailRoute extends BaseEntity {
   name: string;
   originDestination: string;
@@ -102,4 +101,10 @@ export interface IStopRoute extends BaseEntity {
 export interface ICompanyRoute extends BaseEntity {
   companyId: number;
   companyName: string;
+}
+
+export interface ITerminal extends BaseEntity{
+  name: string;
+  coordinate: string;
+  cardRoute: ICardRoute[];
 }
