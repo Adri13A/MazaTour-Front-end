@@ -27,11 +27,14 @@ import {
   ChevronRight,
   LayoutDashboard,
   BusFront,
+  PlusIcon,
+  OctagonPause,
   
 } from 'lucide-react';
 import { useDetailRoute } from '../hooks/useDetailRoute';
 import React, {useState} from 'react';
 import { useTerminals } from '../hooks/useTerminals';
+import { StopIcon } from '@heroicons/react/24/solid';
 
 const iconList = [
   Clock,
@@ -64,8 +67,11 @@ type AnimationType = 'origin' | 'destination' | null;
 
 const DetailMapRoute = ({ routeId }: DetailMapRouteProps) => {
   const { detailroute, isLoading } = useDetailRoute(routeId);
-  const [showDetalles, setShowDetalles] = useState(true);
-  const [animationConfig, setAnimationConfig] = useState<{
+  const [showDetalles, setShowDetalles] = useState(false);
+  const [showTerminals, SetShowTerminals] = useState(false);
+  const [showCarousel, setShowCarousel] = useState(false);
+
+    const [animationConfig, setAnimationConfig] = useState<{
     type: AnimationType;
     key: number;
   }>({
@@ -77,14 +83,6 @@ const DetailMapRoute = ({ routeId }: DetailMapRouteProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const { terminals } = useTerminals();
   const [selectedTerminal, setSelectedTerminal] = useState<number | string | "all" | null>(null);
-
-  const prevSlide = () => {
-    setCurrentIndex((prev) => (prev === 0 ? paradas.length - 1 : prev - 1));
-  };
-
-  const nextSlide = () => {
-    setCurrentIndex((prev) => (prev === paradas.length - 1 ? 0 : prev + 1));
-  };
 
   const startAnimation = (type: AnimationType) => {
     setAnimationConfig((prev) => ({
@@ -129,7 +127,7 @@ const DetailMapRoute = ({ routeId }: DetailMapRouteProps) => {
 return (
   <>
     {/* Contenedor general */}
-  <div className="relative w-full h-[520px] -mt-80 md:-mt-64 z-20 pointer-events-auto">
+    <div className="relative w-full h-[520px] -mt-80 md:-mt-64 z-20 pointer-events-auto">
     {/* Mapa full width */}
     <MapSection
       id={routeId}
@@ -146,71 +144,224 @@ return (
     <div className="absolute inset-0 flex flex-col md:flex-row gap-4 p-4 pointer-events-none">
       
       {/* Panel izquierdo (carrusel móvil y botones) */}
-      <div className="flex-1 flex flex-col justify-end md:justify-start gap-4 relative z-40 pointer-events-none">  
-        {/* Carrusel infoRuta móvil */}
-        <div className="absolute bottom-6 left-4 right-4 z-50 md:hidden px-4 cursor-pointer pointer-events-none">
-          <div
-            ref={containerRef}
-            onMouseDown={onMouseDown}
-            onMouseLeave={onMouseLeave}
-            onMouseUp={onMouseUp}
-            onMouseMove={onMouseMove}
-            className="flex gap-3 overflow-x-auto scroll-smooth whitespace-nowrap px-2 py-1 hide-scrollbar cursor-grab select-none pointer-events-auto"
-          >
-            {infoRuta.map((item, index) => {
-              const Icon = iconList[index];
-              return (
-                <div
-                  key={index}
-                  className="inline-flex min-w-[160px] bg-black/40 backdrop-blur-sm rounded-3xl px-2 py-1 items-center gap-2 shrink-0"
-                >
-                  <div className="w-5 h-5 bg-white rounded-full flex items-center justify-center">
-                    {Icon && <Icon className="w-4 h-4 text-black" />}
-                  </div>
-                  <div className="flex flex-col leading-tight">
-                    <h3 className="text-white text-xs font-semibold">{item.titulo}</h3>
-                    <h4 className="text-white text-[10px] font-light uppercase">{item.valor}</h4>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
+      <div className="flex-1 flex flex-col justify-end md:justify-start gap-4 relative z-30">
         {/* Botones móviles */}
-        <div className="md:hidden absolute top-4 left-2 z-50 flex flex-col gap-2">
+        <div className="md:hidden absolute top-4 left-2 z-30 flex flex-col gap-2 pointer-events-auto">
           <button
             onClick={() => setShowDetalles(!showDetalles)}
-            aria-label={showDetalles ? 'Ocultar paradas' : 'Mostrar paradas'}
-            className="w-10 h-10 rounded-full bg-black/40 backdrop-blur-md text-white shadow-md flex items-center justify-center hover:scale-105 transition-transform"
+            aria-label={showDetalles ? "Ocultar paradas" : "Mostrar paradas"}
+            className="cursor-pointer w-10 h-10 rounded-full bg-white/20 backdrop-blur-md text-black shadow-lg flex items-center justify-center hover:scale-105 transition-transform md:hidden"
           >
-            {showDetalles ? <X className="w-5 h-5" /> : <Truck className="w-6 h-6" />}
+            <span
+              className={`transform transition-transform duration-300 ${
+                showDetalles ? "rotate-45" : "rotate-0"
+              }`}
+            >
+              <PlusIcon className="w-6 h-6" />
+            </span>
           </button>
 
           <button
             aria-label="Salida"
-            className="w-10 h-10 rounded-full bg-black/40 backdrop-blur-md text-white shadow-md flex items-center justify-center"
+            className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md text-black shadow-lg flex items-center justify-center"
             onClick={() => startAnimation('origin')}
           >
             <Navigation className="w-5 h-5" />
           </button>
           <button
             aria-label="Temporal"
-            className="w-10 h-10 rounded-full bg-black/40 backdrop-blur-md text-white shadow-md flex items-center justify-center"
+            className="w-10 h-10 rounded-full  bg-white/20 backdrop-blur-md text-black shadow-lg flex items-center justify-center"
           >
             <Repeat2 className="w-5 h-5" />
           </button>
           <button
             aria-label="Regreso"
-            className="w-10 h-10 rounded-full bg-black/40 backdrop-blur-md text-white shadow-md flex items-center justify-center"
+            className="w-10 h-10 rounded-full  bg-white/20 backdrop-blur-md text-black shadow-lg flex items-center justify-center"
             onClick={() => startAnimation('destination')}
           >
             <Navigation2 className="w-5 h-5 rotate-180" />
           </button>
+          <button
+            aria-label="Terminales"
+            onClick={() => SetShowTerminals(!showTerminals)}
+            className="w-10 h-10 rounded-full  bg-white/20 backdrop-blur-md text-black shadow-lg flex items-center justify-center"
+          >
+            <OctagonPause className="w-5 h-5" />
+          </button>
+        </div>  
+
+        {/* Card Detalles móvil */}
+        {showDetalles && (
+          <div
+            className={`absolute top-4 inset-x-0 z-40 md:hidden pointer-events-auto transition-all duration-300${
+              showDetalles
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 -translate-y-5 pointer-events-none"
+            }`}
+          >
+            {/* Contenedor principal */}
+            <div className="relative backdrop-blur-sm bg-white/10 rounded-xl overflow-y-auto pb-6 px-6 hide-scrollbar shadow-lg mx-4">
+              
+              {/* Botón de cierre */}
+              <button
+                onClick={() => setShowDetalles(false)}
+                className="absolute top-3 right-3 p-1 rounded-full bg-white shadow-md hover:bg-gray-100 transition"
+              >
+                <X className="w-5 h-5 text-black" />
+              </button>
+
+              <div className="flex flex-col gap-3 pt-3">
+                {/* Encabezado */}
+                <div className="flex items-center justify-between pr-8"> 
+                  {/* pr-8 para que no choque con la X */}
+                  <p className="text-black font-medium text-lg">Paradas</p>
+                  <span className="text-xs text-gray-500">
+                    {currentIndex + 1}/{paradas.length}
+                  </span>
+                </div>
+
+                {/* Carrusel horizontal */}
+                <div
+                  className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar cursor-grab active:cursor-grabbing scroll-smooth px-1 gap-4 p-2"
+                  ref={containerRef}
+                  role="list"
+                  onMouseDown={onMouseDown}
+                  onMouseLeave={onMouseLeave}
+                  onMouseUp={onMouseUp}
+                  onMouseMove={(e) => {
+                    onMouseMove(e);
+                    if (containerRef.current && containerRef.current.firstChild) {
+                      const scrollLeft = containerRef.current.scrollLeft;
+                      const cardWidth = (containerRef.current.firstChild as HTMLElement); // 16px = gap-4
+                    }
+                  }}
+                >
+                  {paradas.map((parada, index) => {
+                    const IconComponent = icons[index % icons.length];
+                    return (
+                      <div
+                        key={index}
+                        className="flex items-center justify-between rounded-lg shadow-md bg-white flex-shrink-0 snap-center w-full max-w-[300px]"
+                        role="listitem"
+                      >
+                        <div className="flex items-center gap-3 p-2">
+                          <div className="w-9 h-9 flex items-center justify-center rounded-xl bg-[#fafafa] text-black">
+                            <IconComponent className="w-4 h-4" />
+                          </div>
+                          <p className="text-[color:#4B4B4B] text-sm">{parada}</p>
+                        </div>
+                        <ChevronRight className="w-4 h-4 text-black mr-2" />
+                      </div>
+                    );
+                  })}
+                </div>
+
+                {/* Subtítulo adicional */}
+                <p className="text-black font-medium text-lg">Adicional</p>
+
+                {/* Mini cards */}
+                <div className="grid grid-cols-4 gap-4">
+                  {infoRuta.map((item, index) => {
+                    const Icon = iconList[index];
+                    return (
+                      <div
+                        key={index}
+                        className="group relative flex items-center justify-center bg-white rounded-2xl shadow-md w-full aspect-square cursor-pointer 
+                              transition-transform duration-300 transform hover:-translate-y-2 hover:shadow-xl"
+                        onClick={() => setActiveIndex(index)}
+                      >
+                        <div className="w-10 h-10 flex items-center justify-center rounded-2xl bg-[#fafafa] transition-transform duration-300 group-hover:scale-110">
+                          {Icon && <Icon className="w-5 h-5 text-black" />}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+
+               {/* Card largo con info compacto */}
+                <div className="flex-shrink-0 rounded-lg shadow-md px-3 py-2 w-full flex justify-between items-center bg-white">
+                  <div className="leading-tight">
+                    <h2 className="text-gray-900 font-semibold text-sm">
+                      {infoRuta[activeIndex].titulo}
+                    </h2>
+                    <p className="text-gray-500 text-xs">{infoRuta[activeIndex].valor}</p>
+                  </div>
+                  <div className="bg-[#fafafa] w-8 h-8 rounded-xl p-1 flex items-center justify-center">
+                    {iconList[activeIndex] &&
+                      React.createElement(iconList[activeIndex], {
+                        className: "text-black w-4 h-4",
+                      })}
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        )}
+        
+        {/* Carrusel Terminals móvil */}
+        {showTerminals && (
+        <div className="absolute bottom-0 left-0 right-0 z-50 md:hidden px-1 cursor-pointer pointer-events-auto">
+          <div
+            ref={containerRef}
+            onMouseDown={onMouseDown}
+            onMouseLeave={onMouseLeave}
+            onMouseUp={onMouseUp}
+            onMouseMove={onMouseMove}
+            className="flex gap-3 overflow-x-auto scroll-smooth whitespace-nowrap px-2 py-1 hide-scrollbar cursor-grab select-none pointer-events-auto pb-8"
+          >
+            {/* Botón Ver todas / Limpiar */}
+            <button
+              type="button"
+              onClick={() =>
+                selectedTerminal === "all" ? setSelectedTerminal(null) : setSelectedTerminal("all")
+              }
+              className={`inline-flex min-w-[160px] backdrop-blur-sm rounded-xl shadow-lg px-2 py-1 items-center gap-2 shrink-0
+                ${selectedTerminal === "all" ? "bg-white/20 ring-2 ring-blue-400" : "bg-white/10"}
+              `}
+            >
+              <div className="w-5 h-5 bg-white rounded-full flex items-center justify-center">
+                <BusFront className="w-4 h-4 text-black" />
+              </div>
+              <div className="flex flex-col leading-tight">
+                <h3 className="text-black text-xs font-semibold">Terminales</h3>
+                <h4 className="text-gray-500 text-[12px] font-light">
+                  {selectedTerminal === "all" ? "Limpiar" : "Ver todas"}
+                </h4>
+              </div>
+            </button>
+
+            {/* Botones de cada terminal */}
+            {terminals?.map((terminal) => {
+              const isSelected = selectedTerminal === terminal.id;
+                return (
+                  <button
+                    key={terminal.id}
+                    type="button"
+                    onClick={() => setSelectedTerminal(terminal.id)}
+                    className={`inline-flex min-w-[160px] backdrop-blur-sm rounded-xl shadow-lg px-2 py-1 items-center gap-2 shrink-0
+                      ${isSelected ? "bg-white/20 ring-2 ring-blue-400" : " "}
+                    `}
+                  >
+                    <div className="w-5 h-5 bg-white rounded-full flex items-center justify-center">
+                      <BusFront className="w-4 h-4 text-black" />
+                    </div>
+                    <div className="flex flex-col items-start justify-center">
+                      <h3 className="text-black text-xs font-semibold leading-snug">Terminal</h3>
+                      <h4 className="text-gray-500 text-sm font-light leading-snug">
+                        {terminal.name}
+                      </h4>
+                    </div>
+                  </button>
+                );
+              })}
+          </div>
         </div>
+        )}
+
       </div>
 
-      {/* Carrusel infoRuta escritorio */}
+      {/* Carrusel terminals escritorio */}
       <div className="hidden md:block absolute top-4 left-4 right-[26%] z-50 px-4 cursor-pointer pointer-events-none">
         <div
           ref={containerRef}
@@ -235,7 +386,7 @@ return (
             </div>
             <div className="flex flex-col leading-tight">
               <h3 className="text-black text-xs font-semibold">Terminales</h3>
-              <h4 className="text-gray-500 text-[12px] font-light uppercase">
+              <h4 className="text-gray-500 text-sm font-light">
                 {selectedTerminal === "all" ? "Limpiar" : "Ver todas"}
               </h4>
             </div>
@@ -258,7 +409,7 @@ return (
                   </div>
                   <div className="flex flex-col items-start justify-center">
                     <h3 className="text-black text-xs font-semibold leading-snug">Terminal</h3>
-                    <h4 className="text-gray-500 text-xs font-light uppercase leading-snug">
+                    <h4 className="text-gray-500 text-sm font-light leading-snug">
                       {terminal.name}
                     </h4>
                   </div>

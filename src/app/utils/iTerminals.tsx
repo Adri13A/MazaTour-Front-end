@@ -13,7 +13,7 @@ export function getTerminalsIcon(L: typeof import('leaflet')) {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        boxShadow: '0 4px 10px rgba(0, 0, 0, 0.3)', // 👈 sombra
+        boxShadow: '0 4px 10px rgba(0, 0, 0, 0.3)', 
 
       }}
     >
