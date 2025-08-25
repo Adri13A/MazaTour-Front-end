@@ -1,0 +1,60 @@
+[
+    
+    {
+      "id": 1,
+      "image": "/images/places/panama.webp",
+      "name": "Mirador de Cristal",
+      "description":"Este es el texto de la descripcion se recomienda manejar esta medida no más para un buen diseño, quizas un poco mas para verse mejor",
+      "categoryId": 2,
+      "categoryName": "Parques"
+    },
+    {
+      "id": 2,
+      "image": "/images/places/panama.webp",
+      "name": "El Faro",
+      "description":"Este es el texto de la descripcion se recomienda manejar esta medida no más para un buen diseño, quizas un poco mas para verse mejor",
+      "categoryId": 5,
+      "categoryName": "Naturleza"
+    },
+    {
+      "id": 3,
+      "image": "/images/places/panama.webp",
+      "name": "El Clavadista",
+      "description":"Este es el texto de la descripcion se recomienda manejar esta medida no más para un buen diseño, quizas un poco mas para verse mejor",
+      "categoryId": 5,
+      "categoryName": "Naturleza"
+    },
+    {
+      "id": 4,
+      "image": "/images/places/panama.webp",
+      "name": "Acuario Mar de Cortes",
+      "description":"Este es el texto de la descripcion se recomienda manejar esta medida no más para un buen diseño, quizas un poco mas para verse mejor",
+      "categoryId": 2,
+      "categoryName": "Parques"
+    },
+    {
+      "id": 5,
+      "image": "/images/places/panama.webp",
+      "name": "Basilica de la Inmaculada Concepción",
+      "description":"Este es el texto de la descripcion se recomienda manejar esta medida no más para un buen diseño, quizas un poco mas para verse mejor",
+      "categoryId": 1,
+      "categoryName": "Historica & Cultura"
+    },
+    {
+      "id": 6,
+      "image": "/images/places/panama.webp",
+      "name": "Cristo Rey",
+      "description":"Este es el texto de la descripcion se recomienda manejar esta medida no más para un buen diseño, quizas un poco mas para verse mejor",
+      "categoryId": 1,
+      "categoryName": "Historica & Cultura"
+    },
+    {
+      "id": 7,
+      "image": "/images/places/panama.webp",
+      "name": "Obeservatorio",
+      "description":"'Este es el texto de la descripcion se recomienda manejar esta medida no más para un buen diseño, quizas un poco mas para verse mejor",
+      "categoryId": 2,
+      "categoryName": "Parques"
+    }
+]
+  

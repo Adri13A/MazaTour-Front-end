@@ -4,24 +4,18 @@ import React from 'react';
 import { ArrowRight } from 'lucide-react';
 
 interface CardRutasProps {
-  nombreRuta: string;
-  origenDestino: string;
-  organizacion: string;
-  frecuencia: string;
+  name: string;
+  originDestination: string;
+  companyName: string;
+  frequency: string;
   onClick?: () => void
 }
 
-export default function CardRoutes({
-  nombreRuta,
-  origenDestino,
-  organizacion,
-  frecuencia,
-  onClick,
-}: CardRutasProps) {
+export default function CardRoutes({name,originDestination,companyName,frequency,onClick,}: Readonly<CardRutasProps>) {
   
   return (
     <div className="group font-gantari border relative bg-white 
-      rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-200 overflow-hidden w-100"
+      rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-200 overflow-hidden w-100 cursor-pointer"
       onClick={onClick}>
       <div
         className="absolute rounded-2xl opacity-25 bg-gray-500"
@@ -34,11 +28,11 @@ export default function CardRoutes({
         }}
       />
       <div className="relative z-10 p-4">
-        <h3 className="text-lg md:text-xl font-bold text-black mb-1 text-left">{nombreRuta}</h3>
-        <p className="text-sm md:text-base text-gray-600 mb-2 text-left">{origenDestino}</p>
+        <h3 className="text-lg md:text-xl font-bold text-black mb-1 text-left">{name}</h3>
+        <p className="text-sm md:text-base text-gray-600 mb-2 text-left">{originDestination}</p>
 
         <div className="mt-1 flex flex-wrap gap-1">
-          {[organizacion, frecuencia].map((label, index) => (
+          {[companyName, frequency].map((label, index) => (
             <span
               key={index}
               className="px-2 py-0.5 text-xs md:text-sm font-semibold bg-gray-200 rounded-full text-gray-700 inline-block"

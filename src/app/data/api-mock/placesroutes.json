@@ -1,0 +1,57 @@
+ [   
+    {
+      "id": 1,
+      "image": "/images/places/panama.webp",
+      "placeName": "Venadillo",
+      "routeName": "20 de Noviembre - Jaurez"
+    },
+    {
+      "id": 2,
+      "image": "/images/places/panama.webp",
+      "placeName": "Colonia Juarez",
+      "routeName": "20 de Noviembre - Jaurez"
+    },
+    {
+      "id": 3,
+      "image": "/images/places/panama.webp",
+      "placeName": "Cancha German Evers",
+      "routeName": "20 de Noviembre - Jaurez"
+    },
+    {
+      "id": 4,
+      "image": "/images/places/panama.webp",
+      "placeName": "Plaza Acaya",
+      "routeName": "Hogar del Pescador - Centro"
+    },
+    {
+      "id": 5,
+      "image": "/images/places/panama.webp",
+      "placeName": "Plaza Ley del Mar",
+      "routeName": "Hogar del Pescador - Centro"
+    },
+    {
+      "id": 6,
+      "image": "/images/places/panama.webp",
+      "placeName": "Centro",
+      "routeName": "Hogar del Pescador - Centro"
+    },
+    {
+      "id": 7,
+      "image": "/images/places/panama.webp",
+      "placeName": "Rafael Buelna",
+      "routeName": "Alarcon - Sabalo"
+    },
+    {
+      "id": 8,
+      "image": "/images/places/panama.webp",
+      "placeName": "Valentinos",
+      "routeName": "Alarcon - Sabalo"
+    },
+    {
+      "id": 9,
+      "image": "/images/places/panama.webp",
+      "placeName": "Zona Dorada",
+      "routeName": "Alarcon - Sabalo"
+    }
+]
+  

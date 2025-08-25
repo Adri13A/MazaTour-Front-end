@@ -4,21 +4,21 @@ import { ArrowUpRight, X } from "lucide-react";
 import { useState } from "react";
 
 interface CardPlaceProps {
-  readonly imagen: string;
-  readonly nombre: string;
-  readonly descripcion: string;
-  readonly nombreCategoria: string;
+  readonly image: string; 
+  readonly name: string;
+  readonly description: string;
+  readonly categoryName: string;
 }
 
-const CardPlace = ({ imagen, nombre, descripcion, nombreCategoria }: CardPlaceProps) => {
+const CardPlace = ({ image, name, description, categoryName }: CardPlaceProps) => {
   const [showDetails, setShowDetails] = useState(false);
 
   return (
     <div className="relative aspect-[3/5] min-w-[120px] max-w-[20rem] w-full h-auto rounded-2xl overflow-hidden transition-transform duration-300 transform bg-white hover:-translate-y-1 hover:scale-[1.02]">
-      {/* Imagen de fondo */}
+      {/* Image de fondo */}
       <div
         className="absolute inset-0 bg-cover bg-center transition-all duration-300"
-        style={{ backgroundImage: `url(${imagen})` }}
+        style={{ backgroundImage: `url(${image})` }}
       />
 
       {/* Sombra/gradiente */}
@@ -32,8 +32,8 @@ const CardPlace = ({ imagen, nombre, descripcion, nombreCategoria }: CardPlacePr
       {/* Contenido principal */}
       {!showDetails && (
         <div className="absolute bottom-4 left-4 transition-all duration-300">
-          <h3 className="card-title">{nombre}</h3>
-          <p className="card-subtitle">{nombreCategoria}</p>
+          <h3 className="card-title">{name}</h3>
+          <p className="card-subtitle">{categoryName} </p>
           <button
             onClick={() => setShowDetails(true)}
             className="inline-block mt-4 px-2 py-1 max-w-2xl mx-auto drop-shadow-md rounded-lg backdrop-blur-sm bg-gradient-to-br from-white/10 via-white/5 to-transparent hover:scale-105 transition text-white cursor-pointer"
@@ -56,8 +56,8 @@ const CardPlace = ({ imagen, nombre, descripcion, nombreCategoria }: CardPlacePr
           </button>
 
           <div className="h-full flex flex-col">
-            <h3 className="card-title">{nombre}</h3>
-            <div className="card-text">{descripcion}</div>
+            <h3 className="card-title">{name}</h3>
+            <div className="card-text">{description}</div>
           </div>
         </div>
       )}

@@ -1,12 +1,16 @@
 import React from 'react';
 import CardFood from '../../../../components/cards/CardFood';
-import { foods } from '../../../../data/foods'; 
 import CarouselWrapper from './CarouselWrapper';
 import Title from '@/app/components/letters/Title';
 import Subtitle from '@/app/components/letters/Subtitle';
 import TextBody from '@/app/components/letters/Text';
+import { ICardFood } from '@/app/interfaces/utils';
 
-const CarouselFoods = () => {
+interface CarouselFoodsProps {
+  foods: ICardFood[];
+}
+
+const CarouselFoods = ({ foods }: Readonly<CarouselFoodsProps>) => {
   return (
     <div>
         <div className="text-center mb-10">
@@ -27,8 +31,8 @@ const CarouselFoods = () => {
             {foods.map((food) => (
                 <CardFood
                     key={food.id}
-                    imagen={food.imagen}
-                    nombre={food.nombre}
+                    image={food.image}
+                    name={food.name}
                 />
             ))}
         </CarouselWrapper>

@@ -1,28 +1,82 @@
 'use client';
 
-import { Navigation, Repeat2, Navigation2, Truck, X } from 'lucide-react';
-import { infoRuta } from '@/app/data/aditionalData';
 import MapSection from '@/app/components/MapSection';
 import CardIcon from '@/app/components/cards/CardIcon';
 import { useHorizontalDragScroll } from '@/app/hooks/useHorizontalDragScroll';
 import { useState } from 'react';
+import {  Clock,CalendarClock,Route,Ruler,DollarSign,Snowflake,Flag,Navigation, Repeat2, Navigation2, Truck, X, ChevronLeft} from 'lucide-react';
+import Subtitle from '@/app/components/letters/Subtitle';
+import Title from '@/app/components/letters/Title';
+import { useDetailRoute } from '../hooks/useDetailRoute';
+import Breadcrumb from '@/app/components/Breadcrumb';
 
-const paradas = [
-  "20 de Noviembre",
-  "Av. Gabriel Leyva",
-  "Huerta Grande",
-  "Jabalíes",
-  "Juárez",
-  "Plaza Acaya",
-  "Venadillo",
-  "Villa Galaxia",
-];
+const iconList = [Clock, CalendarClock, Route, Ruler, DollarSign, DollarSign, Snowflake, Flag];
 
-const DetailMapRoute = ({ idRuta }: Readonly<{ idRuta: string }>) => {
-  const scrollRef = useHorizontalDragScroll<HTMLDivElement>();
-  const [showDetalles, setShowDetalles] = useState(true);
+interface DetailMapRouteProps {
+  routeId: string;
+}
+
+type AnimationType = 'origin' | 'destination' | null;
+
+  const DetailMapRoute = ({ routeId }: DetailMapRouteProps) => {
+    const { detailroute, isLoading  } = useDetailRoute(routeId);
+    const [showDetalles, setShowDetalles] = useState(true);
+  const [animationConfig, setAnimationConfig] = useState<{ type: AnimationType; key: number }>({
+    type: null,
+    key: 0,
+  });
+  const startAnimation = (type: AnimationType) => {
+    setAnimationConfig(prev => ({
+      type,
+      key: prev.key + 1, // incrementa siempre, incluso si el tipo es igual
+    }));
+  };
+  
+  const {
+    containerRef,
+    onMouseDown,
+    onMouseLeave,
+    onMouseUp,
+    onMouseMove,
+  } = useHorizontalDragScroll<HTMLDivElement>();
+
+  if (isLoading || !detailroute) {
+    return <div className='text-teal-950'>Cargando detalles...</div>;
+  }
+
+  const paradas = detailroute.stopRoutes.map((stop) => stop.name);
+
+  const infoRuta = [
+    { titulo: "Frecuencia", valor: detailroute.frequency ?? "N/A"},
+    { titulo: "Horario", valor: detailroute.schedule ?? "N/A"},
+    { titulo: "Origen - Destino", valor: detailroute.originDestination ?? "N/A"},
+    { titulo: "Distancia", valor: detailroute.distance ?? "N/A"},
+    {
+      titulo: `Tarifa ${detailroute.costRoutes[0]?.name ?? "N/A"}`,
+      valor: `$${detailroute.costRoutes[0]?.cost ?? "-"}`,
+    },
+    {
+      titulo: `Tarifa ${detailroute.costRoutes[1]?.name ?? "N/A"}`,
+      valor: `$${detailroute.costRoutes[1]?.cost ?? "-"}`,
+    },
+    { titulo: "Unidad Con A/c", valor: detailroute.climatizacion ?? "N/A"},
+    { titulo: "Compañía", valor: detailroute.companyRoute?.companyName  ?? "N/A"},
+  ];
 
   return (
+    <>
+      <div className="pb-5 pt-5 md:pb-10 md:pt-10 bg-white">
+        <Title className="pt-4">
+          {detailroute.name.split('-')[0]} -
+          <span className="text-stroke-black"> {detailroute.name.split('-')[1]}</span>
+        </Title>
+        <Subtitle>{detailroute.originDestination}</Subtitle>
+
+        <div className="md:text-left">
+            <Breadcrumb routeName={detailroute.name} />
+        </div>
+      </div>
+
     <div className="relative w-full h-[510px] rounded-lg overflow-hidden shadow-lg border">
 
       {/* Panel Detalles */}
@@ -45,9 +99,22 @@ const DetailMapRoute = ({ idRuta }: Readonly<{ idRuta: string }>) => {
 
         {/* Icon Cards - solo escritorio */}
         <div className="flex justify-center gap-3 hidden md:flex">
-          <CardIcon icon={<Navigation className="w-6 h-6 mb-1" />} label="Salida" />
-          <CardIcon icon={<Repeat2 className="w-6 h-6 mb-1" />} label="Temporal" />
-          <CardIcon icon={<Navigation2 className="w-6 h-6 mb-1 rotate-180" />} label="Regreso" />
+        <CardIcon
+          icon={<Navigation className="w-6 h-6 mb-1 cursor-pointer" />}
+          label="Salida"
+        onClick={() => startAnimation('origin')}
+        />
+
+        <CardIcon
+          icon={<Repeat2 className="w-6 h-6 mb-1 cursor-pointer" />}
+          label="Temporal"
+        />
+
+        <CardIcon
+          icon={<Navigation2 className="w-6 h-6 mb-1 rotate-180 cursor-pointer" />}
+          label="Regreso"
+          onClick={() => startAnimation('destination')}
+        />
         </div>
 
       {/* Sección Paradas */}
@@ -100,33 +167,44 @@ const DetailMapRoute = ({ idRuta }: Readonly<{ idRuta: string }>) => {
       </div>
 
       {/* Carrusel horizontal de infoRuta */}
-      <div className="absolute bottom-6 left-4 right-4 z-40 px-4">
+      <div className="absolute bottom-6 left-4 right-4 z-40 px-4 cursor-pointer">
         <div
-          ref={scrollRef}
-          className="flex gap-3 overflow-x-auto scroll-smooth hide-scrollbar cursor-grab select-none"
-          tabIndex={0}
-          role="region"
-          aria-label="Carrusel de información de ruta"
+          ref={containerRef}
+          onMouseDown={onMouseDown}
+          onMouseLeave={onMouseLeave}
+          onMouseUp={onMouseUp}
+          onMouseMove={onMouseMove}
+          className="flex gap-3 overflow-x-auto scroll-smooth whitespace-nowrap px-2 py-1 hide-scrollbar cursor-grab select-none"
         >
-          {infoRuta.map((item, index) => (
-            <div
-              key={index}
-              className="min-w-[160px] bg-black/40 backdrop-blur-sm rounded-3xl px-2 py-1 flex items-center gap-2 shrink-0"
-            >
-              <div className="w-5 h-5 bg-white rounded-full flex items-center justify-center">
-                <item.icon className="w-4 h-4 text-black" />
+          {infoRuta.map((item, index) => {
+            const Icon = iconList[index];
+            return (
+              <div
+                key={index}
+                className="inline-flex min-w-[160px] bg-black/40 backdrop-blur-sm rounded-3xl px-2 py-1 items-center gap-2 shrink-0"
+              >
+                <div className="w-5 h-5 bg-white rounded-full flex items-center justify-center">
+                  {Icon && <Icon className="w-4 h-4 text-black" />}
+                </div>
+                <div className="flex flex-col leading-tight">
+                  <h3 className="text-white text-xs font-semibold">{item.titulo}</h3>
+                  <h4 className="text-white text-[10px] font-light uppercase">{item.valor}</h4>
+                </div>
               </div>
-              <div className="flex flex-col leading-tight">
-                <h3 className="text-white text-xs font-semibold">{item.titulo}</h3>
-                <h4 className="text-white text-[10px] font-light uppercase">{item.valor}</h4>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 
       {/* Mapa */}
-      <MapSection idRuta={idRuta} />
+      <MapSection
+        id={routeId}
+        polylineOrigin={detailroute.polylineOrigin}
+        polylineDestination={detailroute.polylineDestination}
+        truckAnimationType={animationConfig.type}
+        animationKey={animationConfig.key}
+        stops={detailroute.stopRoutes}
+      />
 
       {/* Botones móviles (sin cambios) */}
       <div className="md:hidden absolute top-4 left-2 z-40 flex flex-col gap-2">
@@ -138,17 +216,20 @@ const DetailMapRoute = ({ idRuta }: Readonly<{ idRuta: string }>) => {
           {showDetalles ? <X className="w-5 h-5" /> : <Truck className="w-6 h-6" />}
         </button>
 
-        <button aria-label="Salida" className="w-10 h-10 rounded-full bg-black/40 backdrop-blur-md text-white shadow-md flex items-center justify-center">
+        <button aria-label="Salida" className="w-10 h-10 rounded-full bg-black/40 backdrop-blur-md text-white shadow-md flex items-center justify-center" 
+            onClick={() => startAnimation('origin')}>
           <Navigation className="w-5 h-5" />
         </button>
         <button aria-label="Temporal" className="w-10 h-10 rounded-full bg-black/40 backdrop-blur-md text-white shadow-md flex items-center justify-center">
           <Repeat2 className="w-5 h-5" />
         </button>
-        <button aria-label="Regreso" className="w-10 h-10 rounded-full bg-black/40 backdrop-blur-md text-white shadow-md flex items-center justify-center">
+        <button aria-label="Regreso" className="w-10 h-10 rounded-full bg-black/40 backdrop-blur-md text-white shadow-md flex items-center justify-center"  
+               onClick={() => startAnimation('destination')}>
           <Navigation2 className="w-5 h-5 rotate-180" />
         </button>
       </div>
     </div>
+    </>
   );
 };
 

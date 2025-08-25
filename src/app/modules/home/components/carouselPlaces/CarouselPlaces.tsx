@@ -1,18 +1,32 @@
 import React, { useState } from 'react';
-import { places } from '../../../../data/places'; 
 import CarouselWrapper from './CarouselWrapper';
-import NavCategories from '../navs/NavCategories';
+import NavTabs from '../navs/NavTabs';
 import CardPlace from '@/app/components/cards/CardPlace';
-import { Categoria } from '@/app/modules/home/utils/enums/categories';
+import { Category } from '@/app/modules/home/utils/enums/categories';
 import Subtitle from '@/app/components/letters/Subtitle';
 import Title from '@/app/components/letters/Title';
 import TextBody from '@/app/components/letters/Text';
+import { ICardPlace } from '@/app/interfaces/utils';
+import { GenericTab } from '@/app/interfaces/tabs';
 
-const CarouselPlaces = () => {
-  const [selectedCategory, setSelectedCategory] = useState<Categoria>(Categoria.HISTORIA_CULTURA);
-  const filteredPlaces = selectedCategory === Categoria.TODAS 
+interface CarouselPlacesProps{
+  places: ICardPlace[];
+}
+
+const placeTabs: GenericTab<Category>[] = [
+  { id: Category.HISTORIA_CULTURA, name: "Historia & Cultura" },
+  { id: Category.PARQUES, name: "Parques" },
+  { id: Category.MUSEOS, name: "Museos" },
+  { id: Category.PLAYAS, name: "Playas" },
+  { id: Category.NATURALEZA, name: "Naturaleza" },
+  { id: Category.TODAS, name: "Ver Todas" },
+];
+
+const CarouselPlaces = ({ places }: Readonly<CarouselPlacesProps>) => {
+  const [selectedCategory, setSelectedCategory] = useState<Category>(Category.TODAS);
+  const filteredPlaces = selectedCategory === Category.TODAS 
     ? places 
-    : places.filter(place => place.idCategoria === selectedCategory);
+    : places.filter(place => place.categoryId === selectedCategory);
 
   return (
     <>
@@ -37,7 +51,11 @@ const CarouselPlaces = () => {
                   </TextBody>
               </div>
               <div>
-                  <NavCategories onCategoryChange={setSelectedCategory} />
+                  <NavTabs<Category>
+                          tabs={placeTabs}
+                          defaultTabId={Category.TODAS}
+                          onTabChange={setSelectedCategory}
+                        />
               </div>
           </div>
       </div>      
@@ -46,10 +64,10 @@ const CarouselPlaces = () => {
           {filteredPlaces.map((place) => (
               <CardPlace
                   key={place.id}
-                  imagen={place.imagen}
-                  nombre={place.nombre}
-                  descripcion={place.descripcion}
-                  nombreCategoria={place.nombreCategoria}
+                  image={place.image}
+                  name={place.name}
+                  description={place.description}
+                  categoryName={place.categoryName}
               />
           ))}
       </CarouselWrapper>

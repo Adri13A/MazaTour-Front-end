@@ -1,0 +1,83 @@
+[
+    
+    {
+      "id": 1,
+      "image": "/images/places/panama.webp",
+      "name": "Venadillo",
+      "description":"Este es el texto de la descripcion se recomienda manejar esta medida no más para un buen diseño, quizas un poco mas para verse mejor",
+      "categoryId": 2,
+      "categoryName": "Plazas",
+      "routeId": 1
+    },
+    {
+      "id": 2,
+      "image": "/images/places/panama.webp",
+      "name": "Colonia Juarez",
+      "description":"Este es el texto de la descripcion se recomienda manejar esta medida no más para un buen diseño, quizas un poco mas para verse mejor",
+      "categoryId": 5,
+      "categoryName": "Naturleza",
+      "routeId": 1
+    },
+    {
+      "id": 3,
+      "image": "/images/places/panama.webp",
+      "name": "Cancha German Evers",
+      "description":"Este es el texto de la descripcion se recomienda manejar esta medida no más para un buen diseño, quizas un poco mas para verse mejor",
+      "categoryId": 5,
+      "categoryName": "Naturleza",
+      "routeId": 1
+    },
+        {
+      "id": 4,
+      "image": "/images/places/panama.webp",
+      "name": "Rafael Buelna",
+      "description":"'Este es el texto de la descripcion se recomienda manejar esta medida no más para un buen diseño, quizas un poco mas para verse mejor",
+      "categoryId": 2,
+      "categoryName": "Parques",
+      "routeId": 2
+    },{
+      "id": 5,
+      "image": "/images/places/panama.webp",
+      "name": "Valentinos",
+      "description":"'Este es el texto de la descripcion se recomienda manejar esta medida no más para un buen diseño, quizas un poco mas para verse mejor",
+      "categoryId": 2,
+      "categoryName": "Parques",
+      "routeId": 2
+    },{
+      "id": 6,
+      "image": "/images/places/panama.webp",
+      "name": "Sabalo Country",
+      "description":"'Este es el texto de la descripcion se recomienda manejar esta medida no más para un buen diseño, quizas un poco mas para verse mejor",
+      "categoryId": 2,
+      "categoryName": "Parques",
+      "routeId": 2
+    },
+    {
+      "id": 7,
+      "image": "/images/places/panama.webp",
+      "name": "Plaza Acaya",
+      "description":"Este es el texto de la descripcion se recomienda manejar esta medida no más para un buen diseño, quizas un poco mas para verse mejor",
+      "categoryId": 2,
+      "categoryName": "Parques",
+      "routeId": 3
+    },
+    {
+      "id": 8,
+      "image": "/images/places/panama.webp",
+      "name": "Plaza Ley del Mar",
+      "description":"Este es el texto de la descripcion se recomienda manejar esta medida no más para un buen diseño, quizas un poco mas para verse mejor",
+      "categoryId": 1,
+      "categoryName": "Historica & Cultura",
+      "routeId": 3
+    },
+    {
+      "id": 9,
+      "image": "/images/places/panama.webp",
+      "name": "Centro",
+      "description":"Este es el texto de la descripcion se recomienda manejar esta medida no más para un buen diseño, quizas un poco mas para verse mejor",
+      "categoryId": 1,
+      "categoryName": "Historica & Cultura",
+      "routeId": 3
+    } 
+]
+  
