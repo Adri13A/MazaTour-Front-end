@@ -343,6 +343,7 @@ useEffect(() => {
 
     truckMarkerRef.current = L.marker(coords[0], { icon: truckIcon }).addTo(map);
 
+    
     const animate = () => {
       currentIndex++;
       if (currentIndex >= coords.length) {
@@ -370,6 +371,9 @@ useEffect(() => {
       }
 
       truckMarkerRef.current?.setLatLng(coords[currentIndex]);
+
+        map.setView(coords[currentIndex], 14, { animate: true });
+
       animationRef.current = requestAnimationFrame(animate);
     };
 
@@ -396,7 +400,7 @@ useEffect(() => {
   };
   }, [truckAnimationType, animationKey]);
 
-  return <div ref={mapRef} className="h-full w-full z-30" />;
+  return <div ref={mapRef} className="h-full w-full z-30 rounded- xl" />;
 };
 
 export default MapSection;

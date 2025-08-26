@@ -127,7 +127,7 @@ const DetailMapRoute = ({ routeId }: DetailMapRouteProps) => {
 return (
   <>
     {/* Contenedor general */}
-    <div className="relative w-full h-[520px] -mt-80 md:-mt-64 z-20 pointer-events-auto">
+    <div className="relative w-full h-[520px] -mt-80 lg:-mt-64 z-20 pointer-events-auto">
     {/* Mapa full width */}
     <MapSection
       id={routeId}
@@ -141,16 +141,16 @@ return (
     />
 
     {/* Cards flotando sobre el mapa */}
-    <div className="absolute inset-0 flex flex-col md:flex-row gap-4 p-4 pointer-events-none">
+    <div className="absolute inset-0 flex flex-col lg:flex-row gap-4 p-4 pointer-events-none">
       
       {/* Panel izquierdo (carrusel móvil y botones) */}
-      <div className="flex-1 flex flex-col justify-end md:justify-start gap-4 relative z-30">
+      <div className="flex-1 flex flex-col justify-end lg:justify-start gap-4 relative z-30">
         {/* Botones móviles */}
-        <div className="md:hidden absolute top-4 left-2 z-30 flex flex-col gap-2 pointer-events-auto">
+        <div className="lg:hidden absolute top-4 left-2 z-30 flex flex-col gap-2 pointer-events-auto">
           <button
             onClick={() => setShowDetalles(!showDetalles)}
             aria-label={showDetalles ? "Ocultar paradas" : "Mostrar paradas"}
-            className="cursor-pointer w-10 h-10 rounded-full bg-white/20 backdrop-blur-md text-black shadow-lg flex items-center justify-center hover:scale-105 transition-transform md:hidden"
+            className="cursor-pointer w-10 h-10 rounded-full bg-white/20 backdrop-blur-md text-black shadow-lg flex items-center justify-center hover:scale-105 transition-transform lg:hidden"
           >
             <span
               className={`transform transition-transform duration-300 ${
@@ -193,7 +193,7 @@ return (
         {/* Card Detalles móvil */}
         {showDetalles && (
           <div
-            className={`absolute top-4 inset-x-0 z-40 md:hidden pointer-events-auto transition-all duration-300${
+            className={`absolute top-4 inset-x-0 z-40 lg:hidden pointer-events-auto transition-all duration-300${
               showDetalles
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 -translate-y-5 pointer-events-none"
@@ -301,7 +301,7 @@ return (
         
         {/* Carrusel Terminals móvil */}
         {showTerminals && (
-        <div className="absolute bottom-0 left-0 right-0 z-50 md:hidden px-1 cursor-pointer pointer-events-auto">
+        <div className="absolute bottom-0 left-0 right-0 z-50 lg:hidden px-1 cursor-pointer pointer-events-auto">
           <div
             ref={containerRef}
             onMouseDown={onMouseDown}
@@ -362,7 +362,7 @@ return (
       </div>
 
       {/* Carrusel terminals escritorio */}
-      <div className="hidden md:block absolute top-4 left-4 right-[26%] z-50 px-4 cursor-pointer pointer-events-none">
+      <div className="hidden lg:block absolute top-4 left-4 right-[26%] z-50 px-4 cursor-pointer pointer-events-none">
         <div
           ref={containerRef}
           onMouseDown={onMouseDown}
@@ -420,7 +420,7 @@ return (
       </div>
     
      {/* Panel derecho (cards flotando sobre mapa) */}
-      <div className="hidden md:flex flex-col gap-4 w-1/4 max-w-sm relative z-40 pointer-events-auto">
+      <div className="hidden lg:flex flex-col gap-4 w-1/4 max-w-sm relative z-40 pointer-events-auto">
         <div className="backdrop-blur-sm bg-white/10 rounded-xl overflow-y-auto pb-6 px-6 hide-scrollbar shadow-lg">
           <div className="flex flex-col gap-2 pt-3">
             <p className="text-black font-medium text-lg">Información</p>
