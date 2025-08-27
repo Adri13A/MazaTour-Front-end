@@ -1,63 +1,107 @@
 'use client'
 
-import React from 'react';
-import CarouselWrapper from './CarouselWrapper';
+import React, { useState } from 'react';
 import Title from '@/app/components/letters/Title';
 import Subtitle from '@/app/components/letters/Subtitle';
 import TextBody from '@/app/components/letters/Text';
-import CardPlace from '@/app/components/cards/CardPlace';
 import { ICardPlacesRoute } from '@/app/interfaces/utils';
+import CardPlaceListRoute from '@/app/components/cards/CardPlaceListRoute';
+import CarouselWrapper from './CarouselWrapper'; // <-- Asegúrate de importar tu carrusel
 
-interface CarouselPlacesRoutesProps{
+interface CarouselPlacesRoutesProps {
   placesroute: ICardPlacesRoute[];
 }
 
 const CarouselPlacesRoutes = ({ placesroute }: Readonly<CarouselPlacesRoutesProps>) => {
-  return (
-    <div className="w-full space-y-4 md:space-y-0">
-        <div className="flex flex-col lg:flex-row gap-6 w-full md:px-0">
-            <div className="flex flex-col gap-4 w-full lg:w-1/4">
-                  <div className="text-center md:text-left md:px-0">
-                      <Subtitle>
-                          Lugares Sugeridos
-                      </Subtitle>
-                      <Title>
-                          Lista de lugares que recorre
-                      </Title>
-                  </div>
-                  
-                  <div className="md:flex-1">
-                      <TextBody className="md:pt-4">
-                          Informate y conoce algunos de los lugares que reocorre la ruta.
-                      </TextBody>
-                      <div className="flex flex-row lg:flex-col gap-4 mt-4 md:mt-6">
-                          <div className="w-full lg:w-full lg:pt-4">
-                              <div className="flex flex-col items-center lg:items-start gap-3 pb-3 mx-auto">
-                                  <div className="flex items-center gap-2 border-t border-gray-300 pt-3">
-                                      <TextBody className="font-semibold">
-                                        Conoce Su Recorrido
-                                      </TextBody>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-            </div>
+  const [showMore, setShowMore] = useState(false);
+  const itemsPerRow = 4;
 
-            <div className="rounded-lg w-full lg:w-3/4">
-                <CarouselWrapper>
-                    {placesroute.map((place) => (
-                        <CardPlace
-                          key={place.id}
-                          image={place.image}
-                          name={place.name}
-                          description={place.description}
-                          categoryName={place.categoryName}
-                      />
-                    ))}
-                  </CarouselWrapper>
+  const firstRow = placesroute.slice(0, itemsPerRow);
+  const secondRow = placesroute.slice(itemsPerRow, itemsPerRow * 2);
+
+  return (
+    <div className="w-full space-y-4">
+      {/* Textos arriba */}
+      <div className="flex flex-col gap-2 text-center lg:text-center">
+        <Subtitle>Lugares Sugeridos</Subtitle>
+        <Title>Lista de lugares que recorre</Title>
+        <TextBody>
+          Infórmate y conoce algunos de los lugares que recorre la ruta.
+        </TextBody>
+      </div>
+
+      {/* Carrusel en móviles/tablets */}
+      <div className="block lg:hidden">
+        <CarouselWrapper>
+          {placesroute.map((place) => (
+            <CardPlaceListRoute
+              key={place.id}
+              image={place.image}
+              name={place.name}
+              categoryName={place.categoryName}
+            />
+          ))}
+        </CarouselWrapper>
+      </div>
+
+      {/* Desktop / Laptop */}
+      <div className="hidden lg:block">
+        {/* Contenedor de cards */}
+        <div className="rounded-xl overflow-hidden relative p-4 transition-all duration-500 ease-in-out">
+          {/* Primera fila */}
+          <div className="grid grid-cols-2 xl:grid-cols-4 gap-6">
+            {firstRow.map((place) => (
+              <CardPlaceListRoute
+                key={place.id}
+                image={place.image}
+                name={place.name}
+                categoryName={place.categoryName}
+              />
+            ))}
+          </div>
+
+          {/* Segunda fila */}
+          {secondRow.length > 0 && (
+            <div
+              className={`overflow-hidden transition-all duration-500 ease-in-out mt-4 ${
+                showMore ? 'max-h-[1000px]' : 'max-h-16 relative'
+              }`}
+            >
+              <div
+                className={`grid grid-cols-2 xl:grid-cols-4 gap-6 ${
+                  !showMore ? 'opacity-60' : 'opacity-100'
+                }`}
+              >
+                {secondRow.map((place) => (
+                  <CardPlaceListRoute
+                    key={place.id}
+                    image={place.image}
+                    name={place.name}
+                    categoryName={place.categoryName}
+                  />
+                ))}
+              </div>
+
+              {/* Fade overlay solo cuando está contraído */}
+              {!showMore && (
+                <div className="absolute bottom-0 left-0 right-0 h-60 bg-gradient-to-t from-white to-transparent pointer-events-none"></div>
+              )}
             </div>
+          )}
         </div>
+
+        {/* Botón Ver más / Ver menos */}
+        {secondRow.length > 0 && (
+          <div className="mt-0 text-center">
+            <button
+              onClick={() => setShowMore(!showMore)}
+              className="px-10 py-2 bg-black text-white rounded-full hover:bg-gray-800 transition"
+            >
+              {showMore ? 'Ver menos' : 'Ver más'}
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

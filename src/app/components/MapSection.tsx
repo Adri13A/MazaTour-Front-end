@@ -400,7 +400,7 @@ useEffect(() => {
   };
   }, [truckAnimationType, animationKey]);
 
-  return <div ref={mapRef} className="h-full w-full z-30 rounded- xl" />;
+  return <div ref={mapRef} className="h-full w-full z-30 rounded-xl" />;
 };
 
 export default MapSection;

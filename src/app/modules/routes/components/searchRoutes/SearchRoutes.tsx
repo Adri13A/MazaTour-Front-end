@@ -6,12 +6,12 @@ import SearchRoute from '../searchRoutesFilters/SearchRoute';
 const SearchRoutes = () => {
   return (
     <div>
-        <div className="text-center mb-10">
+        <div className="text-left mb-4">
             <Subtitle className='text-accent2 mb-2'>
                 Elige tu destino
             </Subtitle>     
             <Title className="text-black">
-                Recorre tu <span className="text-stroke-black">proxima</span> parada
+                Recorre tu proxima parada
             </Title>
         </div>
           <div className="md:flex gap-2">

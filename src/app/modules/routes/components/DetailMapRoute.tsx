@@ -441,7 +441,7 @@ return (
               />
               <CardIcon
                 icon={<MapPin className="w-6 h-6 cursor-pointer text-black" />}
-                label="Paradas"
+                label="Ubicación"
               />
             </div>
 
