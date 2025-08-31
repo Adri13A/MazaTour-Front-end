@@ -7,6 +7,29 @@ import Subtitle from '@/app/components/letters/Subtitle';
 import Title from '@/app/components/letters/Title';
 import { usePlaces } from '@/app/modules/home/hooks/usePlaces';
 import CarouselPlaces from './CarouselPlaces';
+import { Trees, Globe, Activity, Heart, Sun, Building } from 'lucide-react';
+
+// Definimos las categorías que sí queremos usar
+type CategoryWithIcon =
+  | Category.PLAYAS
+  | Category.PARQUES
+  | Category.HISTORIA_CULTURA
+  | Category.NATURALEZA
+  | Category.AREAS_RECREATIVAS
+  | Category.MUSEOS
+  | Category.OTRAS;
+
+// Mapeamos cada categoría a su icono
+const categoryIcons: Record<CategoryWithIcon, React.ElementType> = {
+  [Category.PLAYAS]: Sun,
+  [Category.PARQUES]: Trees,
+  [Category.HISTORIA_CULTURA]: Globe,
+  [Category.NATURALEZA]: Trees,
+  [Category.AREAS_RECREATIVAS]: Activity,
+  [Category.MUSEOS]: Building,
+  [Category.OTRAS]: Heart,
+};
+
 
 const categoriesToShow: { id: Category; title: string }[] = [
   { id: Category.PLAYAS, title: "Playas" },
@@ -110,22 +133,25 @@ const sectionRefs: Record<string, React.RefObject<HTMLDivElement | null>> =
 
         <div className="hidden md:block bg-white p-0 text-black sticky top-1/4 self-start">
           <h3 className="font-bold text-lg mb-4">Menú</h3>
-          <ul className="flex flex-col gap-2">
-            {categoriesToShow.map((catMenu) => (
-              <li key={catMenu.id}>
-                <button
-                  onClick={() => handleScrollTo(catMenu.id.toString())}
-                  className={`w-full text-left p-2 rounded transition ${
-                    activeCategory === catMenu.id.toString()
-                      ? "font-bold"
-                      : ""
-                  }`}
-                >
-                  {catMenu.title}
-                </button>
-              </li>
-            ))}
-          </ul>
+            <ul className="flex flex-col gap-2">
+            {categoriesToShow.map((catMenu) => {
+    const Icon = categoryIcons[catMenu.id as CategoryWithIcon]; // aseguramos tipo
+                return (
+                <li key={catMenu.id}>
+                    <button
+                    onClick={() => handleScrollTo(catMenu.id.toString())}
+                    className={`w-full flex items-center gap-2 p-2 rounded transition ${
+                        activeCategory === catMenu.id.toString() ? "font-bold" : ""
+                    }`}
+                    >
+                    {/* Ícono al lado izquierdo */}
+                    <Icon size={20} className="text-black/70" />
+                    {catMenu.title}
+                    </button>
+                </li>
+                );
+            })}
+            </ul>
         </div>
       </div>
     </>
