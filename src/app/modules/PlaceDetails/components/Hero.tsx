@@ -2,12 +2,12 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { Globe, MapPin, List, Landmark, Info } from 'lucide-react';
+import { Globe, MapPin, List, Landmark, /*Info*/ } from 'lucide-react';
 
 import heroFaro from '@/public/images/hero/heroFaro.jpg';
 
 import '@/styles/hero_transporte.css';
-import { div } from "framer-motion/client";
+//import { div } from "framer-motion/client";
 
 type Section = 'descubre' | 'ubicacion' | 'historia' | 'recorre' | 'rutas';
 

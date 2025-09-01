@@ -4,7 +4,7 @@ import MapSection from '@/app/components/MapSection';
 import CardIcon from '@/app/components/cards/CardIcon';
 import { useHorizontalDragScroll } from '@/app/hooks/useHorizontalDragScroll';
 import { useState } from 'react';
-import {  Clock,CalendarClock,Route,Ruler,DollarSign,Snowflake,Flag,Navigation, Repeat2, Navigation2, Truck, X, ChevronLeft} from 'lucide-react';
+import {  Clock,CalendarClock,Route,Ruler,DollarSign,Snowflake,Flag,Navigation, Repeat2, Navigation2, Truck, X, /*ChevronLeft*/} from 'lucide-react';
 import Subtitle from '@/app/components/letters/Subtitle';
 import Title from '@/app/components/letters/Title';
 import { useDetailRoute } from '../hooks/useDetailRoute';

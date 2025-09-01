@@ -49,20 +49,22 @@ const MapSection = ({
   const truckMarkerRef = useRef<Marker | null>(null);
   const animationRef = useRef<number | null>(null);
 
-  const flattenLatLngs = (latlngs: any[]): any[] => {
-    const result: any[] = [];
-    const flatten = (arr: any[]) => {
-      for (const item of arr) {
-        if (Array.isArray(item)) {
-          flatten(item);
-        } else {
-          result.push(item);
-        }
-      }
-    };
-    flatten(latlngs);
-    return result;
+  const flattenLatLngs = (
+  latlngs: import('leaflet').LatLng | import('leaflet').LatLng[] | import('leaflet').LatLng[][] | import('leaflet').LatLng[][][]
+): import('leaflet').LatLng[] => {
+  const result: import('leaflet').LatLng[] = [];
+
+  const flatten = (input: any) => {
+    if (Array.isArray(input)) {
+      input.forEach((item) => flatten(item));
+    } else if (input instanceof import('leaflet').LatLng) {
+      result.push(input);
+    }
   };
+
+  flatten(latlngs);
+  return result;
+};
 
   //Polilineas y paradas
 useEffect(() => {
@@ -83,7 +85,7 @@ useEffect(() => {
 
       leafletMapRef.current = map;
 
-      const allCoords: any[] = [];
+      const allCoords: import('leaflet').LatLngExpression[] = [];
 
       if (polylineOrigin) {
         const originCoords = decodePolyline(polylineOrigin);

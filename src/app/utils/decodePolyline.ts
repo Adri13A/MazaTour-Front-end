@@ -1,7 +1,8 @@
 // utils/decodePolyline.ts
 
 export function decodePolyline(encoded: string): [number, number][] {
-  let index = 0, lat = 0, lng = 0, coordinates: [number, number][] = [];
+  let index = 0, lat = 0, lng = 0;
+  const coordinates: [number, number][] = [];
 
   while (index < encoded.length) {
     let b, shift = 0, result = 0;
