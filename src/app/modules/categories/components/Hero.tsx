@@ -89,7 +89,7 @@ const Hero = () => {
 >
   {/* MÓVILES / TABLETS: lista vertical scrollable */}
 <div className="hide-scrollbar flex flex-col space-y-1 pt-20 overflow-y-auto" style={{ height: '300px' }}>
-    {categories.map((cat, i) => (
+    {categories.map((cat) => (
       <div
         key={cat.id}
         className="flex items-center space-x-4 min-h-[60px] px-2"

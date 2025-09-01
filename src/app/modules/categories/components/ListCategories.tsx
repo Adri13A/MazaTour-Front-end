@@ -3,15 +3,16 @@
 import React from 'react';
 import Title from '@/app/components/letters/Title';
 import Subtitle from '@/app/components/letters/Subtitle';
+import Image from "next/image";
 
 const items = [
-  { id: 1, title: "Historia & Cultura", img: "https://picsum.photos/800/600?random=1" },
-  { id: 2, title: "Parques", img: "https://picsum.photos/800/600?random=2" },
-  { id: 3, title: "Museos", img: "https://picsum.photos/800/600?random=3" },
-  { id: 4, title: "Playas", img: "https://picsum.photos/800/600?random=5" },
-  { id: 5, title: "Naturaleza", img: "https://picsum.photos/800/600?random=6" },
-  { id: 6, title: "Areas Recreativas", img: "https://picsum.photos/800/600?random=7" },
-  { id: 7, title: "Otros", img: "https://picsum.photos/800/600?random=8" },
+  { id: 1, title: "Historia & Cultura", img: "/images/wall.jpg" },
+  { id: 2, title: "Parques", img: "/images/wall.jpg" },
+  { id: 3, title: "Museos", img: "/images/wall.jpg" },
+  { id: 4, title: "Playas", img: "/images/wall.jpg" },
+  { id: 5, title: "Naturaleza", img: "/images/wall.jpg" },
+  { id: 6, title: "Areas Recreativas", img: "/images/wall.jpg" },
+  { id: 7, title: "Otros", img: "/images/wall.jpg" },
 ];
 
 const ListCategories = () => {
@@ -32,11 +33,12 @@ const ListCategories = () => {
             >
                 {/* Altura fija por relación (semi cuadrado ~10:9) */}
                 <div className="relative w-full pt-[90%] cursor-pointer">
-                    <img
-                    src={it.img}
-                    alt={it.title}
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    loading="lazy"
+                   <Image
+                      src={it.img}
+                      alt={it.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
                     />
 
                     {/* Número grande en background */}
