@@ -14,7 +14,6 @@ import {
   Navigation,
   Repeat2,
   Navigation2,
-  Truck,
   MapPin,
   TreePine,
   X,
@@ -25,7 +24,6 @@ import {
   Landmark,
   Sun,
   ChevronRight,
-  LayoutDashboard,
   BusFront,
   PlusIcon,
   OctagonPause,
@@ -34,7 +32,6 @@ import {
 import { useDetailRoute } from '../hooks/useDetailRoute';
 import React, {useState} from 'react';
 import { useTerminals } from '../hooks/useTerminals';
-import { StopIcon } from '@heroicons/react/24/solid';
 
 const iconList = [
   Clock,
@@ -69,7 +66,6 @@ const DetailMapRoute = ({ routeId }: DetailMapRouteProps) => {
   const { detailroute, isLoading } = useDetailRoute(routeId);
   const [showDetalles, setShowDetalles] = useState(false);
   const [showTerminals, SetShowTerminals] = useState(false);
-  const [showCarousel, setShowCarousel] = useState(false);
 
     const [animationConfig, setAnimationConfig] = useState<{
     type: AnimationType;
@@ -231,8 +227,6 @@ return (
                   onMouseMove={(e) => {
                     onMouseMove(e);
                     if (containerRef.current && containerRef.current.firstChild) {
-                      const scrollLeft = containerRef.current.scrollLeft;
-                      const cardWidth = (containerRef.current.firstChild as HTMLElement); // 16px = gap-4
                     }
                   }}
                 >

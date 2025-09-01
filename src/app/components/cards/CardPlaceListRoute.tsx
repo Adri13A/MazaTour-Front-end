@@ -1,7 +1,6 @@
 'use client'
 
-import { ArrowUpRight, X } from "lucide-react";
-import { useState } from "react";
+import { ArrowUpRight } from "lucide-react";
 
 interface CardPlaceListRouteProps {
   readonly image: string; 

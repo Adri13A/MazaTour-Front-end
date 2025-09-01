@@ -1,7 +1,7 @@
 'use client';
 
 import React, { ReactNode } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -27,15 +27,20 @@ const CarouselWrapper = ({ children, prevRef, nextRef }: CarouselWrapperProps) =
         //     `<span class="${className} custom-bullet"></span>`,
         // }}
         navigation={false} // desactivamos la navegación automática
-        onSwiper={(swiper) => {
-          if (prevRef?.current && nextRef?.current) {
-            // usamos type assertion para evitar errores TS
-            (swiper.params.navigation as any).prevEl = prevRef.current;
-            (swiper.params.navigation as any).nextEl = nextRef.current;
-            swiper.navigation.init();
-            swiper.navigation.update();
-          }
-        }}
+        onSwiper={(swiper: SwiperClass) => {
+            if (prevRef?.current && nextRef?.current) {
+              const nav = swiper.params.navigation as {
+                prevEl?: HTMLElement | null;
+                nextEl?: HTMLElement | null;
+              };
+
+              nav.prevEl = prevRef.current;
+              nav.nextEl = nextRef.current;
+
+              swiper.navigation.init();
+              swiper.navigation.update();
+            }
+          }}
         className="select-none"
         breakpoints={{
           320: { slidesPerView: 2, spaceBetween: 6 },
