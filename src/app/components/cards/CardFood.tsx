@@ -19,8 +19,8 @@ const CardFood = ({ image, name }: CardFoodProps) => {
                   <h3 className="card-title"> 
                     {name}
                   </h3>
-                  <div className="backdrop-blur-md bg-white/10 border border-white/20 rounded-full p-1 sm:p-1.5">
-                    <Utensils className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5"/>
+                  <div className="backdrop-blur-md bg-white/10 border border-none rounded-full p-1 sm:p-1.5">
+                    <Utensils className="w-3 h-3 sm:w-4 sm:h-4 md:w-4 md:h-4"/>
                   </div>
               </div>
           </div>

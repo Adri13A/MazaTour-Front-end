@@ -5,17 +5,22 @@ import CarouselPlacesRoute from './carouselPlacesRoute.tsx/CarouselPlacesRoute';
 import SearchRoutes from './searchRoutes/SearchRoutes';
 import { usePlacesRoute } from '../hooks/usePlacesRoute';
 
+import React from 'react';
+
+import HeroDetail from '../HeroDetail';
 interface DetailRouteContainerProps {
   routeId: string;
 }
 
+
 const DetailRouteContainer = ({ routeId  }: DetailRouteContainerProps) => {
   
   const { placesroute } = usePlacesRoute(routeId);
-  
+
   return (
     <>
-    
+      <HeroDetail routeId={routeId}/>
+
       <div className="p-5 md:pl-40 md:pr-40 md:pb-10 md:pt-0 bg-white">
         <DetailMapRoute routeId={routeId} />
       </div>

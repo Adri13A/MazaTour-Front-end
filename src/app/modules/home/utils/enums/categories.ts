@@ -4,6 +4,8 @@ export enum Category {
     MUSEOS = 3,
     PLAYAS = 4,
     NATURALEZA = 5,
-    TODAS = 6
+    AREAS_RECREATIVAS = 6,
+    OTRAS = 7,
+    TODAS = 8
   }
   

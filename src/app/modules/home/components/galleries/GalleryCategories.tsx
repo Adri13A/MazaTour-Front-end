@@ -4,6 +4,7 @@ import Image from "next/image";
 import TextBody from "@/app/components/letters/Text";
 import Title from "@/app/components/letters/Title";
 import { IListCategory } from "@/app/interfaces/utils";
+import Link from 'next/link';
 
 interface GalleryCategoriesProps {
   categories: IListCategory[];
@@ -82,14 +83,15 @@ const GalleryCategories = ({ categories }: Readonly<GalleryCategoriesProps>) => 
                                 )}
                             <div className={`absolute inset-0 transition-all duration-300 ${hoveredCard === index ? 'bg-black/50' : 'bg-gradient-to-t from-black/60 via-black/30 to-transparent'}`}></div>
                         </div>
-
-                        <div className={`absolute bottom-4 left-4 transition-all duration-300`}>
-                            <h2 className="text-white font-bold text-lg md:text-2xl drop-shadow-2xl">
-                                {categoria.name}
-                            </h2>
-                            <p className="text-white max-w-3xl mx-auto mt-1 drop-shadow-md">
-                                Haz clic para explorar
-                            </p>
+                        <div className="absolute bottom-4 left-4 transition-all duration-300">
+                            <Link href="/routing/categories/list" className="cursor-pointer block">
+                                <h2 className="text-white font-bold text-lg md:text-2xl drop-shadow-2xl">
+                                    {categoria.name}
+                                </h2>
+                                <p className="text-white max-w-3xl mx-auto mt-1 drop-shadow-md">
+                                    Haz clic para explorar
+                                </p>
+                            </Link>
                         </div>
                     </article>
                 ))}

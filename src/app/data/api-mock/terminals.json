@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "La Riviera",
+    "coordinate": "23.276085, -106.386981",
+    "terminalRoutes": [
+      { "routeId": 3, "name": "Hogar del Pescador" },
+      { "routeId": 2, "name": "Alarcón - Sabalo" },
+      { "routeId": 1, "name": "20 de Noviembre Juarez" }
+    ]
+  },
+
+  { "id": 2, "name": "La Cantera", "coordinate": "23.286225, -106.378559" },
+  { "id": 3, "name": "Inv San Antonio", "coordinate": "23.282919, -106.383230" },
+  { "id": 4, "name": "Monte Verde", "coordinate": "23.296277, -106.379955" },
+  { "id": 5, "name": "Pradera Dorada V", "coordinate": "23.279799, -106.366084", "terminalRoutes": [{ "routeId": 2, "name": "Alarcón - Sabalo" }] },
+  { "id": 6, "name": "Venadillo", "coordinate": "23.285790, -106.412671", "terminalRoutes": [{ "routeId": 1, "name": "20 de Noviembre Juarez" }] },
+  { "id": 7, "name": "Hosp General Nvo", "coordinate": "23.292991, -106.451881" },
+  { "id": 8, "name": "Cerritos", "coordinate": "23.306823, -106.490500" },
+  { "id": 9, "name": "Esmerald", "coordinate": "23.313491, -106.477357" },
+  { "id": 10, "name": "Centro de convenciónes", "coordinate": "23.289773, -106.457677" },
+  { "id": 11, "name": "Walmart La Marina", "coordinate": "23.278419, -106.446139" },
+  { "id": 12, "name": "Sabalo Country", "coordinate": "23.266336, -106.465653" },
+  { "id": 13, "name": "Miguel Alemán", "coordinate": "23.194827, -106.423949" },
+  { "id": 14, "name": "Cerro de la Neveria", "coordinate": "23.194827, -106.423949" },
+  { "id": 15, "name": "Playa Sur", "coordinate": "23.187376, -106.423482" },
+  { "id": 16, "name": "Ferry", "coordinate": "23.188448, -106.422163" },
+  { "id": 17, "name": "Centro (Juarez)", "coordinate": "23.201904, -106.420422" },
+  { "id": 18, "name": "Centro (Electra)", "coordinate": "23.202458, -106.421760" },
+  { "id": 19, "name": "Centro (Granados)", "coordinate": "23.203705, -106.420897" },
+  { "id": 20, "name": "Parque Bonfil", "coordinate": "23.218430, -106.394057" },
+  { "id": 21, "name": "Col Rafel Buelna", "coordinate": "23.217745, -106.383024" },
+  { "id": 22, "name": "La Sirena", "coordinate": "23.202798, -106.363049" },
+  { "id": 23, "name": "Urbi", "coordinate": "23.219110, -106.370794" },
+  { "id": 24, "name": "Alborada", "coordinate": "23.240494, -106.364002" },
+  { "id": 25, "name": "Hosp Militar", "coordinate": "23.240326, -106.369940" },
+  { "id": 26, "name": "Col Universo", "coordinate": "23.244490, -106.368280" },
+  { "id": 27, "name": "Villas del Sol", "coordinate": "23.255329, -106.369300" },
+  { "id": 28, "name": "Jaripillo", "coordinate": "23.261001, -106.403101" },
+  { "id": 29, "name": "El Zapote", "coordinate": "23.199570, -106.312177" },
+  { "id": 30, "name": "Santa Fe", "coordinate": "23.185470, -106.325734", "terminalRoutes": [{ "routeId": 1, "name": "20 de Noviembre Juarez" }] }
+]
