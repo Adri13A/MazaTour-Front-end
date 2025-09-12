@@ -12,8 +12,8 @@ import CardHero from '../cardhero/cardhero';
 
 import { slides } from "../../../../data/slides"; // Importa los datos de los slides
 
-// import HeroButton from '@/app/components/buttons/herobutton';
-// import BadgeVertical from '@/app/components/badge/badgevertical';
+import HeroButton from '@/app/components/buttons/herobutton';
+import BadgeVertical from '@/app/components/badge/badgevertical';
 
 // Animations
 const container: Variants = {
