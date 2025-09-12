@@ -48,7 +48,7 @@ export const slides = [
     card: {
       title: 'ATRACCIONES',
       text: 'Descubre los lugares más emblemáticos de Mazatlán...',
-      img: cardAcuario 
+      img: cardAcuario
     }
   },
   {
@@ -56,12 +56,12 @@ export const slides = [
     heroImg: heroAcuario,
     title: 'DESTINOS',
     subtitle: 'Descubre los lugares más emblemáticos de Mazatlán',
-    link: 'https://mazatlan.travel/',
+    link: '/routing/PlaceDetails/details',
     verticalText: 'ACUARIO MAR DE CORTES',
     card: {
       title: 'MAZATLÁN',
       text: 'Descubre la perla del pacífico...',
-      img: cardCarnaval 
+      img: cardCarnaval
     }
   },
 
