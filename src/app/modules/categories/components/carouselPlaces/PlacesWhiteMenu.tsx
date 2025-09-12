@@ -100,12 +100,12 @@ const PlacesWhithMenu = () => {
 
           return (
            <div
-  key={cat.id}
-  ref={(el) => {
-    sectionRefs.current[cat.id] = el; // Asignamos el ref
-  }}
-  className="mb-10 scroll-mt-24"
->
+            key={cat.id}
+            ref={(el) => {
+              sectionRefs.current[cat.id] = el; // Asignamos el ref
+            }}
+            className="mb-10 scroll-mt-24"
+          >
 
               <div className="flex items-center justify-between mb-4">
                 <div className="flex flex-col text-left md:text-left">
