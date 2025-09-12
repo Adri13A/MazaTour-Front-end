@@ -8,11 +8,12 @@ import { motion, AnimatePresence, Variants } from 'framer-motion';
 
 import '@/styles/hero.css';
 // Update the import path below to the actual location of CardHero component
+import CardHero from '../cardhero/cardhero';
 
 import { slides } from "../../../../data/slides"; // Importa los datos de los slides
-import BadgeVertical from "@/app/components/badge/BadgeVertical";
-import CardHero from "../cardhero/CardHero";
-import HeroButton from "@/app/components/buttons/Herobutton";
+
+// import HeroButton from '@/app/components/buttons/herobutton';
+// import BadgeVertical from '@/app/components/badge/badgevertical';
 
 // Animations
 const container: Variants = {

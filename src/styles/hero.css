@@ -39,7 +39,7 @@
 }
 
 .Card-container{
-  @apply absolute z-20 flex items-end gap-2 right-[-2] bottom-48 md:right-[-1] md:bottom-24 hover:cursor-pointer;
+  @apply absolute z-20 flex items-end gap-2 right-0 bottom-48 md:right-0 md:bottom-24 hover:cursor-pointer;
 }
 
 .textCard-container{
