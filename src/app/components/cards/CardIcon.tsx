@@ -11,7 +11,7 @@ const CardIcon = ({ icon, label, onClick }: CardIconProps) => {
 <div
   onClick={onClick}
   className="group relative w-16 h-12 rounded-xl flex items-center justify-center bg-white text-[color:#4B4B4B] cursor-pointer shadow-md border-1 
-             transition-transform duration-300 transform hover:-translate-y-2 hover:shadow-xl"
+             transition-transform duration-300 transform hover:-translate-y-2 hover:shadow-xl flex-1"
   role="button"
   tabIndex={0}
   onKeyDown={e => {

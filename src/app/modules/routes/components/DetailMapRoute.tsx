@@ -123,7 +123,7 @@ const DetailMapRoute = ({ routeId }: DetailMapRouteProps) => {
 return (
   <>
     {/* Contenedor general */}
-    <div className="relative w-full h-[520px] -mt-80 lg:-mt-64 z-20 pointer-events-auto">
+    <div className="relative w-full h-[520px]  [@media(min-width:1920px)]:h-[650px] -mt-80 lg:-mt-64 z-20">
     {/* Mapa full width */}
     <MapSection
       id={routeId}
@@ -356,14 +356,33 @@ return (
       </div>
 
       {/* Carrusel terminals escritorio */}
-      <div className="hidden lg:block absolute top-4 left-4 right-[26%] z-50 px-4 cursor-pointer pointer-events-none">
+      <div className="hidden lg:block absolute top-4 left-4 right-[26%] z-50 px-4 pointer-events-auto">
         <div
-          ref={containerRef}
-          onMouseDown={onMouseDown}
-          onMouseLeave={onMouseLeave}
-          onMouseUp={onMouseUp}
-          onMouseMove={onMouseMove}
-          className="flex gap-3 overflow-x-auto scroll-smooth whitespace-nowrap px-2 py-1 hide-scrollbar cursor-grab select-none pointer-events-auto pb-8"
+          className="flex gap-3 overflow-x-auto scroll-smooth whitespace-nowrap px-2 py-1 hide-scrollbar pb-8 cursor-grab select-none"
+          onMouseDown={(e) => {
+            const slider = e.currentTarget;
+            slider.dataset.dragging = "true";
+            slider.dataset.startX = (e.pageX - slider.offsetLeft).toString();
+            slider.dataset.scrollLeft = slider.scrollLeft.toString();
+            slider.style.cursor = "grabbing";
+          }}
+          onMouseMove={(e) => {
+            const slider = e.currentTarget;
+            if (slider.dataset.dragging !== "true") return;
+            const x = e.pageX - slider.offsetLeft;
+            const walk = x - parseInt(slider.dataset.startX!);
+            slider.scrollLeft = parseInt(slider.dataset.scrollLeft!) - walk;
+          }}
+          onMouseUp={(e) => {
+            const slider = e.currentTarget;
+            slider.dataset.dragging = "false";
+            slider.style.cursor = "grab";
+          }}
+          onMouseLeave={(e) => {
+            const slider = e.currentTarget;
+            slider.dataset.dragging = "false";
+            slider.style.cursor = "grab";
+          }}
         >
           {/* Botón Ver todas / Limpiar */}
           <button
@@ -371,7 +390,7 @@ return (
             onClick={() =>
               selectedTerminal === "all" ? setSelectedTerminal(null) : setSelectedTerminal("all")
             }
-            className={`inline-flex min-w-[160px] backdrop-blur-sm rounded-xl shadow-lg px-2 py-1 items-center gap-2 shrink-0
+            className={`inline-flex min-w-[160px] shrink-0 backdrop-blur-sm rounded-xl shadow-lg px-2 py-1 items-center gap-2
               ${selectedTerminal === "all" ? "bg-white/20 ring-2 ring-blue-400" : "bg-white/10"}
             `}
           >
@@ -389,36 +408,36 @@ return (
           {/* Botones de cada terminal */}
           {terminals?.map((terminal) => {
             const isSelected = selectedTerminal === terminal.id;
-              return (
-                <button
-                  key={terminal.id}
-                  type="button"
-                  onClick={() => setSelectedTerminal(terminal.id)}
-                  className={`inline-flex min-w-[160px] backdrop-blur-sm rounded-xl shadow-lg px-2 py-1 items-center gap-2 shrink-0
-                    ${isSelected ? "bg-white/20 ring-2 ring-blue-400" : " "}
-                  `}
-                >
-                  <div className="w-5 h-5 bg-white rounded-full flex items-center justify-center">
-                    <BusFront className="w-4 h-4 text-black" />
-                  </div>
-                  <div className="flex flex-col items-start justify-center">
-                    <h3 className="text-black text-xs font-semibold leading-snug">Terminal</h3>
-                    <h4 className="text-gray-500 text-sm font-light leading-snug">
-                      {terminal.name}
-                    </h4>
-                  </div>
-                </button>
-              );
-            })}
+            return (
+              <button
+                key={terminal.id}
+                type="button"
+                onClick={() => setSelectedTerminal(terminal.id)}
+                className={`inline-flex min-w-[160px] shrink-0 backdrop-blur-sm rounded-xl shadow-lg px-2 py-1 items-center gap-2
+                  ${isSelected ? "bg-white/20 ring-2 ring-blue-400" : ""}
+                `}
+              >
+                <div className="w-5 h-5 bg-white rounded-full flex items-center justify-center">
+                  <BusFront className="w-4 h-4 text-black" />
+                </div>
+                <div className="flex flex-col items-start justify-center">
+                  <h3 className="text-black text-xs font-semibold leading-snug">Terminal</h3>
+                  <h4 className="text-gray-500 text-sm font-light leading-snug">
+                    {terminal.name}
+                  </h4>
+                </div>
+              </button>
+            );
+          })}
         </div>
       </div>
-    
-     {/* Panel derecho (cards flotando sobre mapa) */}
+
+     {/* Panel   derecho (cards flotando sobre mapa) */}
       <div className="hidden lg:flex flex-col gap-4 w-1/4 max-w-sm relative z-40 pointer-events-auto">
         <div className="backdrop-blur-sm bg-white/10 rounded-xl overflow-y-auto pb-6 px-6 hide-scrollbar shadow-lg">
           <div className="flex flex-col gap-2 pt-3">
             <p className="text-black font-medium text-lg">Información</p>
-            <div className="flex gap-3">
+            <div className="flex gap-3 w-full">
               <CardIcon
                 icon={<Navigation className="w-6 h-6 cursor-pointer text-black" />}
                 label="Salida"
@@ -495,13 +514,22 @@ return (
                   <div
                     key={index}
                     className="group relative flex items-center justify-center bg-white rounded-2xl shadow-md w-full aspect-square cursor-pointer 
-                          transition-transform duration-300 transform hover:-translate-y-2 hover:shadow-xl"
+                      transition-transform duration-300 transform hover:-translate-y-2 hover:shadow-xl"
                     onClick={() => setActiveIndex(index)}
                   >
-                    <div className="w-10 h-10 flex items-center justify-center rounded-2xl bg-[#fafafa] transition-transform duration-300 group-hover:scale-110">
+                    {/* Ícono - se oculta en hover */}
+                    <div
+                      className="w-10 h-10 flex items-center justify-center rounded-2xl bg-[#fafafa] 
+                      transition-all duration-300 group-hover:opacity-0 group-hover:scale-75"
+                    >
                       {Icon && <Icon className="w-5 h-5 text-black" />}
                     </div>
-                    <span className="absolute bottom-[-1.4rem] opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-center text-xs w-full text-[color:#4B4B4B]">
+
+                    {/* Texto en medio, aparece al hacer hover */}
+                    <span
+                      className="absolute opacity-0 group-hover:opacity-100 transition-all duration-300 
+                      translate-y-2 group-hover:translate-y-0 text-center text-sm text-[color:#4B4B4B]"
+                    >
                       {item.titulo}
                     </span>
                   </div>
@@ -509,19 +537,21 @@ return (
               })}
             </div>
 
-            {/* Card largo con info del mini card activo */}
-            <div className="flex-shrink-0 rounded-xl shadow-md pl-5 pr-5 pt-2 pb-2 w-full max-w-xs flex justify-between items-center bg-white">
+
+            <div className="flex-shrink-0 rounded-xl shadow-md px-5 py-2 w-full flex justify-between items-center bg-white mt-2">
               <div>
                 <h2 className="text-gray-900 font-semibold text-l">{infoRuta[activeIndex].titulo}</h2>
                 <p className="text-gray-500 text-sm mt-1">{infoRuta[activeIndex].valor}</p>
               </div>
 
               <div className="bg-[#fafafa] w-10 h-10 rounded-2xl p-2 flex items-center justify-center">
-                {iconList[activeIndex] && React.createElement(iconList[activeIndex], {
-                  className: 'text-black w-5 h-5',
-                })}
+                {iconList[activeIndex] &&
+                  React.createElement(iconList[activeIndex], {
+                    className: 'text-black w-5 h-5',
+                  })}
               </div>
             </div>
+
           </div>
         </div>
       </div>
