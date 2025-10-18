@@ -59,7 +59,6 @@ interface DetailMapRouteProps {
   routeId: string;
 }
 
-
 type AnimationType = 'origin' | 'destination' | null;
 
 const DetailMapRoute = ({ routeId }: DetailMapRouteProps) => {
@@ -390,7 +389,7 @@ return (
             onClick={() =>
               selectedTerminal === "all" ? setSelectedTerminal(null) : setSelectedTerminal("all")
             }
-            className={`inline-flex min-w-[160px] shrink-0 backdrop-blur-sm rounded-xl shadow-lg px-2 py-1 items-center gap-2
+            className={`inline-flex min-w-[130px] shrink-0 backdrop-blur-sm rounded-xl shadow-lg px-2 py-1 items-center gap-2
               ${selectedTerminal === "all" ? "bg-white/20 ring-2 ring-blue-400" : "bg-white/10"}
             `}
           >
@@ -399,14 +398,11 @@ return (
             </div>
             <div className="flex flex-col leading-tight">
               <h3 className="text-black text-xs font-semibold">Terminales</h3>
-              <h4 className="text-gray-500 text-sm font-light">
-                {selectedTerminal === "all" ? "Limpiar" : "Ver todas"}
-              </h4>
             </div>
           </button>
 
           {/* Botones de cada terminal */}
-          {terminals?.map((terminal) => {
+          {/* {terminals?.map((terminal) => {
             const isSelected = selectedTerminal === terminal.id;
             return (
               <button
@@ -428,7 +424,7 @@ return (
                 </div>
               </button>
             );
-          })}
+          })} */}
         </div>
       </div>
 
